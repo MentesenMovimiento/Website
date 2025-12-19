@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
   <title>Mentes en Movimiento · Cada niño, su propio camino</title>
-  <meta name="description" content="Mentes en Movimiento: educación, fisioterapia, logopedia y deporte con enfoque individualizado. Cada niño, su propio camino." />
+  <meta name="description" content="Centro de desarrollo inclusivo. Educación especial, fisioterapia, logopedia (año 2) y movimiento-regulación, coordinados con escuela y familia." />
 
   <!-- 🚫 NO INDEXING (site under construction) -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
   <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
 
-  <!-- Social (kept minimal since we are noindex) -->
   <meta property="og:title" content="Mentes en Movimiento" />
   <meta property="og:description" content="Cada niño, su propio camino." />
   <meta property="og:type" content="website" />
@@ -34,7 +33,7 @@
   <header>
     <div class="inner nav-wrapper">
       <a class="brand" href="#hero" aria-label="Mentes en Movimiento">
-        <span class="brand-mark">M</span>
+        <img class="brand-logo" src="assets/logo.png" alt="Mentes en Movimiento logo" />
         <span class="brand-text">
           <span class="brand-name">Mentes en Movimiento</span>
           <span class="brand-tagline">Cada niño, su propio camino</span>
@@ -43,7 +42,10 @@
 
       <nav aria-label="Navegación principal">
         <ul class="nav-desktop">
+          <li><a href="#modelo">Modelo</a></li>
           <li><a href="#areas">Áreas</a></li>
+          <li><a href="#colegios">Colegios</a></li>
+          <li><a href="#familias">Familias</a></li>
           <li><a href="#blog">Blog</a></li>
           <li><a href="#instagram">Instagram</a></li>
           <li><a href="#contacto">Contacto</a></li>
@@ -52,8 +54,8 @@
       </nav>
 
       <div class="nav-actions">
-        <a class="btn-secondary" href="#contacto">Agendar</a>
-        <a class="btn-primary" href="#contacto">Lista de espera</a>
+        <a class="btn-secondary" href="#contacto" data-set-topic="Lista de espera">Lista de espera</a>
+        <a class="btn-primary" href="#contacto" data-set-topic="Colaboración con escuela">Colegios</a>
 
         <button class="nav-toggle" type="button" aria-label="Abrir menú" onclick="openNavPanel()">
           <span></span><span></span><span></span>
@@ -68,7 +70,10 @@
     <button class="panel-close" type="button" aria-label="Cerrar menú" onclick="closeNavPanel()">✕</button>
     <div class="panel-title">Menú</div>
     <ul>
+      <li><a href="#modelo" onclick="closeNavPanel()">Modelo</a></li>
       <li><a href="#areas" onclick="closeNavPanel()">Áreas</a></li>
+      <li><a href="#colegios" onclick="closeNavPanel()">Colegios</a></li>
+      <li><a href="#familias" onclick="closeNavPanel()">Familias</a></li>
       <li><a href="#blog" onclick="closeNavPanel()">Blog</a></li>
       <li><a href="#instagram" onclick="closeNavPanel()">Instagram</a></li>
       <li><a href="#contacto" onclick="closeNavPanel()">Contacto</a></li>
@@ -78,95 +83,191 @@
 
   <main id="main">
 
-    <!-- Hero -->
+    <!-- HERO (redesigned) -->
     <section id="hero" class="hero">
       <div class="inner hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Centro multidisciplinar · En construcción</p>
+          <div class="hero-badge-row">
+            <span class="pill">Proyecto ONG · En preparación</span>
+            <span class="pill pill-soft">Costa Daurada (Tarragona)</span>
+          </div>
+
           <h1>Mentes en Movimiento</h1>
-          <p class="lead">Cada niño, su propio camino.</p>
+          <p class="lead">Cada niño, su propio camino</p>
+
           <p class="sublead">
-            Un espacio para acompañar el desarrollo con un enfoque individualizado,
-            combinando <strong>Educación</strong>, <strong>Fisioterapia</strong>,
-            <strong>Logopedia</strong> y <strong>Deporte</strong>.
+            Centro de desarrollo inclusivo para niños y adolescentes con necesidades educativas y clínicas elevadas.
+            Educación especial, terapia y movimiento — coordinados con la escuela y la familia.
           </p>
+
+          <div class="trust-chips" aria-label="Puntos clave">
+            <span class="chip">Planes individualizados</span>
+            <span class="chip">Coordinación con centros</span>
+            <span class="chip">Grupos reducidos</span>
+            <span class="chip">Enfoque funcional</span>
+          </div>
 
           <div class="cta-row">
-            <a class="btn-primary" href="#areas">Explorar áreas</a>
-            <a class="btn-secondary" href="#contacto">Contactar</a>
+            <a class="btn-primary" href="#contacto" data-set-topic="Lista de espera">Unirse a la lista de espera</a>
+            <a class="btn-secondary" href="#contacto" data-set-topic="Colaboración con escuela">Colaborar como escuela</a>
           </div>
 
-          <div class="hero-notes">
-            <span>✓ Planes individualizados</span>
-            <span>✓ Trabajo coordinado con familias y escuelas</span>
-            <span>✓ Grupos reducidos + sesiones 1:1</span>
-          </div>
+          <p class="muted small">
+            *Esta web está en modo construcción y no se indexa en buscadores.
+          </p>
         </div>
 
-        <aside class="hero-card" aria-label="Resumen rápido">
-          <h2>¿Qué hacemos?</h2>
-          <p>
-            Diseñamos itinerarios por objetivos (funcionales, académicos, comunicativos y motrices),
-            con seguimiento continuo y apoyo realista para el día a día.
-          </p>
-          <div class="mini-badges">
-            <span class="badge">Educación</span>
-            <span class="badge">Fisioterapia</span>
-            <span class="badge">Logopedia</span>
-            <span class="badge">Deporte</span>
+        <aside class="hero-visual" aria-label="Resumen visual">
+          <div class="hero-visual-card">
+            <div class="hero-visual-top">
+              <img class="hero-logo" src="assets/logo.png" alt="" aria-hidden="true" />
+              <div>
+                <div class="hero-visual-title">Un modelo integrado</div>
+                <div class="muted small">Educación · Movimiento · Fisioterapia · (Logopedia año 2)</div>
+              </div>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-num">3h</div>
+                <div class="stat-label">Media jornada</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">2×</div>
+                <div class="stat-label">Por semana</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">3–6</div>
+                <div class="stat-label">Niños por grupo</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">🚐</div>
+                <div class="stat-label">Transporte escolar</div>
+              </div>
+            </div>
+
+            <div class="hero-note">
+              <span class="dot"></span>
+              Integrado en el PI/DIAC escolar con seguimiento y comunicación continua.
+            </div>
           </div>
-          <p class="small muted">
-            *Esta web aún no está indexada (modo construcción).
-          </p>
         </aside>
       </div>
     </section>
 
-    <!-- 4 Dynamic Blocks -->
+    <!-- PROGRAM MODEL (redesigned visual) -->
+    <section id="modelo" class="section alt">
+      <div class="inner">
+        <header class="section-header">
+          <p class="section-kicker">Modelo</p>
+          <h2 class="section-title">Un modelo único, integrado y realista</h2>
+          <p class="section-desc">
+            Un programa estable que combina terapia + educación + movimiento, diseñado para mejorar el día a día en el cole y en casa.
+          </p>
+        </header>
+
+        <div class="model-grid">
+          <div class="model-card">
+            <h3>Formato del programa</h3>
+            <ul class="icon-list">
+              <li><span class="icon">⏱</span> Media jornada: <strong>3 horas</strong></li>
+              <li><span class="icon">📅</span> <strong>2 días</strong> por semana</li>
+              <li><span class="icon">👥</span> Grupos reducidos: <strong>3–6 niños</strong></li>
+              <li><span class="icon">🏫</span> Integración en <strong>PI / DIAC</strong></li>
+              <li><span class="icon">🚐</span> Incluye <strong>transporte escolar</strong></li>
+            </ul>
+            <div class="model-cta-row">
+              <a class="btn-secondary" href="#areas">Ver las áreas</a>
+              <a class="btn-primary" href="#contacto" data-set-topic="Lista de espera">Solicitar plaza</a>
+            </div>
+          </div>
+
+          <div class="timeline-card" aria-label="Desglose de sesión">
+            <div class="timeline-head">
+              <h3>Desglose de sesión (3h)</h3>
+              <p class="muted small">Ejemplo de estructura. Ajustamos según objetivos individuales.</p>
+            </div>
+
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-time">20 min</div>
+                <div class="tl-body">
+                  <div class="tl-title">Fisioterapia (1:1)</div>
+                  <div class="tl-desc">Objetivos funcionales para postura, coordinación y movimiento.</div>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-time">30 min</div>
+                <div class="tl-body">
+                  <div class="tl-title">Movimiento & regulación</div>
+                  <div class="tl-desc">Activación corporal, autocontrol, preparación para aprender.</div>
+                </div>
+              </div>
+
+              <div class="tl-item">
+                <div class="tl-time">2h 10 min</div>
+                <div class="tl-body">
+                  <div class="tl-title">Educación especial adaptada</div>
+                  <div class="tl-desc">Aprendizaje funcional + autonomía + habilidades sociales.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-footer">
+              <span class="badge badge-warm">Coordinación continua</span>
+              <span class="badge badge-warm">Informes trimestrales</span>
+              <span class="badge badge-warm">Objetivos medibles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUR PILLARS (accordion) -->
     <section id="areas" class="section">
       <div class="inner">
         <header class="section-header">
           <p class="section-kicker">Áreas</p>
-          <h2 class="section-title">Cuatro pilares, un mismo plan</h2>
+          <h2 class="section-title">Cuatro pilares, un mismo plan individual</h2>
           <p class="section-desc">
-            Haz clic en cada bloque para ver detalles. (Puedes editar el contenido fácilmente en este HTML.)
+            Haz clic en cada bloque. El plan se diseña por objetivos y se coordina con familia y escuela.
           </p>
         </header>
 
         <div class="tiles" role="list">
-          <!-- Education -->
+          <!-- Educación -->
           <article class="tile" role="listitem">
             <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
               <span class="tile-icon" aria-hidden="true">📘</span>
-              <span class="tile-title">Educación</span>
-              <span class="tile-sub">Apoyo educativo individualizado</span>
+              <span class="tile-title">Educación especial</span>
+              <span class="tile-sub">Aprendizaje funcional y autonomía</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
             <div class="tile-body" hidden>
               <ul class="bullets">
-                <li>Adaptación curricular y estrategias de aula</li>
+                <li>Adaptaciones curriculares realistas</li>
                 <li>Funciones ejecutivas, atención, autonomía</li>
                 <li>Habilidades sociales y autorregulación</li>
+                <li>Informes trimestrales para escuela y familia</li>
               </ul>
-              <p class="muted small">Ideal para: objetivos escolares + rutinas del hogar.</p>
             </div>
           </article>
 
-          <!-- Physio -->
+          <!-- Fisioterapia -->
           <article class="tile" role="listitem">
             <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
               <span class="tile-icon" aria-hidden="true">🧠</span>
-              <span class="tile-title">Fisioterapia</span>
-              <span class="tile-sub">Movimiento, coordinación y función</span>
+              <span class="tile-title">Fisioterapia pediátrica</span>
+              <span class="tile-sub">Función, postura y movimiento</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
             <div class="tile-body" hidden>
               <ul class="bullets">
+                <li>Sesiones individuales (1:1)</li>
                 <li>Equilibrio, fuerza y coordinación</li>
-                <li>Motricidad gruesa y fina</li>
-                <li>Objetivos funcionales para el día a día</li>
+                <li>Aplicación directa al día a día escolar</li>
               </ul>
-              <p class="muted small">Ideal para: participación en juego, deporte y actividades escolares.</p>
             </div>
           </article>
 
@@ -174,96 +275,130 @@
           <article class="tile" role="listitem">
             <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
               <span class="tile-icon" aria-hidden="true">🗣️</span>
-              <span class="tile-title">Logopedia</span>
+              <span class="tile-title">Logopedia <span class="pill-inline">Año 2</span></span>
               <span class="tile-sub">Comunicación funcional</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
             <div class="tile-body" hidden>
               <ul class="bullets">
                 <li>Lenguaje comprensivo y expresivo</li>
-                <li>Pragmática y habilidades conversacionales</li>
-                <li>SAAC (si procede) y apoyo a familias</li>
+                <li>Pragmática y comunicación social</li>
+                <li>Apoyo a familias (estrategias prácticas)</li>
               </ul>
-              <p class="muted small">Ideal para: mejorar comunicación, comprensión y participación social.</p>
             </div>
           </article>
 
-          <!-- Sport -->
+          <!-- Movimiento -->
           <article class="tile" role="listitem">
             <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
               <span class="tile-icon" aria-hidden="true">⚽</span>
-              <span class="tile-title">Deporte</span>
-              <span class="tile-sub">Actividad física con propósito</span>
+              <span class="tile-title">Movimiento & regulación</span>
+              <span class="tile-sub">Cuerpo, emoción y conducta</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
             <div class="tile-body" hidden>
               <ul class="bullets">
-                <li>Programas en grupos reducidos</li>
-                <li>Motivación, hábitos y confianza</li>
-                <li>Habilidades de juego y cooperación</li>
+                <li>Movimiento con propósito</li>
+                <li>Regulación emocional y conductual</li>
+                <li>Preparación para el aprendizaje</li>
               </ul>
-              <p class="muted small">Ideal para: salud, integración social y disfrute del movimiento.</p>
             </div>
           </article>
+        </div>
+
+        <div class="who-box">
+          <h3>¿Para quién es este programa?</h3>
+          <div class="who-grid">
+            <ul class="bullets">
+              <li>TEA niveles 2–3</li>
+              <li>Discapacidad intelectual moderada–severa</li>
+              <li>Síndrome de Down</li>
+            </ul>
+            <ul class="bullets">
+              <li>TDAH severo</li>
+              <li>Neurodivergencias de apoyo intensivo</li>
+              <li>Trastornos motores leves</li>
+            </ul>
+          </div>
+          <p class="muted small">Edad orientativa: <strong>6 a 16 años</strong>.</p>
         </div>
       </div>
     </section>
 
-    <!-- Blog (starter) -->
-    <section id="blog" class="section alt">
+    <!-- SCHOOLS & FAMILIES split -->
+    <section class="section alt">
+      <div class="inner split-grid">
+        <div id="colegios" class="split-card">
+          <p class="section-kicker">Para colegios</p>
+          <h2 class="split-title">ACNEAE externalizable, con coordinación real</h2>
+          <ul class="icon-list">
+            <li><span class="icon">🤝</span> Sin coste directo para el centro (según modelo de financiación)</li>
+            <li><span class="icon">📉</span> Menos conductas disruptivas, más disponibilidad para aprender</li>
+            <li><span class="icon">📝</span> Informes trimestrales + coordinación continua</li>
+          </ul>
+          <a class="btn-primary" href="#contacto" data-set-topic="Colaboración con escuela">Solicitar información para centros</a>
+        </div>
+
+        <div id="familias" class="split-card">
+          <p class="section-kicker">Para familias</p>
+          <h2 class="split-title">Un programa estable, estructurado y compatible con el cole</h2>
+          <ul class="icon-list">
+            <li><span class="icon">🧩</span> Apoyo realista para el día a día</li>
+            <li><span class="icon">🚐</span> Transporte incluido (según zona)</li>
+            <li><span class="icon">📣</span> Comunicación continua y objetivos claros</li>
+          </ul>
+          <a class="btn-primary" href="#contacto" data-set-topic="Lista de espera">Entrar en lista de espera</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="section">
       <div class="inner">
         <header class="section-header">
           <p class="section-kicker">Blog</p>
-          <h2 class="section-title">Ideas prácticas para el día a día</h2>
-          <p class="section-desc">Este bloque está listo para convertirse en un blog real (más adelante lo automatizamos).</p>
+          <h2 class="section-title">Acompañar mejor, paso a paso</h2>
+          <p class="section-desc">Ideas prácticas sobre educación, movimiento y regulación emocional.</p>
         </header>
 
         <div class="post-grid">
           <article class="post">
-            <a href="#" class="post-link" aria-label="Leer artículo 1">
-              <h3>Rutinas visuales: cómo empezar sin agobiar</h3>
-              <p class="muted">Guía rápida para crear una rutina simple que funcione en casa y en el cole.</p>
+            <a href="#" class="post-link" aria-label="Rutinas visuales sin agobio">
+              <h3>Rutinas visuales sin agobio</h3>
+              <p class="muted">Cómo empezar con una rutina simple y sostenible.</p>
               <span class="post-meta">Borrador · 3 min</span>
             </a>
           </article>
 
           <article class="post">
-            <a href="#" class="post-link" aria-label="Leer artículo 2">
-              <h3>Movimiento y atención: mini-pausas que ayudan</h3>
-              <p class="muted">Ideas de pausas activas de 2–5 minutos para mejorar foco y regulación.</p>
+            <a href="#" class="post-link" aria-label="Movimiento y atención en el aula">
+              <h3>Movimiento y atención en el aula</h3>
+              <p class="muted">Mini-pausas que mejoran foco y regulación.</p>
               <span class="post-meta">Borrador · 4 min</span>
             </a>
           </article>
 
           <article class="post">
-            <a href="#" class="post-link" aria-label="Leer artículo 3">
-              <h3>Comunicación funcional: 5 hábitos que marcan diferencia</h3>
-              <p class="muted">Pequeños cambios en el lenguaje del adulto que facilitan la comunicación.</p>
+            <a href="#" class="post-link" aria-label="Comunicación funcional en casa">
+              <h3>Comunicación funcional en casa</h3>
+              <p class="muted">5 hábitos que facilitan participación y lenguaje.</p>
               <span class="post-meta">Borrador · 5 min</span>
             </a>
           </article>
         </div>
-
-        <p class="small muted" style="margin-top: 1rem;">
-          *Cuando estéis listos, convertimos esto en un blog real con <code>/blog/</code> y artículos editables.
-        </p>
       </div>
     </section>
 
-    <!-- Instagram: simple + reliable (individual post embeds) -->
-    <section id="instagram" class="section">
+    <!-- INSTAGRAM (simple & reliable) -->
+    <section id="instagram" class="section alt">
       <div class="inner">
         <header class="section-header">
           <p class="section-kicker">Instagram</p>
-          <h2 class="section-title">Últimas publicaciones</h2>
-          <p class="section-desc">
-            Embeds oficiales de Instagram (posts individuales). Sustituye los enlaces por tus posts reales.
-          </p>
+          <h2 class="section-title">Nuestro día a día</h2>
+          <p class="section-desc">Sustituye estos enlaces por tus posts reales (3–6 posts máximo por velocidad).</p>
         </header>
 
         <div class="ig-embed-grid">
-
-          <!-- Replace these URLs with real post links: https://www.instagram.com/p/XXXX/ -->
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_1/" data-instgrm-version="14">
             <a href="https://www.instagram.com/p/REPLACE_POST_1/">Ver en Instagram</a>
           </blockquote>
@@ -275,20 +410,19 @@
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_3/" data-instgrm-version="14">
             <a href="https://www.instagram.com/p/REPLACE_POST_3/">Ver en Instagram</a>
           </blockquote>
-
         </div>
       </div>
 
       <script async src="https://www.instagram.com/embed.js"></script>
     </section>
 
-    <!-- Contact (Netlify Forms ready) -->
-    <section id="contacto" class="section alt">
+    <!-- CONTACT -->
+    <section id="contacto" class="section">
       <div class="inner">
         <header class="section-header">
           <p class="section-kicker">Contacto</p>
-          <h2 class="section-title">Lista de espera / Colaboraciones</h2>
-          <p class="section-desc">Este formulario funciona sin backend usando Netlify Forms cuando publiquéis con Netlify.</p>
+          <h2 class="section-title">Contacto y lista de espera</h2>
+          <p class="section-desc">Estamos en fase de preparación. Escríbenos y te contactaremos.</p>
         </header>
 
         <div class="contact-grid">
@@ -327,40 +461,51 @@
 
               <button class="btn-primary" type="submit">Enviar</button>
               <p class="muted small" style="margin-top: .75rem;">
-                *Cuando estéis listos para publicar, quitamos “noindex” y añadimos los datos reales.
+                *Cuando estéis listos para publicar, quitamos “noindex” y activamos SEO completo.
               </p>
             </form>
           </div>
 
           <aside class="contact-aside">
-            <p><strong>Mentes en Movimiento</strong></p>
-            <p class="muted">Proyecto ONG · web en construcción.</p>
+            <div class="contact-badge">
+              <img class="contact-logo" src="assets/logo.png" alt="" aria-hidden="true" />
+              <div>
+                <div class="contact-org">Mentes en Movimiento</div>
+                <div class="muted small">Proyecto ONG · web en construcción</div>
+              </div>
+            </div>
+
             <p class="muted">
               Email: <span class="mono">info@mentesenmovimiento.org</span><br />
-              Ubicación: Tarragona (por confirmar)
+              Ubicación: Costa Daurada (Tarragona)
             </p>
+
+            <div class="mini-note">
+              <span class="dot"></span>
+              Si eres un centro educativo, usa “Colaboración con escuela” para priorizar la coordinación.
+            </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- Impressum -->
-    <section id="impressum" class="section">
+    <!-- IMPRESSUM -->
+    <section id="impressum" class="section alt">
       <div class="inner">
         <header class="section-header">
           <p class="section-kicker">Impressum</p>
-          <h2 class="section-title">Legal notice</h2>
+          <h2 class="section-title">Información legal</h2>
           <p class="section-desc">Texto placeholder — reemplazar cuando tengáis los datos de registro de la ONG.</p>
         </header>
 
         <div class="legal card">
-          <p><strong>Organisation:</strong> Mentes en Movimiento (pending NGO registration)</p>
-          <p><strong>Responsible for content:</strong> [Full legal name]</p>
-          <p><strong>Address:</strong> [Street, City, Country]</p>
+          <p><strong>Organización:</strong> Mentes en Movimiento (en proceso de registro como ONG/asociación)</p>
+          <p><strong>Responsable del contenido:</strong> [Nombre legal completo]</p>
+          <p><strong>Dirección:</strong> [Calle, Ciudad, País]</p>
           <p><strong>Email:</strong> info@mentesenmovimiento.org</p>
-          <p><strong>Registration:</strong> [Registration number / authority]</p>
+          <p><strong>Registro:</strong> [Nº / autoridad]</p>
           <p class="muted small">
-            This website is currently under construction and not intended for public indexing.
+            Esta web está en construcción y no se indexa en buscadores.
           </p>
         </div>
       </div>
@@ -372,7 +517,7 @@
     <div class="inner footer-row">
       <div>© <span id="year"></span> Mentes en Movimiento</div>
       <div class="footer-links">
-        <a href="#hero">Top</a>
+        <a href="#hero">Arriba</a>
         <a href="#contacto">Contacto</a>
         <a href="#impressum">Impressum</a>
       </div>
@@ -393,25 +538,38 @@
     document.getElementById("nav-panel").style.display = "none";
   }
 
-  // Dynamic tiles (accordion)
+  // Dynamic tiles (accordion): one open at a time
   function toggleTile(btn) {
     const tile = btn.closest(".tile");
     const body = tile.querySelector(".tile-body");
     const expanded = btn.getAttribute("aria-expanded") === "true";
 
-    // close others
     document.querySelectorAll(".tile .tile-head[aria-expanded='true']").forEach((b) => {
       if (b !== btn) {
         b.setAttribute("aria-expanded", "false");
         const t = b.closest(".tile");
-        const bd = t.querySelector(".tile-body");
-        bd.hidden = true;
+        t.querySelector(".tile-body").hidden = true;
       }
     });
 
     btn.setAttribute("aria-expanded", String(!expanded));
     body.hidden = expanded;
   }
+
+  // CTA -> preselect topic in contact form
+  function setTopic(value) {
+    const sel = document.getElementById("topic");
+    if (!sel) return;
+    const options = Array.from(sel.options).map(o => o.value);
+    if (options.includes(value)) sel.value = value;
+  }
+
+  document.querySelectorAll("[data-set-topic]").forEach((el) => {
+    el.addEventListener("click", () => {
+      const v = el.getAttribute("data-set-topic");
+      if (v) setTopic(v);
+    });
+  });
 </script>
 </body>
 </html>
