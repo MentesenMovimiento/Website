@@ -4,13 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mentes en Movimiento · Cada niño, su propio camino</title>
-  <!-- Prevent indexing while under construction -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-  <!-- Local assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <!-- Local files -->
   <link rel="stylesheet" href="style.css">
   <script defer src="app.js"></script>
 </head>
@@ -42,7 +41,7 @@
       </div>
     </div>
   </header>
-  <!-- MOBILE NAV PANEL -->
+  <!-- MOBILE PANEL -->
   <div id="nav-panel-backdrop" data-nav-close></div>
   <aside id="nav-panel">
     <button class="panel-close" data-nav-close aria-label="Cerrar menú">✕</button>
@@ -56,8 +55,8 @@
     </ul>
   </aside>
 
-  <!-- MAIN CONTENT -->
-  <main id="main">
+  <!-- MAIN -->
+  <main>
     <!-- HERO -->
     <section id="hero" class="hero">
       <div class="inner hero-grid" data-reveal>
@@ -66,7 +65,7 @@
             <span class="pill">Proyecto ONG · En preparación</span>
             <span class="pill pill-soft">Costa Daurada (Tarragona)</span>
           </div>
-          <h1>Mentes en Movimiento</h1>
+          <h1>Mentes en <span class="highlight-mov">Movimiento</span></h1>
           <p class="lead">Cada niño, su propio camino</p>
           <p class="sublead">
             Centro de desarrollo inclusivo para niños y adolescentes con necesidades educativas y clínicas elevadas.
@@ -86,7 +85,6 @@
             *Esta web está en modo construcción y no se indexa en buscadores.
           </p>
         </div>
-        <!-- Hero card with stats -->
         <aside class="hero-visual" data-reveal>
           <div class="hero-visual-card">
             <div class="hero-visual-top">
@@ -97,22 +95,10 @@
               </div>
             </div>
             <div class="hero-stats">
-              <div class="stat">
-                <div class="stat-num">3h</div>
-                <div class="stat-label">Media jornada</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">2×</div>
-                <div class="stat-label">Por semana</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">3–6</div>
-                <div class="stat-label">Niños por grupo</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num">🚐</div>
-                <div class="stat-label">Transporte escolar</div>
-              </div>
+              <div class="stat"><div class="stat-num">3h</div><div class="stat-label">Media jornada</div></div>
+              <div class="stat"><div class="stat-num">2×</div><div class="stat-label">Por semana</div></div>
+              <div class="stat"><div class="stat-num">3–6</div><div class="stat-label">Niños por grupo</div></div>
+              <div class="stat"><div class="stat-num">🚐</div><div class="stat-label">Transporte</div></div>
             </div>
             <div class="hero-note">
               <span class="dot"></span>
@@ -130,8 +116,8 @@
           <p class="section-kicker">Modelo</p>
           <h2 class="section-title">Un modelo único, integrado y realista</h2>
           <p class="section-desc">
-            Programa estable de media jornada (3h), dos días por semana, con grupos reducidos (3–6 alumnos).
-            Combinamos educación especial, fisioterapia, logopedia y movimiento/regulación para mejorar el día a día en el cole y en casa. Incluye transporte escolar y coordinación con el PI/DIAC.
+            Programa estable de media jornada (3 horas), dos días por semana, con grupos reducidos (3–6 alumnos).
+            Integramos educación especial, fisioterapia, logopedia y movimiento/regulación para mejorar el día a día en el cole y en casa. Incluye transporte escolar y coordinación con el PI/DIAC.
           </p>
         </header>
         <div class="model-grid">
@@ -140,40 +126,40 @@
             <ul class="icon-list">
               <li><span class="icon">⏱</span> Media jornada: <strong>3 horas</strong></li>
               <li><span class="icon">📅</span> <strong>2 días</strong> por semana</li>
-              <li><span class="icon">👥</span> Grupos reducidos: <strong>3–6 niños</strong></li>
-              <li><span class="icon">🏫</span> Integración en <strong>PI/DIAC</strong></li>
+              <li><span class="icon">👥</span> Grupos reducidos: <strong>3–6</strong> niños</li>
+              <li><span class="icon">🏫</span> Integración en <strong>PI / DIAC</strong></li>
               <li><span class="icon">🚐</span> Incluye <strong>transporte escolar</strong></li>
             </ul>
             <div class="model-cta-row">
-              <a href="#areas" class="btn-secondary">Ver las áreas</a>
-              <a href="#contacto" class="btn-primary" data-set-topic="Lista de espera">Solicitar plaza</a>
+              <a class="btn-secondary" href="#areas">Ver las áreas</a>
+              <a class="btn-primary" href="#contacto" data-set-topic="Lista de espera">Solicitar plaza</a>
             </div>
           </div>
           <div class="timeline-card">
             <div class="timeline-head">
               <h3>Desglose de sesión (3h)</h3>
-              <p class="muted small">Ejemplo de estructura. Ajustamos según objetivos individuales.</p>
+              <p class="muted small">Ejemplo; ajustamos según cada niño.</p>
             </div>
             <div class="timeline">
               <div class="tl-item">
                 <div class="tl-time">20&nbsp;min</div>
                 <div class="tl-body">
                   <div class="tl-title">Fisioterapia (1:1)</div>
-                  <div class="tl-desc">Objetivos funcionales para postura, coordinación y movimiento.</div>
+                  <div class="tl-desc">Trabajo de postura, coordinación y fuerza.</div>
                 </div>
               </div>
               <div class="tl-item">
                 <div class="tl-time">30&nbsp;min</div>
                 <div class="tl-body">
                   <div class="tl-title">Movimiento &amp; regulación</div>
-                  <div class="tl-desc">Activación corporal, autocontrol y preparación para el aprendizaje.</div>
+                  <div class="tl-desc">Activación corporal y autorregulación para aprender mejor.</div>
                 </div>
               </div>
               <div class="tl-item">
                 <div class="tl-time">2h&nbsp;10&nbsp;min</div>
                 <div class="tl-body">
                   <div class="tl-title">Educación especial adaptada</div>
-                  <div class="tl-desc">Aprendizaje funcional + autonomía + habilidades sociales.</div>
+                  <div class="tl-desc">Aprendizaje funcional, autonomía y habilidades sociales.</div>
                 </div>
               </div>
             </div>
@@ -194,7 +180,7 @@
           <p class="section-kicker">Áreas</p>
           <h2 class="section-title">Cuatro pilares, un mismo plan individual</h2>
           <p class="section-desc">
-            Haz clic en cada bloque para ver más. El plan se diseña por objetivos y se coordina con familia y escuela.
+            Haz clic en cada bloque para ver detalles. El plan se diseña por objetivos y se coordina con familia y escuela.
           </p>
         </header>
         <div class="tiles">
@@ -264,8 +250,6 @@
             </div>
           </article>
         </div>
-
-        <!-- Who we serve -->
         <div class="who-box">
           <h3>¿Para quién es este programa?</h3>
           <div class="who-grid">
@@ -285,7 +269,7 @@
       </div>
     </section>
 
-    <!-- Schools & Families -->
+    <!-- SCHOOLS & FAMILIES -->
     <section class="section alt">
       <div class="inner split-grid" data-reveal>
         <div class="split-card">
@@ -330,7 +314,7 @@
       </div>
     </section>
 
-    <!-- INSTAGRAM PREVIEW -->
+    <!-- INSTAGRAM PLACEHOLDER -->
     <section id="instagram" class="section alt">
       <div class="inner" data-reveal>
         <header class="section-header">
@@ -339,21 +323,21 @@
           <p class="section-desc">Sustituye estos enlaces por tus posts reales (3–6 máximo para velocidad).</p>
         </header>
         <div class="ig-embed-grid">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_1/" data-instgrm-version="14">
-            <a href="https://www.instagram.com/p/REPLACE_POST_1/">Ver en Instagram</a>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE1/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/REPLACE1/">Ver en Instagram</a>
           </blockquote>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_2/" data-instgrm-version="14">
-            <a href="https://www.instagram.com/p/REPLACE_POST_2/">Ver en Instagram</a>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE2/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/REPLACE2/">Ver en Instagram</a>
           </blockquote>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_3/" data-instgrm-version="14">
-            <a href="https://www.instagram.com/p/REPLACE_POST_3/">Ver en Instagram</a>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE3/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/REPLACE3/">Ver en Instagram</a>
           </blockquote>
         </div>
         <script async src="https://www.instagram.com/embed.js"></script>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT FORM -->
     <section id="contacto" class="section">
       <div class="inner" data-reveal>
         <header class="section-header">
@@ -363,30 +347,21 @@
         </header>
         <div class="contact-grid">
           <div class="contact-card">
-            <!-- Netlify form -->
             <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="contact">
-              <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
-              <div class="field">
-                <label>Nombre<input type="text" name="name" placeholder="Nombre y apellidos" required></label>
-              </div>
-              <div class="field">
-                <label>Email<input type="email" name="email" placeholder="tuemail@ejemplo.com" required></label>
-              </div>
-              <div class="field">
-                <label>Motivo<select id="topic" name="topic" required>
-                  <option value="" disabled selected>Selecciona…</option>
-                  <option>Lista de espera</option>
-                  <option>Colaboración con escuela</option>
-                  <option>Financiación / ONG</option>
-                  <option>Consulta general</option>
-                </select></label>
-              </div>
-              <div class="field">
-                <label>Mensaje<textarea name="message" placeholder="Cuéntanos brevemente lo que necesitáis…" required></textarea></label>
-              </div>
-              <button type="submit" class="btn-primary">Enviar</button>
-              <p class="muted small" style="margin-top:0.7rem">*Cuando estéis listos para publicar, quitamos “noindex” y activamos SEO completo.</p>
+              <p class="hidden"><label>No rellenes esto: <input name="bot-field"></label></p>
+              <div class="field"><label>Nombre<input type="text" name="name" placeholder="Nombre y apellidos" required></label></div>
+              <div class="field"><label>Email<input type="email" name="email" placeholder="tuemail@ejemplo.com" required></label></div>
+              <div class="field"><label>Motivo<select id="topic" name="topic" required>
+                <option value="" disabled selected>Selecciona…</option>
+                <option>Lista de espera</option>
+                <option>Colaboración con escuela</option>
+                <option>Financiación / ONG</option>
+                <option>Consulta general</option>
+              </select></label></div>
+              <div class="field"><label>Mensaje<textarea name="message" placeholder="Cuéntanos brevemente lo que necesitáis…" required></textarea></label></div>
+              <button class="btn-primary" type="submit">Enviar</button>
+              <p class="muted small" style="margin-top:.75rem;">*El modo noindex se eliminará al publicar.</p>
             </form>
           </div>
           <aside class="contact-aside">
@@ -398,12 +373,11 @@
               </div>
             </div>
             <p class="muted">
-              Email: <span class="mono">info@mentesenmovimiento.org</span><br>
-              Ubicación: Costa Daurada (Tarragona)
+              Email: <span class="mono">info@mentesenmovimiento.org</span><br>Ubicación: Costa Daurada (Tarragona)
             </p>
             <div class="mini-note">
               <span class="dot"></span>
-              Si eres un centro educativo, usa “Colaboración con escuela” para priorizar la coordinación.
+              Si representas un centro educativo, selecciona “Colaboración con escuela” en el formulario.
             </div>
           </aside>
         </div>
@@ -416,14 +390,14 @@
         <header class="section-header">
           <p class="section-kicker">Impressum</p>
           <h2 class="section-title">Información legal</h2>
-          <p class="section-desc">Texto placeholder — reemplazar con los datos de registro de la ONG.</p>
+          <p class="section-desc">Texto placeholder — reemplazar cuando tengáis los datos de registro de la ONG.</p>
         </header>
         <div class="legal card">
           <p><strong>Organización:</strong> Mentes en Movimiento (en proceso de registro como ONG/asociación)</p>
           <p><strong>Responsable del contenido:</strong> [Nombre legal completo]</p>
           <p><strong>Dirección:</strong> [Calle, Ciudad, País]</p>
           <p><strong>Email:</strong> info@mentesenmovimiento.org</p>
-          <p><strong>Registro:</strong> [Nº / autoridad]</p>
+          <p><strong>Registro:</strong> [Número / autoridad]</p>
           <p class="muted small">Esta web está en construcción y no se indexa en buscadores.</p>
         </div>
       </div>
