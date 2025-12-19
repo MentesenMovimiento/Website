@@ -1,138 +1,91 @@
-// app.js — subtle UX interactions for Mentes en Movimiento
-
-// Footer year
+// Set current year in footer
 document.addEventListener("DOMContentLoaded", () => {
-  const y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
+  const yr = document.getElementById("year");
+  if (yr) yr.textContent = new Date().getFullYear();
 });
 
-// Mobile nav panel
+// Mobile nav toggling
 (() => {
-  const backdrop = document.getElementById("nav-panel-backdrop");
-  const panel = document.getElementById("nav-panel");
   const openBtn = document.querySelector("[data-nav-open]");
-  const closeBtns = document.querySelectorAll("[data-nav-close]");
+  const closeEls = document.querySelectorAll("[data-nav-close], #nav-panel-backdrop");
+  const panel = document.getElementById("nav-panel");
+  const backdrop = document.getElementById("nav-panel-backdrop");
 
-  const open = () => {
-    if (!backdrop || !panel) return;
-    backdrop.style.display = "block";
-    panel.style.display = "block";
-    panel.setAttribute("aria-hidden", "false");
-  };
-
-  const close = () => {
-    if (!backdrop || !panel) return;
-    backdrop.style.display = "none";
-    panel.style.display = "none";
-    panel.setAttribute("aria-hidden", "true");
-  };
-
-  if (openBtn) openBtn.addEventListener("click", open);
-  closeBtns.forEach((b) => b.addEventListener("click", close));
-
-  // Escape key closes
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
-  });
-})();
-
-// Reveal-on-scroll (respect reduced motion)
-(() => {
-  const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const els = document.querySelectorAll("[data-reveal]");
-  if (!els.length) return;
-
-  if (prefersReduced) {
-    els.forEach(el => el.classList.add("is-visible"));
-    return;
+  function openNav() {
+    if (panel) panel.style.display = "block";
+    if (backdrop) backdrop.style.display = "block";
+  }
+  function closeNav() {
+    if (panel) panel.style.display = "none";
+    if (backdrop) backdrop.style.display = "none";
   }
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  if (openBtn) openBtn.addEventListener("click", openNav);
+  closeEls.forEach(el => el.addEventListener("click", closeNav));
+})();
+
+// Reveal on scroll (respect reduced motion)
+(() => {
+  const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const elements = document.querySelectorAll("[data-reveal]");
+  if (!elements.length) return;
+  if (prefersReduced) {
+    elements.forEach(el => el.classList.add("is-visible"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
-        io.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
-
-  els.forEach(el => io.observe(el));
+  elements.forEach(el => observer.observe(el));
 })();
 
-// CTA -> preselect topic in contact form
+// Preselect topic in contact form based on CTA clicks
 (() => {
   function setTopic(value) {
-    const sel = document.getElementById("topic");
-    if (!sel) return;
-    const values = Array.from(sel.options).map(o => o.value);
-    if (values.includes(value)) sel.value = value;
+    const select = document.getElementById("topic");
+    if (select) select.value = value;
   }
-
-  document.querySelectorAll("[data-set-topic]").forEach((el) => {
-    el.addEventListener("click", () => {
-      const v = el.getAttribute("data-set-topic");
-      if (v) setTopic(v);
+  document.querySelectorAll("[data-set-topic]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-set-topic");
+      if (value) setTopic(value);
     });
   });
 })();
 
-// Accordion: one open at a time + smooth height animation
+// Accordion for four pillars
 (() => {
   const buttons = document.querySelectorAll("[data-accordion]");
   if (!buttons.length) return;
 
-  function close(btn) {
-    const tile = btn.closest(".tile");
-    const body = tile?.querySelector(".tile-body");
-    if (!body) return;
-
-    btn.setAttribute("aria-expanded", "false");
-    // animate close
-    body.style.height = body.scrollHeight + "px";
-    requestAnimationFrame(() => {
-      body.style.height = "0px";
-      body.style.opacity = "0";
+  function toggleAccordion(btn) {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    // Close all
+    buttons.forEach(b => {
+      if (b !== btn && b.getAttribute("aria-expanded") === "true") {
+        b.setAttribute("aria-expanded", "false");
+        const body = b.nextElementSibling;
+        if (body) body.hidden = true;
+      }
     });
-    body.addEventListener("transitionend", () => {
+    // Toggle current
+    const body = btn.nextElementSibling;
+    if (!body) return;
+    if (expanded) {
+      btn.setAttribute("aria-expanded", "false");
       body.hidden = true;
-      body.style.height = "";
-      body.style.opacity = "";
-    }, { once: true });
+    } else {
+      btn.setAttribute("aria-expanded", "true");
+      body.hidden = false;
+    }
   }
 
-  function open(btn) {
-    const tile = btn.closest(".tile");
-    const body = tile?.querySelector(".tile-body");
-    if (!body) return;
-
-    btn.setAttribute("aria-expanded", "true");
-    body.hidden = false;
-    body.style.height = "0px";
-    body.style.opacity = "0";
-
-    requestAnimationFrame(() => {
-      body.style.height = body.scrollHeight + "px";
-      body.style.opacity = "1";
-    });
-
-    body.addEventListener("transitionend", () => {
-      body.style.height = "";
-      body.style.opacity = "";
-    }, { once: true });
-  }
-
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const expanded = btn.getAttribute("aria-expanded") === "true";
-
-      // close others
-      buttons.forEach((b) => {
-        if (b !== btn && b.getAttribute("aria-expanded") === "true") close(b);
-      });
-
-      if (expanded) close(btn);
-      else open(btn);
-    });
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => toggleAccordion(btn));
   });
 })();
-
