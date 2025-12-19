@@ -18,6 +18,12 @@
   <meta property="og:type" content="website" />
 
   <link rel="icon" href="/favicon.ico" />
+
+  <!-- Fonts: Poppins (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -132,7 +138,7 @@
           <article class="tile" role="listitem">
             <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
               <span class="tile-icon" aria-hidden="true">📘</span>
-              <span class="tile-title">Education</span>
+              <span class="tile-title">Educación</span>
               <span class="tile-sub">Apoyo educativo individualizado</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
@@ -150,13 +156,13 @@
           <article class="tile" role="listitem">
             <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
               <span class="tile-icon" aria-hidden="true">🧠</span>
-              <span class="tile-title">Physio</span>
+              <span class="tile-title">Fisioterapia</span>
               <span class="tile-sub">Movimiento, coordinación y función</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
             <div class="tile-body" hidden>
               <ul class="bullets">
-                <li>Equilibrio, fuerza, coordinación</li>
+                <li>Equilibrio, fuerza y coordinación</li>
                 <li>Motricidad gruesa y fina</li>
                 <li>Objetivos funcionales para el día a día</li>
               </ul>
@@ -186,7 +192,7 @@
           <article class="tile" role="listitem">
             <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
               <span class="tile-icon" aria-hidden="true">⚽</span>
-              <span class="tile-title">Sport</span>
+              <span class="tile-title">Deporte</span>
               <span class="tile-sub">Actividad física con propósito</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
@@ -203,7 +209,7 @@
       </div>
     </section>
 
-    <!-- Embedded Blog (starter) -->
+    <!-- Blog (starter) -->
     <section id="blog" class="section alt">
       <div class="inner">
         <header class="section-header">
@@ -239,56 +245,44 @@
         </div>
 
         <p class="small muted" style="margin-top: 1rem;">
-          *Cuando estéis listos, podemos convertir esto en un blog real con rutas tipo <code>/blog/</code> y artículos editables.
+          *Cuando estéis listos, convertimos esto en un blog real con <code>/blog/</code> y artículos editables.
         </p>
       </div>
     </section>
 
-    <!-- Instagram (embedded placeholder + ready) -->
+    <!-- Instagram: simple + reliable (individual post embeds) -->
     <section id="instagram" class="section">
-  <div class="inner">
-    <header class="section-header">
-      <p class="section-kicker">Instagram</p>
-      <h2 class="section-title">Últimas publicaciones</h2>
-      <p class="section-desc">
-        Embeds oficiales de Instagram (posts individuales). Sin API, estable y fácil de mantener.
-      </p>
-    </header>
+      <div class="inner">
+        <header class="section-header">
+          <p class="section-kicker">Instagram</p>
+          <h2 class="section-title">Últimas publicaciones</h2>
+          <p class="section-desc">
+            Embeds oficiales de Instagram (posts individuales). Sustituye los enlaces por tus posts reales.
+          </p>
+        </header>
 
-    <!-- ✅ Simple + reliable: embed specific post URLs -->
-    <div class="ig-embed-grid">
+        <div class="ig-embed-grid">
 
-      <!-- POST 1: replace the href with your real post URL -->
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_1/" data-instgrm-version="14">
-        <a href="https://www.instagram.com/p/REPLACE_POST_1/">Ver en Instagram</a>
-      </blockquote>
+          <!-- Replace these URLs with real post links: https://www.instagram.com/p/XXXX/ -->
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_1/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/REPLACE_POST_1/">Ver en Instagram</a>
+          </blockquote>
 
-      <!-- POST 2 -->
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_2/" data-instgrm-version="14">
-        <a href="https://www.instagram.com/p/REPLACE_POST_2/">Ver en Instagram</a>
-      </blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_2/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/REPLACE_POST_2/">Ver en Instagram</a>
+          </blockquote>
 
-      <!-- POST 3 -->
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_3/" data-instgrm-version="14">
-        <a href="https://www.instagram.com/p/REPLACE_POST_3/">Ver en Instagram</a>
-      </blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_3/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/REPLACE_POST_3/">Ver en Instagram</a>
+          </blockquote>
 
-      <!-- Optional POST 4 -->
-      <!--
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_4/" data-instgrm-version="14">
-        <a href="https://www.instagram.com/p/REPLACE_POST_4/">Ver en Instagram</a>
-      </blockquote>
-      -->
+        </div>
+      </div>
 
-    </div>
-  </div>
+      <script async src="https://www.instagram.com/embed.js"></script>
+    </section>
 
-  <!-- Instagram embed loader (official) -->
-  <script async src="https://www.instagram.com/embed.js"></script>
-</section>
-
-
-    <!-- Contact form (Netlify Forms ready) -->
+    <!-- Contact (Netlify Forms ready) -->
     <section id="contacto" class="section alt">
       <div class="inner">
         <header class="section-header">
@@ -306,44 +300,44 @@
               </p>
 
               <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Full name" required />
+                <label for="name">Nombre</label>
+                <input id="name" name="name" type="text" placeholder="Nombre y apellidos" required />
               </div>
 
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                <input id="email" name="email" type="email" placeholder="tuemail@ejemplo.com" required />
               </div>
 
               <div class="field">
-                <label for="topic">Reason</label>
+                <label for="topic">Motivo</label>
                 <select id="topic" name="topic" required>
-                  <option value="" selected disabled>Select…</option>
-                  <option>Waitlist</option>
-                  <option>School collaboration</option>
-                  <option>Funding / NGO</option>
-                  <option>General enquiry</option>
+                  <option value="" selected disabled>Selecciona…</option>
+                  <option>Lista de espera</option>
+                  <option>Colaboración con escuela</option>
+                  <option>Financiación / ONG</option>
+                  <option>Consulta general</option>
                 </select>
               </div>
 
               <div class="field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us briefly what you need…" required></textarea>
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" placeholder="Cuéntanos brevemente lo que necesitáis…" required></textarea>
               </div>
 
-              <button class="btn-primary" type="submit">Send</button>
+              <button class="btn-primary" type="submit">Enviar</button>
               <p class="muted small" style="margin-top: .75rem;">
-                *When you’re ready to go live, we’ll remove “noindex” and add the real address/phones.
+                *Cuando estéis listos para publicar, quitamos “noindex” y añadimos los datos reales.
               </p>
             </form>
           </div>
 
           <aside class="contact-aside">
             <p><strong>Mentes en Movimiento</strong></p>
-            <p class="muted">NGO project · website under construction.</p>
+            <p class="muted">Proyecto ONG · web en construcción.</p>
             <p class="muted">
               Email: <span class="mono">info@mentesenmovimiento.org</span><br />
-              Location: Tarragona area (to confirm)
+              Ubicación: Tarragona (por confirmar)
             </p>
           </aside>
         </div>
@@ -356,7 +350,7 @@
         <header class="section-header">
           <p class="section-kicker">Impressum</p>
           <h2 class="section-title">Legal notice</h2>
-          <p class="section-desc">Placeholder text — replace once your NGO registration details are confirmed.</p>
+          <p class="section-desc">Texto placeholder — reemplazar cuando tengáis los datos de registro de la ONG.</p>
         </header>
 
         <div class="legal card">
@@ -379,7 +373,7 @@
       <div>© <span id="year"></span> Mentes en Movimiento</div>
       <div class="footer-links">
         <a href="#hero">Top</a>
-        <a href="#contacto">Contact</a>
+        <a href="#contacto">Contacto</a>
         <a href="#impressum">Impressum</a>
       </div>
     </div>
