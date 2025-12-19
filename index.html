@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
   <title>Mentes en Movimiento · Cada niño, su propio camino</title>
-  <meta name="description" content="Centro de desarrollo inclusivo. Educación especial, fisioterapia, logopedia (año 2) y movimiento-regulación, coordinados con escuela y familia." />
+  <meta name="description" content="Centro de desarrollo inclusivo. Educación especial, fisioterapia, logopedia y movimiento-regulación, coordinados con escuela y familia." />
 
   <!-- 🚫 NO INDEXING (site under construction) -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
@@ -23,7 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
+  <script defer src="/app.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
   <header>
     <div class="inner nav-wrapper">
       <a class="brand" href="#hero" aria-label="Mentes en Movimiento">
-        <img class="brand-logo" src="assets/logo.png" alt="Mentes en Movimiento logo" />
+        <img class="brand-logo" src="/assets/logo.png" alt="Mentes en Movimiento logo" />
         <span class="brand-text">
           <span class="brand-name">Mentes en Movimiento</span>
           <span class="brand-tagline">Cada niño, su propio camino</span>
@@ -46,7 +47,7 @@
           <li><a href="#areas">Áreas</a></li>
           <li><a href="#colegios">Colegios</a></li>
           <li><a href="#familias">Familias</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="#instagram">Instagram</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li><a href="#impressum">Impressum</a></li>
@@ -57,7 +58,7 @@
         <a class="btn-secondary" href="#contacto" data-set-topic="Lista de espera">Lista de espera</a>
         <a class="btn-primary" href="#contacto" data-set-topic="Colaboración con escuela">Colegios</a>
 
-        <button class="nav-toggle" type="button" aria-label="Abrir menú" onclick="openNavPanel()">
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" data-nav-open>
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -65,28 +66,28 @@
   </header>
 
   <!-- Mobile nav panel -->
-  <div id="nav-panel-backdrop" onclick="closeNavPanel()"></div>
+  <div id="nav-panel-backdrop" data-nav-close></div>
   <aside id="nav-panel" aria-label="Menú móvil">
-    <button class="panel-close" type="button" aria-label="Cerrar menú" onclick="closeNavPanel()">✕</button>
+    <button class="panel-close" type="button" aria-label="Cerrar menú" data-nav-close>✕</button>
     <div class="panel-title">Menú</div>
     <ul>
-      <li><a href="#modelo" onclick="closeNavPanel()">Modelo</a></li>
-      <li><a href="#areas" onclick="closeNavPanel()">Áreas</a></li>
-      <li><a href="#colegios" onclick="closeNavPanel()">Colegios</a></li>
-      <li><a href="#familias" onclick="closeNavPanel()">Familias</a></li>
-      <li><a href="#blog" onclick="closeNavPanel()">Blog</a></li>
-      <li><a href="#instagram" onclick="closeNavPanel()">Instagram</a></li>
-      <li><a href="#contacto" onclick="closeNavPanel()">Contacto</a></li>
-      <li><a href="#impressum" onclick="closeNavPanel()">Impressum</a></li>
+      <li><a href="#modelo" data-nav-close>Modelo</a></li>
+      <li><a href="#areas" data-nav-close>Áreas</a></li>
+      <li><a href="#colegios" data-nav-close>Colegios</a></li>
+      <li><a href="#familias" data-nav-close>Familias</a></li>
+      <li><a href="/blog/" data-nav-close>Blog</a></li>
+      <li><a href="#instagram" data-nav-close>Instagram</a></li>
+      <li><a href="#contacto" data-nav-close>Contacto</a></li>
+      <li><a href="#impressum" data-nav-close>Impressum</a></li>
     </ul>
   </aside>
 
   <main id="main">
 
-    <!-- HERO (redesigned) -->
+    <!-- HERO -->
     <section id="hero" class="hero">
       <div class="inner hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy" data-reveal>
           <div class="hero-badge-row">
             <span class="pill">Proyecto ONG · En preparación</span>
             <span class="pill pill-soft">Costa Daurada (Tarragona)</span>
@@ -117,13 +118,13 @@
           </p>
         </div>
 
-        <aside class="hero-visual" aria-label="Resumen visual">
+        <aside class="hero-visual" aria-label="Resumen visual" data-reveal>
           <div class="hero-visual-card">
             <div class="hero-visual-top">
-              <img class="hero-logo" src="assets/logo.png" alt="" aria-hidden="true" />
+              <img class="hero-logo" src="/assets/logo.png" alt="" aria-hidden="true" />
               <div>
                 <div class="hero-visual-title">Un modelo integrado</div>
-                <div class="muted small">Educación · Movimiento · Fisioterapia · (Logopedia año 2)</div>
+                <div class="muted small">Educación · Movimiento · Fisioterapia · Logopedia</div>
               </div>
             </div>
 
@@ -155,18 +156,18 @@
       </div>
     </section>
 
-    <!-- PROGRAM MODEL (redesigned visual) -->
+    <!-- PROGRAM MODEL -->
     <section id="modelo" class="section alt">
       <div class="inner">
-        <header class="section-header">
+        <header class="section-header" data-reveal>
           <p class="section-kicker">Modelo</p>
           <h2 class="section-title">Un modelo único, integrado y realista</h2>
           <p class="section-desc">
-            Un programa estable que combina terapia + educación + movimiento, diseñado para mejorar el día a día en el colegio y en casa.
+            Un programa estable que combina terapia + educación + movimiento, diseñado para mejorar el día a día en el cole y en casa.
           </p>
         </header>
 
-        <div class="model-grid">
+        <div class="model-grid" data-reveal>
           <div class="model-card">
             <h3>Formato del programa</h3>
             <ul class="icon-list">
@@ -224,10 +225,10 @@
       </div>
     </section>
 
-    <!-- FOUR PILLARS (accordion) -->
+    <!-- FOUR PILLARS -->
     <section id="areas" class="section">
       <div class="inner">
-        <header class="section-header">
+        <header class="section-header" data-reveal>
           <p class="section-kicker">Áreas</p>
           <h2 class="section-title">Cuatro pilares, un mismo plan individual</h2>
           <p class="section-desc">
@@ -235,10 +236,9 @@
           </p>
         </header>
 
-        <div class="tiles" role="list">
-          <!-- Educación -->
+        <div class="tiles" role="list" data-reveal>
           <article class="tile" role="listitem">
-            <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
+            <button class="tile-head" type="button" aria-expanded="false" data-accordion>
               <span class="tile-icon" aria-hidden="true">📘</span>
               <span class="tile-title">Educación especial</span>
               <span class="tile-sub">Aprendizaje funcional y autonomía</span>
@@ -254,9 +254,8 @@
             </div>
           </article>
 
-          <!-- Fisioterapia -->
           <article class="tile" role="listitem">
-            <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
+            <button class="tile-head" type="button" aria-expanded="false" data-accordion>
               <span class="tile-icon" aria-hidden="true">🧠</span>
               <span class="tile-title">Fisioterapia pediátrica</span>
               <span class="tile-sub">Función, postura y movimiento</span>
@@ -271,11 +270,10 @@
             </div>
           </article>
 
-          <!-- Logopedia -->
           <article class="tile" role="listitem">
-            <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
+            <button class="tile-head" type="button" aria-expanded="false" data-accordion>
               <span class="tile-icon" aria-hidden="true">🗣️</span>
-              <span class="tile-title">Logopedia <span class="pill-inline">Año 2</span></span>
+              <span class="tile-title">Logopedia</span>
               <span class="tile-sub">Comunicación funcional</span>
               <span class="tile-chevron" aria-hidden="true">▾</span>
             </button>
@@ -288,9 +286,8 @@
             </div>
           </article>
 
-          <!-- Movimiento -->
           <article class="tile" role="listitem">
-            <button class="tile-head" type="button" aria-expanded="false" onclick="toggleTile(this)">
+            <button class="tile-head" type="button" aria-expanded="false" data-accordion>
               <span class="tile-icon" aria-hidden="true">⚽</span>
               <span class="tile-title">Movimiento & regulación</span>
               <span class="tile-sub">Cuerpo, emoción y conducta</span>
@@ -306,7 +303,7 @@
           </article>
         </div>
 
-        <div class="who-box">
+        <div class="who-box" data-reveal>
           <h3>¿Para quién es este programa?</h3>
           <div class="who-grid">
             <ul class="bullets">
@@ -325,9 +322,9 @@
       </div>
     </section>
 
-    <!-- SCHOOLS & FAMILIES split -->
+    <!-- SCHOOLS & FAMILIES -->
     <section class="section alt">
-      <div class="inner split-grid">
+      <div class="inner split-grid" data-reveal>
         <div id="colegios" class="split-card">
           <p class="section-kicker">Para colegios</p>
           <h2 class="split-title">ACNEAE externalizable, con coordinación real</h2>
@@ -352,53 +349,57 @@
       </div>
     </section>
 
-    <!-- BLOG -->
+    <!-- BLOG (links now route) -->
     <section id="blog" class="section">
       <div class="inner">
-        <header class="section-header">
+        <header class="section-header" data-reveal>
           <p class="section-kicker">Blog</p>
           <h2 class="section-title">Acompañar mejor, paso a paso</h2>
           <p class="section-desc">Ideas prácticas sobre educación, movimiento y regulación emocional.</p>
         </header>
 
-        <div class="post-grid">
+        <div class="post-grid" data-reveal>
           <article class="post">
-            <a href="#" class="post-link" aria-label="Rutinas visuales sin agobio">
+            <a href="/blog/rutinas-visuales/" class="post-link">
               <h3>Rutinas visuales sin agobio</h3>
               <p class="muted">Cómo empezar con una rutina simple y sostenible.</p>
-              <span class="post-meta">Borrador · 3 min</span>
+              <span class="post-meta">3 min</span>
             </a>
           </article>
 
           <article class="post">
-            <a href="#" class="post-link" aria-label="Movimiento y atención en el aula">
+            <a href="/blog/movimiento-y-atencion/" class="post-link">
               <h3>Movimiento y atención en el aula</h3>
               <p class="muted">Mini-pausas que mejoran foco y regulación.</p>
-              <span class="post-meta">Borrador · 4 min</span>
+              <span class="post-meta">4 min</span>
             </a>
           </article>
 
           <article class="post">
-            <a href="#" class="post-link" aria-label="Comunicación funcional en casa">
+            <a href="/blog/comunicacion-funcional/" class="post-link">
               <h3>Comunicación funcional en casa</h3>
               <p class="muted">5 hábitos que facilitan participación y lenguaje.</p>
-              <span class="post-meta">Borrador · 5 min</span>
+              <span class="post-meta">5 min</span>
             </a>
           </article>
+        </div>
+
+        <div class="blog-footer" data-reveal>
+          <a class="btn-secondary" href="/blog/">Ver archivo del blog</a>
         </div>
       </div>
     </section>
 
-    <!-- INSTAGRAM (simple & reliable) -->
+    <!-- INSTAGRAM -->
     <section id="instagram" class="section alt">
       <div class="inner">
-        <header class="section-header">
+        <header class="section-header" data-reveal>
           <p class="section-kicker">Instagram</p>
           <h2 class="section-title">Nuestro día a día</h2>
-          <p class="section-desc">Sustituye estos enlaces por tus posts reales (3–6 posts máximo por velocidad).</p>
+          <p class="section-desc">Sustituye estos enlaces por tus posts reales (3–6 máximo por velocidad).</p>
         </header>
 
-        <div class="ig-embed-grid">
+        <div class="ig-embed-grid" data-reveal>
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REPLACE_POST_1/" data-instgrm-version="14">
             <a href="https://www.instagram.com/p/REPLACE_POST_1/">Ver en Instagram</a>
           </blockquote>
@@ -419,13 +420,13 @@
     <!-- CONTACT -->
     <section id="contacto" class="section">
       <div class="inner">
-        <header class="section-header">
+        <header class="section-header" data-reveal>
           <p class="section-kicker">Contacto</p>
           <h2 class="section-title">Contacto y lista de espera</h2>
           <p class="section-desc">Estamos en fase de preparación. Escríbenos y te contactaremos.</p>
         </header>
 
-        <div class="contact-grid">
+        <div class="contact-grid" data-reveal>
           <div class="contact-card">
             <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="contact" />
@@ -468,7 +469,7 @@
 
           <aside class="contact-aside">
             <div class="contact-badge">
-              <img class="contact-logo" src="assets/logo.png" alt="" aria-hidden="true" />
+              <img class="contact-logo" src="/assets/logo.png" alt="" aria-hidden="true" />
               <div>
                 <div class="contact-org">Mentes en Movimiento</div>
                 <div class="muted small">Proyecto ONG · web en construcción</div>
@@ -492,21 +493,19 @@
     <!-- IMPRESSUM -->
     <section id="impressum" class="section alt">
       <div class="inner">
-        <header class="section-header">
+        <header class="section-header" data-reveal>
           <p class="section-kicker">Impressum</p>
           <h2 class="section-title">Información legal</h2>
           <p class="section-desc">Texto placeholder — reemplazar cuando tengáis los datos de registro de la ONG.</p>
         </header>
 
-        <div class="legal card">
+        <div class="legal card" data-reveal>
           <p><strong>Organización:</strong> Mentes en Movimiento (en proceso de registro como ONG/asociación)</p>
           <p><strong>Responsable del contenido:</strong> [Nombre legal completo]</p>
           <p><strong>Dirección:</strong> [Calle, Ciudad, País]</p>
           <p><strong>Email:</strong> info@mentesenmovimiento.org</p>
           <p><strong>Registro:</strong> [Nº / autoridad]</p>
-          <p class="muted small">
-            Esta web está en construcción y no se indexa en buscadores.
-          </p>
+          <p class="muted small">Esta web está en construcción y no se indexa en buscadores.</p>
         </div>
       </div>
     </section>
@@ -518,58 +517,12 @@
       <div>© <span id="year"></span> Mentes en Movimiento</div>
       <div class="footer-links">
         <a href="#hero">Arriba</a>
+        <a href="/blog/">Blog</a>
         <a href="#contacto">Contacto</a>
-        <a href="#impressum">Impressum</a>
       </div>
     </div>
   </footer>
 
 </div>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  function openNavPanel() {
-    document.getElementById("nav-panel-backdrop").style.display = "block";
-    document.getElementById("nav-panel").style.display = "block";
-  }
-  function closeNavPanel() {
-    document.getElementById("nav-panel-backdrop").style.display = "none";
-    document.getElementById("nav-panel").style.display = "none";
-  }
-
-  // Dynamic tiles (accordion): one open at a time
-  function toggleTile(btn) {
-    const tile = btn.closest(".tile");
-    const body = tile.querySelector(".tile-body");
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-
-    document.querySelectorAll(".tile .tile-head[aria-expanded='true']").forEach((b) => {
-      if (b !== btn) {
-        b.setAttribute("aria-expanded", "false");
-        const t = b.closest(".tile");
-        t.querySelector(".tile-body").hidden = true;
-      }
-    });
-
-    btn.setAttribute("aria-expanded", String(!expanded));
-    body.hidden = expanded;
-  }
-
-  // CTA -> preselect topic in contact form
-  function setTopic(value) {
-    const sel = document.getElementById("topic");
-    if (!sel) return;
-    const options = Array.from(sel.options).map(o => o.value);
-    if (options.includes(value)) sel.value = value;
-  }
-
-  document.querySelectorAll("[data-set-topic]").forEach((el) => {
-    el.addEventListener("click", () => {
-      const v = el.getAttribute("data-set-topic");
-      if (v) setTopic(v);
-    });
-  });
-</script>
 </body>
 </html>
