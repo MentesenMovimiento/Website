@@ -48,16 +48,15 @@
 </head>
 <body>
 
-
-  <!-- STICKY AUTO-HIDE HEADER -->
-  <header class="site-header auto-hide">
-    <div class="container nav">
-      <a class="brand" href="/">
-        <img src="assets/images/logo-trans.svg" alt="Mentes en Movimiento logo" class="nav-logo" fetchpriority="high" decoding="async">
-      </a>
-      
-  <!-- Visually hidden until keyboard focus (CSS below handles it) -->
+  <!-- Skip link (first focusable) -->
   <a href="#servicios" class="skip-link">Saltar al contenido</a>
+
+  <!-- HEADER -->
+  <header class="site-header auto-hide" role="banner">
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="Ir al inicio">
+        <img src="assets/images/logo-trans.svg" alt="Mentes en Movimiento" class="nav-logo" fetchpriority="high" decoding="async">
+      </a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" data-nav-toggle>
         <span class="sr-only">Abrir menú</span>
@@ -67,7 +66,7 @@
       </button>
 
       <nav class="nav-menu" id="primary-menu" data-menu aria-label="Navegación principal" hidden>
-        <a class="nav-link" href="#servicios"></a>
+        <a class="nav-link" href="#servicios">Servicios</a>
         <a class="nav-link" href="#enfoque">Enfoque</a>
         <a class="nav-link" href="#blog">Blog</a>
         <a class="nav-link" href="#instagram">Instagram</a>
@@ -101,91 +100,111 @@
       <div class="container">
         <div class="section__head">
           <h2>Servicios</h2>
-          <p>Explora cada área. En móviles, toca una tarjeta para ver más.</p>
+          <p>Pulsa una tarjeta para ampliar. En móvil, se expanden en vertical.</p>
         </div>
 
-        <div class="services-grid">
-          <article class="flip-card">
-            <button class="flip-hit" aria-label="Girar: Educación" aria-pressed="false"></button>
-            <div class="flip-inner">
-              <div class="flip-front img-overlay" style="background-image:url('assets/images/tiles-educacion.jpg');">
-                <div class="flip-shade"></div>
+        <div class="services-grid services-expand" data-services>
+          <!-- Card 1 -->
+          <article class="service-card" data-service>
+            <button class="service-hit" type="button" aria-expanded="false">
+              <span class="sr-only">Abrir servicio: Educación Especial</span>
+            </button>
+
+            <div class="service-media" style="background-image:url('assets/images/tiles-educacion.jpg');">
+              <div class="service-shade"></div>
+              <div class="service-front">
                 <h3>Educación Especial</h3>
                 <p>Aprendizaje funcional, objetivos con sentido y participación en contextos reales.</p>
-                <span class="flip-hint">Tocar para ver más</span>
+                <span class="service-hint">Click para ampliar</span>
               </div>
-              <div class="flip-back">
-                <h3>Educación Especial</h3>
-                <ul>
-                  <li>Estrategias aplicables en casa y escuela</li>
-                  <li>Apoyo a autonomía y habilidades diarias</li>
-                  <li>Coordinación con centro educativo</li>
-                </ul>
-                <p class="muted small">Toca de nuevo para cerrar</p>
-              </div>
+            </div>
+
+            <div class="service-detail" role="region" aria-label="Detalles Educación Especial">
+              <h3>Educación Especial</h3>
+              <ul>
+                <li>Estrategias aplicables en casa y escuela</li>
+                <li>Apoyo a autonomía y habilidades diarias</li>
+                <li>Coordinación con centro educativo</li>
+              </ul>
+              <p class="muted small">Pulsa de nuevo para cerrar</p>
             </div>
           </article>
 
-          <article class="flip-card">
-            <button class="flip-hit" aria-label="Girar: Fisioterapia" aria-pressed="false"></button>
-            <div class="flip-inner">
-              <div class="flip-front img-overlay" style="background-image:url('assets/images/tiles-fisio.jpg');">
-                <div class="flip-shade"></div>
+          <!-- Card 2 -->
+          <article class="service-card" data-service>
+            <button class="service-hit" type="button" aria-expanded="false">
+              <span class="sr-only">Abrir servicio: Fisioterapia Pediátrica</span>
+            </button>
+
+            <div class="service-media" style="background-image:url('assets/images/tiles-fisio.jpg');">
+              <div class="service-shade"></div>
+              <div class="service-front">
                 <h3>Fisioterapia Pediátrica</h3>
                 <p>Postura, coordinación y fuerza funcional para la vida diaria.</p>
-                <span class="flip-hint">Tocar para ver más</span>
+                <span class="service-hint">Click para ampliar</span>
               </div>
-              <div class="flip-back">
-                <h3>Fisioterapia Pediátrica</h3>
-                <ul>
-                  <li>Equilibrio, coordinación</li>
-                  <li>Control postural y patrones de movimiento</li>
-                  <li>Objetivos medibles y sostenibles</li>
-                </ul>
-                <p class="muted small">Toca de nuevo para cerrar</p>
-              </div>
+            </div>
+
+            <div class="service-detail" role="region" aria-label="Detalles Fisioterapia Pediátrica">
+              <h3>Fisioterapia Pediátrica</h3>
+              <ul>
+                <li>Equilibrio y coordinación</li>
+                <li>Control postural y patrones de movimiento</li>
+                <li>Objetivos medibles y sostenibles</li>
+              </ul>
+              <p class="muted small">Pulsa de nuevo para cerrar</p>
             </div>
           </article>
 
-          <article class="flip-card">
-            <button class="flip-hit" aria-label="Girar: Logopedia" aria-pressed="false"></button>
-            <div class="flip-inner">
-              <div class="flip-front img-overlay" style="background-image:url('assets/images/tiles-logopedia.jpg');">
-                <div class="flip-shade"></div>
+          <!-- Card 3 -->
+          <article class="service-card" data-service>
+            <button class="service-hit" type="button" aria-expanded="false">
+              <span class="sr-only">Abrir servicio: Logopedia</span>
+            </button>
+
+            <div class="service-media" style="background-image:url('assets/images/tiles-logopedia.jpg');">
+              <div class="service-shade"></div>
+              <div class="service-front">
                 <h3>Logopedia</h3>
-                <p>Comunicación funcional: más que hablar.</p>
-                <span class="flip-hint">Tocar para ver más</span>
+                <p>Comunicación funcional: mucho más que hablar.</p>
+                <span class="service-hint">Click para ampliar</span>
               </div>
-              <div class="flip-back">
-                <h3>Logopedia</h3>
-                <ul>
-                  <li>Lenguaje verbal y no verbal</li>
-                  <li>Atención compartida e interacción</li>
-                  <li>Transferencia a casa y escuela</li>
-                </ul>
-                <p class="muted small">Toca de nuevo para cerrar</p>
-              </div>
+            </div>
+
+            <div class="service-detail" role="region" aria-label="Detalles Logopedia">
+              <h3>Logopedia</h3>
+              <ul>
+                <li>Lenguaje verbal y no verbal</li>
+                <li>Atención compartida e interacción</li>
+                <li>Transferencia a casa y escuela</li>
+              </ul>
+              <p class="muted small">Pulsa de nuevo para cerrar</p>
             </div>
           </article>
 
-          <article class="flip-card">
-            <button class="flip-hit" aria-label="Girar: Movimiento" aria-pressed="false"></button>
-            <div class="flip-inner">
-              <div class="flip-front img-overlay" style="background-image:url('assets/images/tiles-mov.jpg');">
-                <div class="flip-shade"></div>
+          <!-- Card 4 -->
+          <article class="service-card" data-service>
+            <button class="service-hit" type="button" aria-expanded="false">
+              <span class="sr-only">Abrir servicio: Movimiento y Regulación</span>
+            </button>
+
+            <div class="service-media" style="background-image:url('assets/images/tiles-mov.jpg');">
+              <div class="service-shade"></div>
+              <div class="service-front">
                 <h3>Movimiento &amp; Regulación</h3>
                 <p>Cuerpo tranquilo + mente disponible.</p>
-                <span class="flip-hint">Tocar para ver más</span>
+                <span class="service-hint">Click para ampliar</span>
               </div>
-              <div class="flip-back">
-                <h3>Movimiento &amp; Regulación</h3>
-                <ul>
-                  <li>Rutinas diarias funcionales</li>
-                  <li>Preparación para el aprendizaje</li>
-                  <li>Apoyo emocional y atencional</li>
-                </ul>
-                <p class="muted small">Toca de nuevo para cerrar</p>
-              </div>
+            </div>
+
+            <div class="service-detail" role="region" aria-label="Detalles Movimiento y Regulación">
+              <h3>Movimiento &amp; Regulación</h3>
+              <ul>
+                <li>Rutinas diarias funcionales</li>
+                <li>Preparación para el aprendizaje</li>
+                <li>Apoyo emocional y atencional</li>
+              </ul>
+              <p class="muted small">Pulsa de nuevo para cerrar</p>
             </div>
           </article>
         </div>
@@ -223,63 +242,53 @@
       </div>
     </section>
 
-    <!-- STEP-BY-STEP “UN ENFOQUE INTEGRADO” -->
+    <!-- “UN ENFOQUE INTEGRADO” TIMELINE -->
     <section class="section section--alt" id="enfoque">
       <div class="container">
         <div class="section__head">
           <h2>Un enfoque integrado</h2>
-          <p>Proceso progresivo para acompañar el desarrollo infantil.</p>
+          <p>Un proceso progresivo. Todas las etapas se ven siempre; la seleccionada se destaca y actualiza el contenido.</p>
         </div>
 
-        <div class="accordion">
-
-          <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false" aria-controls="p-explorar" id="t-explorar">1 — Explorar</button>
-            <div class="accordion-panel" id="p-explorar" role="region" aria-labelledby="t-explorar">
-              <div>
-                <p>Escuchar y observar con atención, recopilando contexto familiar y escolar para entender fortalezas y retos reales.</p>
-              </div>
-            </div>
+        <div class="timeline" data-timeline>
+          <div class="timeline-titles" role="tablist" aria-label="Etapas del enfoque">
+            <button class="timeline-title is-active" type="button" role="tab" aria-selected="true" data-step="0">
+              <span class="timeline-num">1</span>
+              <span class="timeline-label">Explorar</span>
+            </button>
+            <button class="timeline-title" type="button" role="tab" aria-selected="false" data-step="1">
+              <span class="timeline-num">2</span>
+              <span class="timeline-label">Evaluar</span>
+            </button>
+            <button class="timeline-title" type="button" role="tab" aria-selected="false" data-step="2">
+              <span class="timeline-num">3</span>
+              <span class="timeline-label">Planificar</span>
+            </button>
+            <button class="timeline-title" type="button" role="tab" aria-selected="false" data-step="3">
+              <span class="timeline-num">4</span>
+              <span class="timeline-label">Implementar</span>
+            </button>
+            <button class="timeline-title" type="button" role="tab" aria-selected="false" data-step="4">
+              <span class="timeline-num">5</span>
+              <span class="timeline-label">Revisar</span>
+            </button>
           </div>
 
-          <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false" aria-controls="p-evaluar" id="t-evaluar">2 — Evaluar</button>
-            <div class="accordion-panel" id="p-evaluar" role="region" aria-labelledby="t-evaluar">
-              <div>
-                <p>Evaluar funciones y habilidades en contextos reales para identificar necesidades y prioridades de intervención.</p>
-              </div>
+          <div class="timeline-panel" role="region" aria-live="polite">
+            <div class="timeline-content" data-timeline-content>
+              <!-- JS injects content here -->
+            </div>
+
+            <div class="timeline-controls" aria-label="Controles del enfoque">
+              <button class="timeline-arrow" type="button" data-timeline-prev aria-label="Anterior">‹</button>
+              <button class="timeline-arrow" type="button" data-timeline-next aria-label="Siguiente">›</button>
+            </div>
+
+            <div class="timeline-progress" aria-hidden="true">
+              <span class="timeline-bar" data-timeline-bar></span>
             </div>
           </div>
-
-          <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false" aria-controls="p-planificar" id="t-planificar">3 — Planificar</button>
-            <div class="accordion-panel" id="p-planificar" role="region" aria-labelledby="t-planificar">
-              <div>
-                <p>Diseñar un plan centrado en objetivos claros, medibles y relevantes para el niño y su entorno.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false" aria-controls="p-implementar" id="t-implementar">4 — Implementar</button>
-            <div class="accordion-panel" id="p-implementar" role="region" aria-labelledby="t-implementar">
-              <div>
-                <p>Aplicar estrategias y prácticas funcionales en la vida diaria del niño, con ajustes continuos.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-toggle" aria-expanded="false" aria-controls="p-revisar" id="t-revisar">5 — Revisar</button>
-            <div class="accordion-panel" id="p-revisar" role="region" aria-labelledby="t-revisar">
-              <div>
-                <p>Monitorear resultados, recopilar retroalimentación y adaptar el plan para fomentar autonomía y bienestar.</p>
-              </div>
-            </div>
-          </div>
-
         </div>
-
       </div>
     </section>
 
