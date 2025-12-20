@@ -89,13 +89,14 @@ a:hover { text-decoration: underline; }
 }
 .auto-hide.hide { transform: translateY(-120%); opacity: 0; }
 
-.nav {
-  display: flex;
+.nav{
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | centered menu | toggle */
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   gap: 10px;
 }
+
 
 .nav-logo { height: 48px; width: auto; }
 
