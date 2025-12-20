@@ -1,5 +1,5 @@
 /* -----------------------------------
-  GLOBAL VARIABLES
+   GLOBAL VARIABLES
 ----------------------------------- */
 :root {
   /* Colors */
@@ -46,7 +46,7 @@ img {
 }
 
 /* -----------------------------------
-  TYPOGRAPHY
+   TYPOGRAPHY
 ----------------------------------- */
 h1, h2, h3, h4 {
   font-family: var(--font-head);
@@ -67,7 +67,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Utility classes */
 .hidden {
   display: none !important;
 }
@@ -80,7 +79,9 @@ a:hover {
   font-size: 0.9rem;
 }
 
-/* Layout helpers */
+/* -----------------------------------
+   LAYOUT HELPERS
+----------------------------------- */
 .container {
   width: min(1120px, 100%);
   margin: 0 auto;
@@ -88,7 +89,7 @@ a:hover {
 }
 
 /* -----------------------------------
-  HEADER
+   HEADER / NAVBAR
 ----------------------------------- */
 .site-header {
   position: sticky;
@@ -99,12 +100,13 @@ a:hover {
   height: var(--nav-height);
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.45s ease, opacity 0.45s ease;
   border-bottom: 1px solid rgba(231,221,206,0.9);
 }
 
 .auto-hide.hide {
-  transform: translateY(-100%);
+  transform: translateY(-120%);
+  opacity: 0;
 }
 
 .nav {
@@ -120,7 +122,6 @@ a:hover {
   width: auto;
 }
 
-/* NAV MENU */
 .nav-menu {
   display: flex;
   gap: 18px;
@@ -135,7 +136,7 @@ a:hover {
 }
 
 /* -----------------------------------
-  HERO SECTION
+   HERO
 ----------------------------------- */
 .hero-mentes {
   color: var(--terracotta);
@@ -157,6 +158,20 @@ a:hover {
   white-space: nowrap;
 }
 
+/* Hero float animation */
+@keyframes heroFloat {
+  0% { transform: translateX(15%); }
+  25% { transform: translateX(85%); }
+  50% { transform: translateX(15%); }
+  75% { transform: translateX(85%); }
+  100% { transform: translateX(15%); }
+}
+
+.hero-animate {
+  display: inline-block;
+  animation: heroFloat 14s ease-in-out infinite;
+}
+
 .hero-slogan {
   color: var(--muted);
   font-size: 1.25rem;
@@ -168,20 +183,8 @@ a:hover {
   color: var(--muted);
 }
 
-/* Hero float animation */
-@keyframes floatText {
-  0% { transform: translateX(20%); }
-  50% { transform: translateX(80%); }
-  100% { transform: translateX(20%); }
-}
-
-.hero-animate {
-  display: inline-block;
-  animation: floatText 10s ease-in-out infinite;
-}
-
 /* -----------------------------------
-  BUTTONS
+   BUTTONS
 ----------------------------------- */
 .btn {
   display: inline-flex;
@@ -198,6 +201,7 @@ a:hover {
   background: var(--fuchsia);
   color: var(--white);
   border: 1px solid var(--fuchsia);
+  transition: background 0.35s ease;
 }
 
 .btn--primary:hover {
@@ -205,14 +209,14 @@ a:hover {
 }
 
 /* -----------------------------------
-  COMMON SECTION
+   COMMON SECTIONS
 ----------------------------------- */
 .section {
   padding: 40px 0;
 }
 
 .section--alt {
-  background: #fff;
+  background: var(--white);
   border-top: 1px solid rgba(231,221,206,0.9);
   border-bottom: 1px solid rgba(231,221,206,0.9);
 }
@@ -228,7 +232,7 @@ a:hover {
 }
 
 /* -----------------------------------
-  SERVICES FLIP CARDS
+   SERVICES — FLIP CARDS
 ----------------------------------- */
 .services-grid {
   display: grid;
@@ -240,6 +244,11 @@ a:hover {
   perspective: 1000px;
   min-height: 340px;
   position: relative;
+  transition: transform 0.35s ease;
+}
+
+.flip-card:hover {
+  transform: scale(1.02);
 }
 
 .flip-hit {
@@ -251,13 +260,13 @@ a:hover {
 }
 
 .flip-inner {
-  transition: transform 0.7s ease;
+  transition: transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
   transform-style: preserve-3d;
   position: relative;
 }
 
 .flip-card.is-flipped .flip-inner {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) scale(1.03);
 }
 
 .flip-front,
@@ -283,6 +292,11 @@ a:hover {
   position: absolute;
   inset: 0;
   background: var(--overlay-dark);
+  transition: background 0.3s ease;
+}
+
+.img-overlay:hover .flip-shade {
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .img-overlay h3,
@@ -293,12 +307,12 @@ a:hover {
 }
 
 /* -----------------------------------
-  BLOG PREVIEW CARDS
+   BLOG PREVIEW CARDS
 ----------------------------------- */
 .blog-cards {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .blog-card {
@@ -311,12 +325,21 @@ a:hover {
   box-shadow: var(--shadow);
   overflow: hidden;
   padding: 12px;
+  transform: translateY(14px);
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* -----------------------------------
-  ACCORDION (ENFOQUE)
+   ACCORDION (ENFOQUE)
 ----------------------------------- */
-
 .accordion {
   border-top: 1px solid rgba(231,221,206,0.9);
   border-bottom: 1px solid rgba(231,221,206,0.9);
@@ -329,7 +352,7 @@ a:hover {
 .accordion-toggle {
   width: 100%;
   background: var(--terracotta);
-  color: #fff;
+  color: var(--white);
   padding: 14px;
   font-family: var(--font-head);
   font-size: 1rem;
@@ -337,8 +360,12 @@ a:hover {
   border: none;
   text-align: left;
   cursor: pointer;
-  position: relative;
   border-radius: var(--radius);
+  transition: background 0.35s ease;
+}
+
+.accordion-toggle:hover {
+  background: #b5542e;
 }
 
 .accordion-toggle::after {
@@ -346,26 +373,27 @@ a:hover {
   position: absolute;
   right: 16px;
   font-size: 1.2rem;
+  transition: transform 0.35s ease;
 }
 
 .accordion-toggle.active::after {
-  content: "-";
+  transform: rotate(45deg);
 }
 
 .accordion-panel {
-  display: none;
-  padding: 14px 18px;
-  background: var(--white);
-  color: var(--text);
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 18px;
+  transition: max-height 0.45s ease, padding 0.35s ease;
 }
 
 /* -----------------------------------
-  INSTAGRAM EMBEDS
+   INSTAGRAM EMBEDS
 ----------------------------------- */
 .insta-embeds {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .instagram-media {
@@ -373,10 +401,20 @@ a:hover {
   border-radius: var(--radius) !important;
   overflow: hidden !important;
   margin: 0 auto !important;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: instaFade 0.8s ease forwards;
+}
+
+@keyframes instaFade {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* -----------------------------------
-  CONTACT FORM
+   CONTACT FORM
 ----------------------------------- */
 .form {
   background: var(--white);
@@ -412,17 +450,19 @@ textarea {
 }
 
 #contact-success {
-  display: none;
-  background: var(--fuchsia);
-  color: var(--white);
-  padding: 18px;
-  border-radius: var(--radius);
-  text-align: center;
-  margin-top: 12px;
+  display: block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#contact-success.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* -----------------------------------
-  COLLAPSIBLE TOC (BLOG PAGES)
+   COLLAPSIBLE TOC (BLOG PAGES)
 ----------------------------------- */
 .toc-toggle {
   background: var(--terracotta);
@@ -436,5 +476,11 @@ textarea {
 }
 
 .toc.hidden {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+.toc.visible {
+  max-height: 500px;
+  transition: max-height 0.45s ease;
 }
