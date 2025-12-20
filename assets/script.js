@@ -3,7 +3,7 @@
   const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
   const base = document.body.getAttribute('data-base') || '';
 
-  /* Header scroll */
+  /* Header scroll state */
   const header = $('[data-header]');
   if (header) {
     const onScroll = () => header.classList.toggle('scrolled', scrollY > 8);
@@ -18,7 +18,7 @@
     menu.style.display = expanded ? '' : 'flex';
   });
 
-  /* Reveal */
+  /* Reveal on scroll */
   const reveals = $$('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {
     const io = new IntersectionObserver((ents)=>ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); } }),{threshold:.15});
@@ -34,10 +34,11 @@
       let raf = 0;
       const onMove = (e) => {
         const r = inner.getBoundingClientRect();
-        const x = (e.clientX || (e.touches && e.touches[0].clientX)) - r.left;
-        const y = (e.clientY || (e.touches && e.touches[0].clientY)) - r.top;
-        const rx = ((y / r.height) - .5) * -6;   // rotateX
-        const ry = ((x / r.width)  - .5) *  6;   // rotateY
+        const client = e.touches ? e.touches[0] : e;
+        const x = client.clientX - r.left;
+        const y = client.clientY - r.top;
+        const rx = ((y / r.height) - .5) * -6;
+        const ry = ((x / r.width)  - .5) *  6;
         const glx = (x / r.width) * 100 + '%';
         const gly = (y / r.height) * 100 + '%';
         cancelAnimationFrame(raf);
@@ -100,7 +101,7 @@
     onProg(); addEventListener('scroll', onProg, {passive:true}); addEventListener('resize', onProg);
   }
 
-  /* ToC builder (articles) */
+  /* ToC builder + reading-time (articles) */
   const toc = $('[data-toc] nav');
   if (toc) {
     const hs = $$('.post__body h2, .post__body h3');
@@ -108,7 +109,6 @@
       if (!h.id) h.id = h.textContent.toLowerCase().trim().replace(/[^\wáéíóúüñ]+/gi,'-');
       const a = document.createElement('a'); a.href = `#${h.id}`; a.textContent = h.textContent; toc.appendChild(a);
     });
-    // Reading time
     const rt = document.querySelector('[data-reading-time]');
     const body = document.querySelector('.post__body');
     if (rt && body) {
@@ -135,7 +135,7 @@
     });
   }
 
-  /* Dynamic blog cards */
+  /* Dynamic blog cards: home + archive */
   const homeWrap = document.querySelector('[data-blog-home]');
   const archiveWrap = document.querySelector('[data-blog-archive]');
   if (homeWrap || archiveWrap) {
@@ -174,4 +174,10 @@
         </a>`).join('');
     }).catch(()=>{ /* keep simple links */ });
   }
+
+  /* Hide empty service banner if image is missing */
+  document.querySelectorAll('.service__media').forEach(el=>{
+    const url = getComputedStyle(el).getPropertyValue('--bg-url');
+    if(!url || url.trim()==='') el.style.display='none';
+  });
 })();
