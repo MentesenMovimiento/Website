@@ -42,6 +42,16 @@ img {
   display: block;
 }
 
+/* Visually hide skip link until focused */
+.skip-link{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  left:16px; top:12px; width:auto; height:auto; padding:8px 12px;
+  background: var(--text); color: var(--white); border-radius: 10px;
+  z-index: 10000; text-decoration: none;
+}
+
 /* -----------------------------------
    TYPOGRAPHY
 ----------------------------------- */
@@ -149,17 +159,12 @@ a:hover {
 /* -----------------------------------
    HERO
 ----------------------------------- */
-.hero-mentes {
-  color: var(--terracotta);
-}
-
-.hero-mov {
-  color: var(--fuchsia);
-}
+.hero-mentes { color: var(--terracotta); }
+.hero-mov { color: var(--fuchsia); }
 
 .hero {
   padding: 70px 0 40px;
-  text-align: center; /* mobile default */
+  text-align: center; /* always centered */
   overflow: hidden;
 }
 
@@ -168,7 +173,7 @@ a:hover {
   white-space: nowrap;
 }
 
-/* Left-aligned gentle drift (no center jump) */
+/* Gentle drift (no center jump) */
 @keyframes heroFloat {
   0%   { transform: translateX(0); }
   50%  { transform: translateX(8%); }
@@ -181,9 +186,15 @@ a:hover {
   will-change: transform; /* avoid jank on long loops */
 }
 
-/* Left-align hero on wider screens */
-@media (min-width: 768px) {
-  .hero { text-align: left; }
+.hero-slogan {
+  color: var(--muted);
+  font-size: 1.25rem;
+}
+
+.hero-lead {
+  max-width: 60ch;
+  margin: 0.8rem auto;
+  color: var(--muted);
 }
 
 /* -----------------------------------
@@ -235,24 +246,28 @@ a:hover {
 }
 
 /* -----------------------------------
-   SERVICES — FLIP CARDS
+   SERVICES — FLIP CARDS (square grid)
 ----------------------------------- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 18px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 992px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .flip-card {
+  /* changed: remove min-height, make perfect squares */
+  aspect-ratio: 1 / 1;
   perspective: 1000px;
-  min-height: 340px;
   position: relative;
   transition: transform 0.35s ease;
 }
-
-.flip-card:hover {
-  transform: scale(1.02);
-}
+.flip-card:hover { transform: scale(1.02); }
 
 .flip-hit {
   position: absolute;
@@ -281,6 +296,8 @@ a:hover {
   overflow: hidden;
   box-shadow: var(--shadow);
 }
+
+.flip-back { transform: rotateY(180deg); }
 
 .img-overlay {
   display: flex;
