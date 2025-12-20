@@ -6,12 +6,15 @@
   <title>Mentes en Movimiento · Cada niño, su propio camino</title>
   <meta name="description" content="Clínica de desarrollo infantil que integra educación, logopedia, fisioterapia y movimiento/regulación con un enfoque cálido y profesional." />
   <link rel="canonical" href="https://mentesenmovimiento.github.io/Website/" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
   <!-- OG -->
   <meta property="og:title" content="Mentes en Movimiento" />
   <meta property="og:description" content="Educación, logopedia, fisioterapia y movimiento integrados." />
@@ -19,8 +22,11 @@
   <meta property="og:url" content="https://mentesenmovimiento.github.io/Website/" />
   <meta property="og:image" content="assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+
   <!-- Structured data -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Mentes en Movimiento","url":"https://mentesenmovimiento.github.io/Website/","logo":"https://mentesenmovimiento.github.io/Website/assets/logo-horizontal.svg"}</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Mentes en Movimiento","url":"https://mentesenmovimiento.github.io/Website/","logo":"https://mentesenmovimiento.github.io/Website/assets/logo-horizontal.svg"}
+  </script>
 </head>
 <body data-base="">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -65,25 +71,26 @@
   </section>
 
   <main id="contenido">
-    <!-- Servicios (modern dynamic cards) -->
+    <!-- Servicios: Títulos sobre banda de imagen -->
     <section class="section" id="servicios">
       <div class="container">
         <header class="section__head reveal">
           <h2>Servicios</h2>
-          <p>Explora cada área. Pasa el ratón (o toca) para ver más y abre “Detalles”.</p>
+          <p>Explora cada área. Pasa el ratón (o toca) y abre “Detalles”.</p>
         </header>
 
         <div class="grid services-grid">
-          <!-- Educación -->
+          <!-- EDUCACIÓN (cambia la URL si tu archivo tiene otro nombre) -->
           <article class="service service--edu" data-tilt>
             <div class="service__inner">
-              <header class="service__head">
-                <div class="service__icon" aria-hidden="true">📘</div>
-                <h3>Educación Especial</h3>
-                <span class="chip">Autonomía</span>
-              </header>
+              <div class="service__media" style="--bg-url: url('assets/images/services/educacion.jpg');">
+                <header class="service__head">
+                  <div class="service__icon" aria-hidden="true">📘</div>
+                  <h3>Educación Especial</h3>
+                  <span class="chip">Autonomía</span>
+                </header>
+              </div>
               <p class="service__blurb">Aprendizaje funcional, objetivos con sentido y participación real en casa y escuela.</p>
-
               <details class="service__details">
                 <summary class="service__summary">Detalles</summary>
                 <ul class="service__list">
@@ -96,16 +103,17 @@
             </div>
           </article>
 
-          <!-- Fisioterapia -->
+          <!-- FISIOTERAPIA -->
           <article class="service service--fisio" data-tilt>
             <div class="service__inner">
-              <header class="service__head">
-                <div class="service__icon" aria-hidden="true">🧩</div>
-                <h3>Fisioterapia Pediátrica</h3>
-                <span class="chip">Función</span>
-              </header>
+              <div class="service__media" style="--bg-url: url('assets/images/services/fisioterapia.jpg');">
+                <header class="service__head">
+                  <div class="service__icon" aria-hidden="true">🧩</div>
+                  <h3>Fisioterapia Pediátrica</h3>
+                  <span class="chip">Función</span>
+                </header>
+              </div>
               <p class="service__blurb">Postura, coordinación y fuerza funcional conectadas con el día a día.</p>
-
               <details class="service__details">
                 <summary class="service__summary">Detalles</summary>
                 <ul class="service__list">
@@ -118,16 +126,17 @@
             </div>
           </article>
 
-          <!-- Movimiento / Regulación -->
+          <!-- MOVIMIENTO / REGULACIÓN -->
           <article class="service service--move" data-tilt>
             <div class="service__inner">
-              <header class="service__head">
-                <div class="service__icon" aria-hidden="true">🏃‍♀️</div>
-                <h3>Movimiento &amp; Regulación</h3>
-                <span class="chip">Bienestar</span>
-              </header>
+              <div class="service__media" style="--bg-url: url('assets/images/services/movimiento.jpg');">
+                <header class="service__head">
+                  <div class="service__icon" aria-hidden="true">🏃‍♀️</div>
+                  <h3>Movimiento &amp; Regulación</h3>
+                  <span class="chip">Bienestar</span>
+                </header>
+              </div>
               <p class="service__blurb">Cuerpo tranquilo para mente disponible. Rutinas breves, frecuentes y con sentido.</p>
-
               <details class="service__details">
                 <summary class="service__summary">Detalles</summary>
                 <ul class="service__list">
@@ -140,16 +149,17 @@
             </div>
           </article>
 
-          <!-- Logopedia -->
+          <!-- LOGOPEDIA -->
           <article class="service service--logo" data-tilt>
             <div class="service__inner">
-              <header class="service__head">
-                <div class="service__icon" aria-hidden="true">🗣️</div>
-                <h3>Logopedia</h3>
-                <span class="chip">Comunicación</span>
-              </header>
+              <div class="service__media" style="--bg-url: url('assets/images/services/logopedia.jpg');">
+                <header class="service__head">
+                  <div class="service__icon" aria-hidden="true">🗣️</div>
+                  <h3>Logopedia</h3>
+                  <span class="chip">Comunicación</span>
+                </header>
+              </div>
               <p class="service__blurb">Mucho más que hablar: comunicación funcional y significativa en contextos reales.</p>
-
               <details class="service__details">
                 <summary class="service__summary">Detalles</summary>
                 <ul class="service__list">
@@ -165,7 +175,7 @@
       </div>
     </section>
 
-    <!-- Enfoque (interactive stepper/tabs) -->
+    <!-- Enfoque (interactive tabs/stepper) -->
     <section class="section section--alt contours" id="enfoque">
       <div class="container">
         <header class="section__head reveal">
@@ -259,11 +269,16 @@
           <p>Contenido claro y útil para familias y centros.</p>
         </header>
         <div id="home-blog" class="grid blog-cards" data-blog-home>
-          <!-- Fallback (si JS falla) -->
+          <!-- Fallback si JS falla: 1 card -->
           <article class="blog-card">
             <a class="blog-card__link" href="blog/movimiento-desarrollo.html">
               <img loading="lazy" src="assets/images/blog/movimiento-cover.jpg" alt="" class="blog-card__img" />
-              <div class="blog-card__body"><span class="badge">Movimiento</span><h3>¿Por qué el movimiento es clave en el desarrollo infantil?</h3><p class="muted">Conexión cerebro–cuerpo y preparación para aprender.</p><p class="meta">8 min · Lectura</p></div>
+              <div class="blog-card__body">
+                <span class="badge">Movimiento</span>
+                <h3>¿Por qué el movimiento es clave en el desarrollo infantil?</h3>
+                <p class="muted">Conexión cerebro–cuerpo y preparación para aprender.</p>
+                <p class="meta">8 min · Lectura</p>
+              </div>
             </a>
           </article>
         </div>
@@ -271,7 +286,7 @@
       </div>
     </section>
 
-    <!-- Instagram (3 posts, dynamic from JSON) -->
+    <!-- Instagram (3 posts) -->
     <section class="section section--alt contours" id="instagram">
       <div class="container">
         <header class="section__head reveal">
@@ -279,15 +294,15 @@
           <p>Historias reales de progreso en el día a día.</p>
         </header>
         <div class="insta-grid" data-insta>
-          <!-- Fallback -->
-          <a class="insta" href="https://www.instagram.com/" target="_blank" rel="noopener">Ver en Instagram</a>
-          <a class="insta" href="https://www.instagram.com/" target="_blank" rel="noopener">Ver en Instagram</a>
-          <a class="insta" href="https://www.instagram.com/" target="_blank" rel="noopener">Ver en Instagram</a>
+          <!-- Fallback links si falla JS -->
+          <a class="insta" href="https://www.instagram.com/mentesenmovimiento/" target="_blank" rel="noopener">Ver en Instagram</a>
+          <a class="insta" href="https://www.instagram.com/mentesenmovimiento/" target="_blank" rel="noopener">Ver en Instagram</a>
+          <a class="insta" href="https://www.instagram.com/mentesenmovimiento/" target="_blank" rel="noopener">Ver en Instagram</a>
         </div>
       </div>
     </section>
 
-    <!-- Contacto (serverless form) -->
+    <!-- Contacto (serverless: FormSubmit) -->
     <section class="section" id="contacto">
       <div class="container">
         <div class="split">
@@ -350,4 +365,4 @@
 
   <script src="assets/script.js" defer></script>
 </body>
-</html>
+</html
