@@ -1,7 +1,6 @@
 (() => {
   const $ = (s, c=document) => c.querySelector(s);
   const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
-  const base = document.body.getAttribute('data-base') || '';
 
   /* Header scroll state */
   const header = document.querySelector('[data-header]');
@@ -15,8 +14,8 @@
   if (navBtn && menu) navBtn.addEventListener('click', () => {
     const expanded = navBtn.getAttribute('aria-expanded') === 'true';
     navBtn.setAttribute('aria-expanded', String(!expanded));
-    menu.style.display = expanded ? '' : 'flex';
-    menu.style.flexWrap = 'wrap';
+    if (!expanded) { menu.style.display = 'flex'; menu.style.flexWrap = 'wrap'; }
+    else { menu.style.display = ''; }
   });
 
   /* Reveal on scroll */
@@ -57,7 +56,68 @@
     });
   }
 
-  /* Tabs (Enfoque) with keyboard nav + auto-rotate + click zones */
+  /* --- Services background resolver ---------------------------------- */
+  // Try a list of candidate filenames for each service slug.
+  const candidatesBySlug = {
+    educacion: [
+      'assets/images/services/educacion.jpg',
+      'assets/images/services/educacion.webp',
+      'assets/images/educacion.jpg',
+      'assets/images/blog/individualizada-cover.jpg',
+      'assets/images/blog/educacion-cover.jpg'
+    ],
+    fisioterapia: [
+      'assets/images/services/fisioterapia.jpg',
+      'assets/images/services/fisioterapia.webp',
+      'assets/images/fisioterapia.jpg',
+      'assets/images/blog/movimiento-cover.jpg'
+    ],
+    movimiento: [
+      'assets/images/services/movimiento.jpg',
+      'assets/images/services/regulacion.jpg',
+      'assets/images/services/movimiento.webp',
+      'assets/images/movimiento.jpg',
+      'assets/images/blog/movimiento-cover.jpg'
+    ],
+    logopedia: [
+      'assets/images/services/logopedia.jpg',
+      'assets/images/services/logopedia.webp',
+      'assets/images/logopedia.jpg',
+      'assets/images/blog/logopedia-cover.jpg'
+    ]
+  };
+
+  const preload = (src) => new Promise(res => {
+    const img = new Image();
+    img.onload = () => res({src, ok:true});
+    img.onerror = () => res({src, ok:false});
+    img.src = src;
+  });
+
+  const setServiceBGs = async () => {
+    const banners = $$('.service__media');
+    for (const el of banners) {
+      const key = el.getAttribute('data-bg');
+      const list = candidatesBySlug[key] || [];
+      let chosen = '';
+      // try candidates sequentially
+      for (const src of list) {
+        // eslint-disable-next-line no-await-in-loop
+        const r = await preload(src);
+        if (r.ok) { chosen = src; break; }
+      }
+      if (chosen) {
+        el.style.setProperty('--bg-url', `url('${chosen}')`);
+        el.classList.add('has-bg');
+      } else {
+        // keep graceful gradient background
+        el.classList.remove('has-bg');
+      }
+    }
+  };
+  setServiceBGs();
+
+  /* --- Tabs (Enfoque) with autoplay + arrows -------------------------- */
   const tabs = $('[data-tabs]');
   if (tabs) {
     const btns = $$('.tabs__btn', tabs);
@@ -95,7 +155,7 @@
 
     // Buttons click / keyboard
     btns.forEach((b,i) => {
-      b.addEventListener('click', () => { select(i); start(); }); // reset timer
+      b.addEventListener('click', () => { select(i); start(); });
       b.addEventListener('keydown', (e)=>{
         if (['ArrowRight','ArrowLeft','Home','End'].includes(e.key)) {
           e.preventDefault();
@@ -172,15 +232,15 @@
     });
   }
 
-  /* Dynamic blog cards: home + archive */
+  /* Dynamic blog cards: home + archive (optional posts.json) */
   const homeWrap = document.querySelector('[data-blog-home]');
   const archiveWrap = document.querySelector('[data-blog-archive]');
   if (homeWrap || archiveWrap) {
-    const postsPath = base ? 'posts.json' : 'blog/posts.json';
-    fetch(postsPath).then(r => r.json()).then(posts => {
+    const postsPath = 'blog/posts.json';
+    fetch(postsPath).then(r => r.ok ? r.json() : Promise.reject()).then(posts => {
       const tpl = (p) => {
-        const cover = (base ? '../' : '') + p.cover;
-        const href = (base ? '' : 'blog/') + `${p.slug}.html`;
+        const cover = p.cover.startsWith('/') ? p.cover : (p.cover || 'assets/images/blog/movimiento-cover.jpg');
+        const href = 'blog/' + `${p.slug}.html`;
         return `
           <article class="blog-card reveal">
             <a class="blog-card__link" href="${href}">
@@ -197,24 +257,18 @@
       if (homeWrap) homeWrap.innerHTML = posts.slice(0,3).map(tpl).join('');
       if (archiveWrap) archiveWrap.innerHTML = posts.map(tpl).join('');
       $$('.reveal').forEach(el => el.classList.add('revealed'));
-    }).catch(()=>{});
+    }).catch(()=>{/* keep fallback */});
   }
 
-  /* Instagram (3 posts) */
+  /* Instagram (optional assets/insta.json) */
   const instaWrap = document.querySelector('[data-insta]');
   if (instaWrap) {
-    const url = (base ? '../' : '') + 'assets/insta.json';
-    fetch(url).then(r=>r.json()).then(items=>{
+    const url = 'assets/insta.json';
+    fetch(url).then(r=>r.ok?r.json():Promise.reject()).then(items=>{
       instaWrap.innerHTML = items.slice(0,3).map(it => `
         <a class="insta-card" href="${it.url}" target="_blank" rel="noopener">
-          <img src="${(base ? '../' : '')+it.thumb}" alt="${it.alt || ''}" loading="lazy">
+          <img src="${it.thumb}" alt="${it.alt || ''}" loading="lazy">
         </a>`).join('');
-    }).catch(()=>{});
+    }).catch(()=>{/* keep links */});
   }
-
-  /* Hide empty service banner if image is missing */
-  document.querySelectorAll('.service__media').forEach(el=>{
-    const url = getComputedStyle(el).getPropertyValue('--bg-url');
-    if(!url || url.trim()==='') el.style.display='none';
-  });
 })();
