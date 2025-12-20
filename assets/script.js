@@ -100,16 +100,32 @@
     });
   }
 
-  // SERVICES: expand on click (single-open) + special desktop placement for Movimiento
+  // SERVICES: expand on click (single-open) + generalized dynamic layout classing
   (function () {
     const grid = document.querySelector("[data-services]");
     if (!grid) return;
 
     const cards = Array.from(grid.querySelectorAll("[data-service]"));
+    const EXPANDED_CLASS_PREFIX = "expanded-";
 
-    const updateGridMode = () => {
-      const movExpanded = !!grid.querySelector('.service-card[data-service-id="movimiento"].is-expanded');
-      grid.classList.toggle("has-mov-expanded", movExpanded);
+    const clearExpandedStateClasses = () => {
+      grid.classList.remove("has-expanded");
+      Array.from(grid.classList).forEach((cls) => {
+        if (cls.startsWith(EXPANDED_CLASS_PREFIX)) grid.classList.remove(cls);
+      });
+    };
+
+    const applyExpandedStateClasses = () => {
+      clearExpandedStateClasses();
+
+      const expandedCard = grid.querySelector(".service-card.is-expanded");
+      if (!expandedCard) return;
+
+      const id = expandedCard.getAttribute("data-service-id") || "";
+      if (!id) return;
+
+      grid.classList.add("has-expanded");
+      grid.classList.add(`${EXPANDED_CLASS_PREFIX}${id}`);
     };
 
     const closeAll = (exceptCard) => {
@@ -119,7 +135,7 @@
         const hit = card.querySelector(".service-hit");
         if (hit) hit.setAttribute("aria-expanded", "false");
       });
-      updateGridMode();
+      applyExpandedStateClasses();
     };
 
     cards.forEach((card) => {
@@ -139,7 +155,8 @@
           card.classList.remove("is-expanded");
           hit.setAttribute("aria-expanded", "false");
         }
-        updateGridMode();
+
+        applyExpandedStateClasses();
       });
 
       card.addEventListener("keydown", (e) => {
@@ -152,10 +169,10 @@
       if (!clickedInside) closeAll();
     });
 
-    updateGridMode();
+    applyExpandedStateClasses();
   })();
 
-  // TIMELINE: Auto-advance (12s)
+  // TIMELINE: Auto-advance (progress bar + swap locked to 12 seconds)
   (function () {
     const root = document.querySelector("[data-timeline]");
     if (!root) return;
@@ -174,12 +191,27 @@
       { title: "Revisar", body: "Monitorear resultados, recopilar retroalimentación y adaptar el plan para fomentar autonomía y bienestar." },
     ];
 
-    let index = 0;
-    let timer = null;
-    let lastInteraction = Date.now();
-    const INTERVAL = 12000;
-
+    const INTERVAL = 12000; // exact 12s for both progress + swap
     const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+    let index = 0;
+    let timeoutId = null;
+    let paused = false;
+
+    const setBar = () => {
+      if (!bar) return;
+      if (prefersReducedMotion) {
+        bar.style.transition = "none";
+        bar.style.width = "100%";
+        return;
+      }
+      // restart the progress animation exactly INTERVAL long
+      bar.style.transition = "none";
+      bar.style.width = "0%";
+      void bar.offsetWidth;
+      bar.style.transition = `width ${INTERVAL}ms linear`;
+      bar.style.width = "100%";
+    };
 
     const render = (i) => {
       index = (i + steps.length) % steps.length;
@@ -192,54 +224,60 @@
 
       if (contentEl) {
         const step = steps[index];
-        contentEl.innerHTML = `
-          <h3>${step.title}</h3>
-          <p>${step.body}</p>
-        `;
+        contentEl.innerHTML = `<h3>${step.title}</h3><p>${step.body}</p>`;
       }
 
-      if (bar && !prefersReducedMotion) {
-        bar.style.transition = "none";
-        bar.style.width = "0%";
-        void bar.offsetWidth;
-        bar.style.transition = `width ${INTERVAL}ms linear`;
-        bar.style.width = "100%";
-      } else if (bar) {
-        bar.style.width = "100%";
-      }
+      setBar();
     };
 
-    const next = () => render(index + 1);
-    const prev = () => render(index - 1);
-
-    const stop = () => { if (timer) window.clearInterval(timer); timer = null; };
-
-    const start = () => {
+    const scheduleNext = () => {
       if (prefersReducedMotion) return;
-      stop();
-      timer = window.setInterval(() => {
-        if (Date.now() - lastInteraction < 1200) return;
-        next();
+      if (paused) return;
+      if (timeoutId) window.clearTimeout(timeoutId);
+
+      timeoutId = window.setTimeout(() => {
+        render(index + 1);
+        scheduleNext();
       }, INTERVAL);
     };
 
-    const interact = () => { lastInteraction = Date.now(); start(); };
+    const stop = () => {
+      paused = true;
+      if (timeoutId) window.clearTimeout(timeoutId);
+      timeoutId = null;
+      // freeze bar visually
+      if (bar && !prefersReducedMotion) {
+        const computed = window.getComputedStyle(bar);
+        const w = computed.width;
+        bar.style.transition = "none";
+        bar.style.width = w;
+      }
+    };
+
+    const start = () => {
+      paused = false;
+      setBar();
+      scheduleNext();
+    };
+
+    const next = () => { render(index + 1); start(); };
+    const prev = () => { render(index - 1); start(); };
 
     titles.forEach((btn) => {
       btn.addEventListener("click", () => {
         const stepIndex = Number(btn.getAttribute("data-step"));
         render(Number.isFinite(stepIndex) ? stepIndex : 0);
-        interact();
+        start();
       });
 
       btn.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") { e.preventDefault(); next(); interact(); }
-        if (e.key === "ArrowLeft") { e.preventDefault(); prev(); interact(); }
+        if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
       });
     });
 
-    if (nextBtn) nextBtn.addEventListener("click", () => { next(); interact(); });
-    if (prevBtn) prevBtn.addEventListener("click", () => { prev(); interact(); });
+    if (nextBtn) nextBtn.addEventListener("click", () => next());
+    if (prevBtn) prevBtn.addEventListener("click", () => prev());
 
     root.addEventListener("mouseenter", stop);
     root.addEventListener("mouseleave", start);
