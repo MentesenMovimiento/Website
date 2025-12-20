@@ -1,17 +1,10 @@
-/* assets/script.js
-   Site global JS (services expand + timeline + navbar threshold logic) */
+/* assets/script.js */
 (function () {
-  // -------------------------------
   // FOOTER YEAR
-  // -------------------------------
   const yearElem = document.getElementById("year");
   if (yearElem) yearElem.textContent = new Date().getFullYear();
 
-  // -------------------------------
-  // NAVBAR: FIXED + AUTO-HIDE AFTER 40%
-  // Visible (sticky) for first 40% of total scroll.
-  // After 40%: hide on scroll down, show on scroll up.
-  // -------------------------------
+  // NAVBAR: visible for first 40% then hide on down / show on up
   const header = document.querySelector(".site-header.auto-hide");
   let lastScroll = window.pageYOffset || 0;
   let ticking = false;
@@ -20,23 +13,21 @@
   const computeThreshold = () => {
     const doc = document.documentElement;
     const maxScroll = Math.max(0, doc.scrollHeight - window.innerHeight);
-    threshold = maxScroll * 0.40; // 40%
+    threshold = maxScroll * 0.40;
   };
 
   const handleHeaderOnScroll = () => {
     if (!header) return;
     const current = window.pageYOffset || 0;
 
-    // Always visible for first 40%
     if (current <= threshold) {
       header.classList.remove("hide");
       lastScroll = current;
       return;
     }
 
-    // hysteresis to prevent flicker
-    if (current > lastScroll + 10) header.classList.add("hide"); // down
-    else if (current < lastScroll - 10) header.classList.remove("hide"); // up
+    if (current > lastScroll + 10) header.classList.add("hide");
+    else if (current < lastScroll - 10) header.classList.remove("hide");
 
     lastScroll = current;
   };
@@ -57,9 +48,7 @@
     handleHeaderOnScroll();
   }
 
-  // -------------------------------
-  // NAVIGATION SCROLL-SPY
-  // -------------------------------
+  // SCROLL SPY
   (function () {
     const navLinks = document.querySelectorAll(".nav-menu .nav-link");
     const sections = Array.from(navLinks)
@@ -88,9 +77,7 @@
     document.addEventListener("DOMContentLoaded", onScrollSpy);
   })();
 
-  // -------------------------------
-  // MOBILE NAV TOGGLE (ARIA + [hidden])
-  // -------------------------------
+  // MOBILE NAV TOGGLE
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMenu = document.querySelector("[data-menu]");
   if (navToggle && navMenu) {
@@ -113,9 +100,7 @@
     });
   }
 
-  // -------------------------------
-  // SERVICES: EXPAND ON CLICK (single-open)
-  // -------------------------------
+  // SERVICES: expand on click (single-open)
   (function () {
     const grid = document.querySelector("[data-services]");
     if (!grid) return;
@@ -150,28 +135,18 @@
         }
       });
 
-      // Keyboard UX: Escape closes
       card.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeAll();
-        }
+        if (e.key === "Escape") closeAll();
       });
     });
 
-    // Clicking outside closes
     document.addEventListener("click", (e) => {
       const clickedInside = e.target.closest("[data-services]");
       if (!clickedInside) closeAll();
     });
   })();
 
-  // -------------------------------
-  // TIMELINE: Auto-advance + titles always visible
-  // - Auto rotates every 6s
-  // - Clicking a title selects it (title grows)
-  // - Content panel updates
-  // - Arrows allow prev/next
-  // -------------------------------
+  // TIMELINE: Auto-advance (DOUBLED TIMER to 12s)
   (function () {
     const root = document.querySelector("[data-timeline]");
     if (!root) return;
@@ -183,32 +158,17 @@
     const bar = root.querySelector("[data-timeline-bar]");
 
     const steps = [
-      {
-        title: "Explorar",
-        body: "Escuchar y observar con atención, recopilando contexto familiar y escolar para entender fortalezas y retos reales.",
-      },
-      {
-        title: "Evaluar",
-        body: "Evaluar funciones y habilidades en contextos reales para identificar necesidades y prioridades de intervención.",
-      },
-      {
-        title: "Planificar",
-        body: "Diseñar un plan centrado en objetivos claros, medibles y relevantes para el niño y su entorno.",
-      },
-      {
-        title: "Implementar",
-        body: "Aplicar estrategias y prácticas funcionales en la vida diaria del niño, con ajustes continuos.",
-      },
-      {
-        title: "Revisar",
-        body: "Monitorear resultados, recopilar retroalimentación y adaptar el plan para fomentar autonomía y bienestar.",
-      },
+      { title: "Explorar", body: "Escuchar y observar con atención, recopilando contexto familiar y escolar para entender fortalezas y retos reales." },
+      { title: "Evaluar", body: "Evaluar funciones y habilidades en contextos reales para identificar necesidades y prioridades de intervención." },
+      { title: "Planificar", body: "Diseñar un plan centrado en objetivos claros, medibles y relevantes para el niño y su entorno." },
+      { title: "Implementar", body: "Aplicar estrategias y prácticas funcionales en la vida diaria del niño, con ajustes continuos." },
+      { title: "Revisar", body: "Monitorear resultados, recopilar retroalimentación y adaptar el plan para fomentar autonomía y bienestar." },
     ];
 
     let index = 0;
     let timer = null;
     let lastInteraction = Date.now();
-    const INTERVAL = 6000;
+    const INTERVAL = 12000; // doubled from 6000
 
     const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
@@ -229,11 +189,9 @@
         `;
       }
 
-      // progress bar (simple reset + animate via JS)
       if (bar && !prefersReducedMotion) {
         bar.style.transition = "none";
         bar.style.width = "0%";
-        // force reflow
         void bar.offsetWidth;
         bar.style.transition = `width ${INTERVAL}ms linear`;
         bar.style.width = "100%";
@@ -245,25 +203,18 @@
     const next = () => render(index + 1);
     const prev = () => render(index - 1);
 
-    const stop = () => {
-      if (timer) window.clearInterval(timer);
-      timer = null;
-    };
+    const stop = () => { if (timer) window.clearInterval(timer); timer = null; };
 
     const start = () => {
-      if (prefersReducedMotion) return; // don't auto-rotate for reduced motion users
+      if (prefersReducedMotion) return;
       stop();
       timer = window.setInterval(() => {
-        // if user interacted very recently, give them a breather
         if (Date.now() - lastInteraction < 1200) return;
         next();
       }, INTERVAL);
     };
 
-    const interact = () => {
-      lastInteraction = Date.now();
-      start();
-    };
+    const interact = () => { lastInteraction = Date.now(); start(); };
 
     titles.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -272,7 +223,6 @@
         interact();
       });
 
-      // keyboard support (left/right)
       btn.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") { e.preventDefault(); next(); interact(); }
         if (e.key === "ArrowLeft") { e.preventDefault(); prev(); interact(); }
@@ -282,7 +232,6 @@
     if (nextBtn) nextBtn.addEventListener("click", () => { next(); interact(); });
     if (prevBtn) prevBtn.addEventListener("click", () => { prev(); interact(); });
 
-    // pause on hover/focus
     root.addEventListener("mouseenter", stop);
     root.addEventListener("mouseleave", start);
     root.addEventListener("focusin", stop);
@@ -292,41 +241,7 @@
     start();
   })();
 
-  // -------------------------------
-  // INSTAGRAM EMBED ANIMATION
-  // -------------------------------
-  document.addEventListener("DOMContentLoaded", () => {
-    const instaBlocks = document.querySelectorAll(".insta-embeds .instagram-media");
-    instaBlocks.forEach((block, i) => {
-      block.style.animationDelay = `${i * 0.15}s`;
-    });
-  });
-
-  // -------------------------------
-  // BLOG CARD APPEAR ON SCROLL
-  // -------------------------------
-  const blogCards = document.querySelectorAll(".blog-card");
-  if (blogCards.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = "running";
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    blogCards.forEach((card) => {
-      card.style.animationPlayState = "paused";
-      observer.observe(card);
-    });
-  }
-
-  // -------------------------------
-  // CONTACT FORM SUBMISSION
-  // -------------------------------
+  // CONTACT FORM
   const contactForm = document.querySelector("#contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", async (event) => {
@@ -344,7 +259,7 @@
         if (response.ok) {
           const successElem = document.getElementById("contact-success");
           if (successElem) {
-            successElem.hidden = false;       // IMPORTANT: unhide
+            successElem.hidden = false;
             successElem.classList.add("show");
           }
           contactForm.classList.add("hidden");
