@@ -1,15 +1,16 @@
-// -----------------------------------
-// SITE GLOBAL JS
-// -----------------------------------
-
+/* assets/script.js
+   Site global JS (regenerated with ARIA + navbar threshold logic) */
 (function () {
-
-  // ---- FOOTER YEAR INJECTION ----
+  // -------------------------------
+  // FOOTER YEAR
+  // -------------------------------
   const yearElem = document.getElementById("year");
   if (yearElem) yearElem.textContent = new Date().getFullYear();
 
-  // ---- AUTO-HIDE NAVBAR ON SCROLL (visible for first 40% of page) ----
-  const header = document.querySelector(".site-header");
+  // -------------------------------
+  // NAVBAR: STICKY + AUTO-HIDE AFTER 40%
+  // -------------------------------
+  const header = document.querySelector(".site-header.auto-hide");
   let lastScroll = window.pageYOffset || 0;
   let ticking = false;
   let threshold = 0;
@@ -17,82 +18,82 @@
   const computeThreshold = () => {
     const doc = document.documentElement;
     const maxScroll = Math.max(0, doc.scrollHeight - window.innerHeight);
-    threshold = maxScroll * 0.40; // 40% of total scrollable height
+    threshold = maxScroll * 0.40; // 40%
   };
-  computeThreshold();
-  window.addEventListener("resize", computeThreshold, { passive: true });
 
   const handleHeaderOnScroll = () => {
-    const currentScroll = window.pageYOffset || 0;
+    if (!header) return;
+    const current = window.pageYOffset || 0;
 
-    // Always show header before hitting threshold
-    if (currentScroll <= threshold) {
-      header && header.classList.remove("hide");
-      lastScroll = currentScroll;
+    if (current <= threshold) {
+      header.classList.remove("hide"); // keep visible before threshold
+      lastScroll = current;
       return;
     }
 
-    // Hysteresis of 10px to avoid flicker
-    if (currentScroll > lastScroll + 10) {
-      header && header.classList.add("hide");      // scrolling down
-    } else if (currentScroll < lastScroll - 10) {
-      header && header.classList.remove("hide");   // scrolling up
-    }
+    // hysteresis to prevent flicker
+    if (current > lastScroll + 10) header.classList.add("hide");        // down
+    else if (current < lastScroll - 10) header.classList.remove("hide"); // up
 
-    lastScroll = currentScroll;
+    lastScroll = current;
+  };
+
+  const onScrollRaf = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      handleHeaderOnScroll();
+      ticking = false;
+    });
   };
 
   if (header) {
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        handleHeaderOnScroll();
-        ticking = false;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    // Run once on load
-    handleHeaderOnScroll();
+    computeThreshold();
+    window.addEventListener("resize", computeThreshold, { passive: true });
+    window.addEventListener("scroll", onScrollRaf, { passive: true });
+    handleHeaderOnScroll(); // init
   }
 
-  // ---- NAVIGATION SCROLL-SPY ----
-  (function() {
+  // -------------------------------
+  // NAVIGATION SCROLL-SPY
+  // -------------------------------
+  (function () {
     const navLinks = document.querySelectorAll(".nav-menu .nav-link");
-    const sections = Array.from(navLinks).map(link => {
-      const target = document.querySelector(link.getAttribute("href"));
-      return target ? { link, target } : null;
-    }).filter(Boolean);
+    const sections = Array.from(navLinks)
+      .map((link) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        return target ? { link, target } : null;
+      })
+      .filter(Boolean);
 
     function onScrollSpy() {
-      const scrollPos = window.pageYOffset + (window.innerHeight / 3);
+      const y = window.pageYOffset + window.innerHeight / 3;
       sections.forEach(({ link, target }) => {
         const top = target.offsetTop;
         const bottom = top + target.offsetHeight;
-        if (scrollPos >= top && scrollPos < bottom) {
-          navLinks.forEach(l => l.classList.remove("active"));
+        if (y >= top && y < bottom) {
+          navLinks.forEach((l) => l.classList.remove("active"));
           link.classList.add("active");
         }
       });
     }
 
-    window.addEventListener("scroll", onScrollSpy);
-    window.addEventListener("resize", onScrollSpy);
+    window.addEventListener("scroll", onScrollSpy, { passive: true });
+    window.addEventListener("resize", onScrollSpy, { passive: true });
     document.addEventListener("DOMContentLoaded", onScrollSpy);
   })();
 
-  // ---- MOBILE NAV TOGGLE ----
+  // -------------------------------
+  // MOBILE NAV TOGGLE (ARIA + [hidden])
+  // -------------------------------
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMenu = document.querySelector("[data-menu]");
   if (navToggle && navMenu) {
     const setMenuVisibility = (show) => {
       navToggle.setAttribute("aria-expanded", String(show));
       navMenu.classList.toggle("open", show);
-      // If markup uses [hidden], keep it in sync (no text/link changes)
-      if (navMenu.hasAttribute("hidden")) {
-        if (show) navMenu.removeAttribute("hidden");
-        else navMenu.setAttribute("hidden", "");
-      }
+      if (show) navMenu.removeAttribute("hidden");
+      else navMenu.setAttribute("hidden", "");
     };
 
     navToggle.addEventListener("click", () => {
@@ -107,39 +108,79 @@
     });
   }
 
-  // ---- FLIP CARD INTERACTIONS ----
+  // -------------------------------
+  // FLIP CARD INTERACTIONS (single-open + ARIA)
+  // -------------------------------
   document.querySelectorAll(".flip-card").forEach((card) => {
     const hit = card.querySelector(".flip-hit");
     if (!hit) return;
+
+    // ensure initial ARIA
+    hit.setAttribute("aria-pressed", "false");
+
     hit.addEventListener("click", (event) => {
       event.preventDefault();
+
+      const isOpen = card.classList.contains("is-flipped");
+      // close others
       document.querySelectorAll(".flip-card.is-flipped").forEach((openCard) => {
-        if (openCard !== card) openCard.classList.remove("is-flipped");
+        if (openCard !== card) {
+          openCard.classList.remove("is-flipped");
+          const btn = openCard.querySelector(".flip-hit");
+          if (btn) btn.setAttribute("aria-pressed", "false");
+        }
       });
+
+      // toggle current
       card.classList.toggle("is-flipped");
+      hit.setAttribute("aria-pressed", String(!isOpen));
     });
   });
 
-  // ---- ACCORDION FUNCTIONALITY ----
-  document.querySelectorAll(".accordion-toggle").forEach((toggle) => {
+  // -------------------------------
+  // ACCORDION (single-open + ARIA)
+  // -------------------------------
+  const accordionToggles = document.querySelectorAll(".accordion-toggle");
+  accordionToggles.forEach((toggle) => {
+    // ensure initial ARIA-expanded is false if missing
+    if (!toggle.hasAttribute("aria-expanded")) {
+      toggle.setAttribute("aria-expanded", "false");
+    }
+
     toggle.addEventListener("click", () => {
       const panel = toggle.nextElementSibling;
       if (!panel) return;
-      const currentlyOpen = panel.classList.contains("open");
+
+      const wantOpen = !panel.classList.contains("open");
+
+      // close all
       document.querySelectorAll(".accordion-panel.open").forEach((p) => {
         p.classList.remove("open");
+        p.setAttribute("aria-hidden", "true");
       });
       document.querySelectorAll(".accordion-toggle.active").forEach((t) => {
         t.classList.remove("active");
+        t.setAttribute("aria-expanded", "false");
       });
-      if (!currentlyOpen) {
+
+      // open target if desired
+      if (wantOpen) {
         panel.classList.add("open");
+        panel.setAttribute("aria-hidden", "false");
         toggle.classList.add("active");
+        toggle.setAttribute("aria-expanded", "true");
+      } else {
+        panel.classList.remove("open");
+        panel.setAttribute("aria-hidden", "true");
+        toggle.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
       }
     });
   });
 
-  // ---- COLLAPSIBLE TOC FOR BLOG PAGES ----
+  // -------------------------------
+  // COLLAPSIBLE TOC FOR BLOG PAGES
+  // -------------------------------
   document.querySelectorAll(".toc[data-toc]").forEach((tocBlock) => {
     const navList = tocBlock.querySelector("nav");
     if (!navList) return;
@@ -156,7 +197,9 @@
     });
   });
 
-  // ---- INSTAGRAM EMBED ANIMATION ----
+  // -------------------------------
+  // INSTAGRAM EMBED ANIMATION
+  // -------------------------------
   document.addEventListener("DOMContentLoaded", () => {
     const instaBlocks = document.querySelectorAll(".insta-embeds .instagram-media");
     instaBlocks.forEach((block, i) => {
@@ -164,24 +207,31 @@
     });
   });
 
-  // ---- BLOG CARD APPEAR ON SCROLL ----
+  // -------------------------------
+  // BLOG CARD APPEAR ON SCROLL
+  // -------------------------------
   const blogCards = document.querySelectorAll(".blog-card");
   if (blogCards.length) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = "running";
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
     blogCards.forEach((card) => {
       card.style.animationPlayState = "paused";
       observer.observe(card);
     });
   }
 
-  // ---- CONTACT FORM SUBMISSION ----
+  // -------------------------------
+  // CONTACT FORM SUBMISSION
+  // -------------------------------
   const contactForm = document.querySelector("#contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", async (event) => {
@@ -192,7 +242,7 @@
         const response = await fetch(submitUrl, {
           method: "POST",
           body: formData,
-          headers: { "Accept": "application/json" }
+          headers: { Accept: "application/json" },
         });
         if (response.ok) {
           const successElem = document.getElementById("contact-success");
@@ -206,5 +256,4 @@
       }
     });
   }
-
 })();
