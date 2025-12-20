@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Landing & legal -->
+  <url>
+    <loc>https://mentesenmovimiento.org/</loc>
+  </url>
+  <url>
+    <loc>https://mentesenmovimiento.org/legal.html</loc>
+  </url>
+
+  <!-- Blog archive + posts -->
+  <url>
+    <loc>https://mentesenmovimiento.org/blog/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mentesenmovimiento.org/blog/movimiento-desarrollo.html</loc>
+  </url>
+  <url>
+    <loc>https://mentesenmovimiento.org/blog/logopedia-global.html</loc>
+  </url>
+  <url>
+    <loc>https://mentesenmovimiento.org/blog/intervencion-individualizada.html</loc>
+  </url>
+
+</urlset>
