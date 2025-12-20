@@ -1,9 +1,13 @@
 // -----------------------------------
 // SITE GLOBAL JS
 // -----------------------------------
-(function() {
+(function () {
 
-  // #### MOBILE MENU TOGGLE ####
+  // Inject current year in footer
+  const yearElem = document.getElementById("year");
+  if (yearElem) yearElem.textContent = new Date().getFullYear();
+
+  // ######## MOBILE MENU TOGGLE ########
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMenu = document.querySelector("[data-menu]");
 
@@ -25,46 +29,47 @@
     });
   }
 
-  // #### FLIP CARD TAP/CLICK SUPPORT ####
+  // ######## FLIP CARD TAP/CLICK SUPPORT ########
   document.querySelectorAll(".flip-card").forEach((card) => {
     const hit = card.querySelector(".flip-hit");
     if (!hit) return;
 
     hit.addEventListener("click", (event) => {
       event.preventDefault();
-      // Close other flipped cards
+
+      // Close any other flipped cards before opening this one
       document.querySelectorAll(".flip-card.is-flipped").forEach((openCard) => {
         if (openCard !== card) openCard.classList.remove("is-flipped");
       });
+
       card.classList.toggle("is-flipped");
     });
   });
 
-  // #### FORM SUBMISSION (INLINE SUCCESS) ####
+  // ######## CONTACT FORM SUBMISSION (INLINE SUCCESS) ########
   const contactForm = document.querySelector("#contact-form");
   if (contactForm) {
-    contactForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
       const formData = new FormData(contactForm);
       const submitUrl = contactForm.getAttribute("action");
 
       try {
-        const res = await fetch(submitUrl, {
+        const response = await fetch(submitUrl, {
           method: "POST",
           body: formData,
           headers: { "Accept": "application/json" }
         });
 
-        if (res.ok) {
-          // Show inline success
-          document.querySelector("#contact-success").classList.add("show");
+        if (response.ok) {
+          document.getElementById("contact-success").classList.add("show");
           contactForm.classList.add("hidden");
         } else {
-          alert("Hubo un error al enviar. Intenta de nuevo más tarde.");
+          alert("Hubo un error al enviar tu mensaje. Inténtalo de nuevo más tarde.");
         }
       } catch (err) {
-        alert("Hubo un error al enviar. Verifica tu conexión e intenta de nuevo.");
+        alert("Error de red. Verifica tu conexión e intenta de nuevo.");
       }
     });
   }
