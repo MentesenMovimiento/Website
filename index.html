@@ -1,252 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Mentes en Movimiento | Clínica de desarrollo infantil</title>
-  <meta name="description" content="Clínica de desarrollo infantil que integra mente, cuerpo y acción. Acompañamos a niños y adolescentes con un enfoque cálido, profesional e inclusivo, en coordinación con familias y centros educativos." />
+  <title>Mentes en Movimiento · Clínica de desarrollo infantil</title>
+  <meta name="description" content="Clínica de desarrollo infantil que integra mente, cuerpo y acción. Acompañamos a niños y adolescentes con un enfoque cálido, profesional e inclusivo." />
+  <link rel="canonical" href="https://mentesenmovimiento.org/" />
 
-  <!-- Canonical (adjust if you later use custom domain) -->
-  <link rel="canonical" href="https://mentesenmovimiento.github.io/Website/" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/styles.css" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Mentes en Movimiento" />
-  <meta property="og:description" content="Cada niño, su propio camino. Integramos mente, cuerpo y acción." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mentesenmovimiento.github.io/Website/" />
-  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <meta property="og:description" content="Cada niño, su propio camino – acompañamiento integral en desarrollo infantil." />
+  <meta property="og:url" content="https://mentesenmovimiento.org/" />
+  <meta property="og:image" content="https://mentesenmovimiento.org/assets/images/og-image.jpg" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- STAGING MODE (uncomment while building) -->
-  <!-- <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" /> -->
-
-  <!-- Fonts: only 2 families -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/site.css" />
-
-  <!-- JSON-LD (LocalBusiness / Organization) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Mentes en Movimiento",
-    "url":"https://mentesenmovimiento.github.io/Website/",
-    "logo":"https://mentesenmovimiento.github.io/Website/assets/images/logo.png",
-    "sameAs":[
-      "https://www.instagram.com/mentesinmotion/"
-    ],
-    "description":"Clínica de desarrollo infantil que integra mente, cuerpo y acción. Acompañamos a niños y adolescentes con un enfoque cálido, profesional e inclusivo, en coordinación con familias y centros educativos."
-  }
-  </script>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
 
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="./" aria-label="Ir a la página de inicio">
-        <img class="brand-logo" src="assets/images/logo.png" alt="Logo Mentes en Movimiento" />
-        <div class="brand-text">
-          <span class="brand-line">
-            <span class="brand-mentes">Mentes</span> en <span class="brand-mov">Movimiento</span>
-          </span>
-          <span class="brand-tagline">Cada niño, su propio camino</span>
-        </div>
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="assets/images/logo.svg" alt="Mentes en Movimiento logo">
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <button class="nav-toggle" aria-expanded="false" data-nav-toggle>
+        <span class="sr-only">Abrir menú</span>
+        <svg width="24" height="24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
       </button>
 
-      <nav class="site-nav" aria-label="Navegación principal">
+      <nav class="nav-menu" data-menu>
         <a href="#servicios">Servicios</a>
-        <a href="#modelo">Enfoque</a>
+        <a href="#enfoque">Enfoque</a>
         <a href="#blog">Blog</a>
         <a href="#instagram">Instagram</a>
         <a href="#contacto">Contacto</a>
         <a href="#legal">Legal</a>
       </nav>
+
+      <a class="btn btn--primary hide-sm" href="#contacto">Contactar</a>
     </div>
   </header>
 
-  <main id="main">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <h1>
+        <span class="brand-mentes">Mentes</span> en <span class="brand-mov">Movimiento</span>
+      </h1>
+      <p class="hero-slogan">Cada niño, su propio camino</p>
+      <p class="hero-lead">
+        Clínica de desarrollo infantil que integra mente, cuerpo y acción.
+        Acompañamos a niños y adolescentes con un enfoque cálido, profesional e inclusivo.
+      </p>
+      <a class="btn btn--primary" href="#contacto">Contactar</a>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1 class="hero-title">
-            <span class="brand-mentes">Mentes</span> en <span class="brand-mov">Movimiento</span>
-          </h1>
+  <main>
 
-          <p class="hero-slogan">Cada niño, su propio camino</p>
-
-          <p class="hero-lead">
-            Clínica de desarrollo infantil que integra mente, cuerpo y acción.
-            Acompañamos a niños y adolescentes con un enfoque cálido, profesional e inclusivo,
-            en coordinación con familias y centros educativos.
-          </p>
-
-          <!-- Only 1 CTA -->
-          <a class="btn btn-primary" href="#contacto">Contactar</a>
-
-          <div class="hero-trust">
-            <span class="trust-pill">Cálido</span>
-            <span class="trust-pill">Profesional</span>
-            <span class="trust-pill">Inclusivo</span>
-            <span class="trust-pill">Coordinado</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-card">
-            <div class="hero-path">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-            <div class="hero-card-title">Modelo de intervención</div>
-            <div class="hero-card-body">
-              <div class="step">
-                <span class="step-n">1</span>
-                <span class="step-t">Comprender</span>
-                <span class="step-d">Escucha + evaluación funcional</span>
-              </div>
-              <div class="step">
-                <span class="step-n">2</span>
-                <span class="step-t">Conectar</span>
-                <span class="step-d">Mente + cuerpo + acción</span>
-              </div>
-              <div class="step">
-                <span class="step-n">3</span>
-                <span class="step-t">Acompañar</span>
-                <span class="step-d">Plan realista y progresivo</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES (Flip cards) -->
-    <section id="servicios" class="section">
+    <!-- SERVICES -->
+    <section class="section" id="servicios">
       <div class="container">
-        <header class="section-head">
+        <div class="section__head">
           <h2>Servicios</h2>
-          <p>Explora cada área. En móvil, toca una tarjeta para ver más.</p>
-        </header>
+          <p>Explora cada área. En móviles, toca una tarjeta para ver más.</p>
+        </div>
 
         <div class="services-grid">
 
-          <!-- Educación -->
+          <!-- EDUCACIÓN -->
           <article class="flip-card">
-            <button class="flip-hit" type="button" aria-label="Girar tarjeta: Educación"></button>
+            <button class="flip-hit" aria-label="Girar: Educación"></button>
             <div class="flip-inner">
-              <div class="flip-front" style="background-image:url('assets/images/services/tiles-educacion.jpg');">
+              <div class="flip-front" style="background-image:url('assets/images/tiles-educacion.jpg');">
                 <div class="flip-shade"></div>
-                <div class="flip-front-content">
-                  <span class="pill pill-terracotta">Educación</span>
-                  <h3>Educación Especial</h3>
-                  <p>Aprendizaje funcional, autonomía y apoyo al entorno escolar.</p>
-                  <span class="flip-hint">Tocar para ver más</span>
-                </div>
+                <h3>Educación Especial</h3>
+                <p>Aprendizaje funcional, objetivos con sentido y participación en contextos reales.</p>
+                <span class="flip-hint">Tocar para ver más</span>
               </div>
-
               <div class="flip-back">
                 <h3>Educación Especial</h3>
                 <ul>
-                  <li>Objetivos funcionales y realistas</li>
-                  <li>Estrategias aplicables en casa y aula</li>
-                  <li>Apoyo a habilidades diarias y autonomía</li>
-                  <li>Coordinación con el centro educativo cuando procede</li>
+                  <li>Estrategias aplicables en casa y escuela</li>
+                  <li>Apoyo a autonomía y habilidades diarias</li>
+                  <li>Coordinación con centro educativo</li>
                 </ul>
-                <p class="flip-note">Vuelve a tocar para cerrar.</p>
+                <p class="muted small">Toca de nuevo para cerrar</p>
               </div>
             </div>
           </article>
 
-          <!-- Fisio -->
+          <!-- FISIOTERAPIA -->
           <article class="flip-card">
-            <button class="flip-hit" type="button" aria-label="Girar tarjeta: Fisioterapia"></button>
+            <button class="flip-hit" aria-label="Girar: Fisioterapia"></button>
             <div class="flip-inner">
-              <div class="flip-front" style="background-image:url('assets/images/services/tiles-fisio.jpg');">
+              <div class="flip-front" style="background-image:url('assets/images/tiles-fisio.jpg');">
                 <div class="flip-shade"></div>
-                <div class="flip-front-content">
-                  <span class="pill pill-sage">Fisioterapia</span>
-                  <h3>Fisioterapia Pediátrica</h3>
-                  <p>Función, postura y movimiento aplicado al día a día.</p>
-                  <span class="flip-hint">Tocar para ver más</span>
-                </div>
+                <h3>Fisioterapia Pediátrica</h3>
+                <p>Postura, coordinación y fuerza funcional para la vida diaria.</p>
+                <span class="flip-hint">Tocar para ver más</span>
               </div>
-
               <div class="flip-back">
                 <h3>Fisioterapia Pediátrica</h3>
                 <ul>
-                  <li>Equilibrio, coordinación y fuerza funcional</li>
+                  <li>Equilibrio, coordinación</li>
                   <li>Control postural y patrones de movimiento</li>
-                  <li>Objetivos conectados con la vida diaria</li>
-                  <li>Progreso medible y sostenible</li>
+                  <li>Objetivos medibles y sostenibles</li>
                 </ul>
-                <p class="flip-note">Vuelve a tocar para cerrar.</p>
+                <p class="muted small">Toca de nuevo para cerrar</p>
               </div>
             </div>
           </article>
 
-          <!-- Logopedia -->
+          <!-- LOGOPEDIA -->
           <article class="flip-card">
-            <button class="flip-hit" type="button" aria-label="Girar tarjeta: Logopedia"></button>
+            <button class="flip-hit" aria-label="Girar: Logopedia"></button>
             <div class="flip-inner">
-              <div class="flip-front" style="background-image:url('assets/images/services/tiles-logopedia.jpg');">
+              <div class="flip-front" style="background-image:url('assets/images/tiles-logopedia.jpg');">
                 <div class="flip-shade"></div>
-                <div class="flip-front-content">
-                  <span class="pill pill-fuchsia">Logopedia</span>
-                  <h3>Logopedia</h3>
-                  <p>Comunicación funcional: mucho más que hablar.</p>
-                  <span class="flip-hint">Tocar para ver más</span>
-                </div>
+                <h3>Logopedia</h3>
+                <p>Comunicación funcional: más que hablar.</p>
+                <span class="flip-hint">Tocar para ver más</span>
               </div>
-
               <div class="flip-back">
                 <h3>Logopedia</h3>
                 <ul>
                   <li>Lenguaje verbal y no verbal</li>
                   <li>Atención compartida e interacción</li>
-                  <li>Comprensión e intención comunicativa</li>
                   <li>Transferencia a casa y escuela</li>
                 </ul>
-                <p class="flip-note">Vuelve a tocar para cerrar.</p>
+                <p class="muted small">Toca de nuevo para cerrar</p>
               </div>
             </div>
           </article>
 
-          <!-- Movimiento -->
+          <!-- MOVIMIENTO -->
           <article class="flip-card">
-            <button class="flip-hit" type="button" aria-label="Girar tarjeta: Movimiento y Regulación"></button>
+            <button class="flip-hit" aria-label="Girar: Movimiento"></button>
             <div class="flip-inner">
-              <div class="flip-front" style="background-image:url('assets/images/services/tiles-mov.jpg');">
+              <div class="flip-front" style="background-image:url('assets/images/tiles-mov.jpg');">
                 <div class="flip-shade"></div>
-                <div class="flip-front-content">
-                  <span class="pill pill-gold">Regulación</span>
-                  <h3>Movimiento &amp; Regulación</h3>
-                  <p>Conexión cuerpo–emoción para bienestar y aprendizaje.</p>
-                  <span class="flip-hint">Tocar para ver más</span>
-                </div>
+                <h3>Movimiento & Regulación</h3>
+                <p>Cuerpo tranquilo + mente disponible.</p>
+                <span class="flip-hint">Tocar para ver más</span>
               </div>
-
               <div class="flip-back">
-                <h3>Movimiento &amp; Regulación</h3>
+                <h3>Movimiento & Regulación</h3>
                 <ul>
-                  <li>Rutinas y herramientas para el día a día</li>
-                  <li>Preparación para aprender (learning readiness)</li>
-                  <li>Movimiento como apoyo atencional y emocional</li>
-                  <li>Enfoque respetuoso, no punitivo</li>
+                  <li>Rutinas diarias funcionales</li>
+                  <li>Preparación para el aprendizaje</li>
+                  <li>Apoyo emocional y atencional</li>
                 </ul>
-                <p class="flip-note">Vuelve a tocar para cerrar.</p>
+                <p class="muted small">Toca de nuevo para cerrar</p>
               </div>
             </div>
           </article>
@@ -255,99 +170,93 @@
       </div>
     </section>
 
-    <!-- REWORKED: “UN ENFOQUE INTEGRADO” -->
-    <section id="modelo" class="section section-soft">
+    <!-- ENFOQUE -->
+    <section class="section section--alt" id="enfoque">
       <div class="container">
-        <header class="section-head">
+        <div class="section__head">
           <h2>Un enfoque integrado</h2>
-          <p>
-            No trabajamos “por partes”. Integramos educación, comunicación, fisioterapia y movimiento para crear un plan coherente y aplicable a la vida real.
-          </p>
-        </header>
-
-        <div class="model-grid">
-          <div class="model-card">
-            <h3><span class="kicker terracotta">01</span> Comprender</h3>
-            <p>Escucha, evaluación funcional y definición de objetivos con sentido.</p>
-          </div>
-
-          <div class="model-card">
-            <h3><span class="kicker fuchsia">02</span> Conectar</h3>
-            <p>Integramos mente, cuerpo y acción para que el niño pueda participar y aprender.</p>
-          </div>
-
-          <div class="model-card">
-            <h3><span class="kicker sage">03</span> Acompañar</h3>
-            <p>Seguimiento, ajustes y coordinación con familia y centro educativo cuando procede.</p>
-          </div>
+          <p>Pasos claros y aplicables que consideramos como pilares de nuestro acompañamiento.</p>
         </div>
 
-        <div class="model-path" aria-hidden="true">
-          <span class="path-dot"></span><span class="path-dot"></span><span class="path-dot"></span><span class="path-dot"></span><span class="path-dot"></span>
+        <div class="grid" style="gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+
+          <div class="card">
+            <h3>1 — Comprender</h3>
+            <p>Escucha, observación y evaluación funcional, para entender fortalezas y necesidades.</p>
+          </div>
+
+          <div class="card">
+            <h3>2 — Conectar</h3>
+            <p>Integración de mente, cuerpo y acción para promover participación.</p>
+          </div>
+
+          <div class="card">
+            <h3>3 — Acompañar</h3>
+            <p>Plan realista, seguimiento y ajustes; colaboración con familia y escuela.</p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- BLOG -->
-    <section id="blog" class="section">
+    <!-- BLOG PREVIEW -->
+    <section class="section" id="blog">
       <div class="container">
-        <header class="section-head">
+        <div class="section__head">
           <h2>Blog</h2>
-          <p>Artículos claros y útiles para familias y centros educativos.</p>
-        </header>
+          <p>Artículos claros y útiles para familias y profesionales.</p>
+        </div>
 
-        <div class="blog-grid">
+        <div class="blog-cards">
           <a class="blog-card" href="blog/movimiento-desarrollo.html">
-            <img src="assets/images/blog/blog-movimiento.jpg" alt="Movimiento y desarrollo infantil" loading="lazy" />
+            <img src="assets/images/blog-movimiento.jpg" alt="Blog: ¿Por qué el movimiento es clave en el desarrollo infantil?" loading="lazy">
             <div>
-              <h3>¿Por qué el movimiento es clave en el desarrollo infantil?</h3>
-              <p>Conexión cerebro–cuerpo, regulación y preparación para aprender.</p>
+              <h3>¿Por qué el movimiento es clave?</h3>
+              <p class="muted">Cuerpo y cerebro: conexión que importa.</p>
             </div>
           </a>
 
           <a class="blog-card" href="blog/logopedia-global.html">
-            <img src="assets/images/blog/blog-logopedia.jpg" alt="Logopedia y desarrollo global" loading="lazy" />
+            <img src="assets/images/blog-logopedia.jpg" alt="Blog: Logopedia y desarrollo global" loading="lazy">
             <div>
-              <h3>Logopedia y desarrollo global: mucho más que hablar</h3>
-              <p>Comunicación funcional e intervención con impacto real.</p>
+              <h3>Logopedia y desarrollo global</h3>
+              <p class="muted">Mucho más que hablar.</p>
             </div>
           </a>
 
-          <a class="blog-card" href="blog/cada-nino-camino.html">
-            <img src="assets/images/blog/blog-camino.jpg" alt="Intervención individualizada" loading="lazy" />
+          <a class="blog-card" href="blog/intervencion-individualizada.html">
+            <img src="assets/images/blog-camino.jpg" alt="Blog: intervención individualizada" loading="lazy">
             <div>
               <h3>Cada niño, su propio camino</h3>
-              <p>Qué significa una intervención verdaderamente individualizada.</p>
+              <p class="muted">Intervención individualizada centrada en fortalezas.</p>
             </div>
           </a>
         </div>
 
-        <div class="section-actions">
-          <a class="btn btn-ghost" href="blog/index.html">Ver archivo del blog</a>
-        </div>
+        <p style="text-align:center; margin-top:14px;">
+          <a class="btn btn--link" href="blog/index.html">Ver todo el blog</a>
+        </p>
       </div>
     </section>
 
-    <!-- INSTAGRAM (back on landing) -->
-    <section id="instagram" class="section section-soft">
+    <!-- INSTAGRAM -->
+    <section class="section section--alt" id="instagram">
       <div class="container">
-        <header class="section-head">
+        <div class="section__head">
           <h2>Instagram</h2>
-          <p>Últimas publicaciones. (Sustituye los enlaces por tus 3 permalinks reales.)</p>
-        </header>
+          <p>Últimas publicaciones</p>
+        </div>
 
-        <div class="ig-grid">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REEMPLAZA_POST_1/" data-instgrm-version="14">
-            <a href="https://www.instagram.com/p/REEMPLAZA_POST_1/">Ver en Instagram</a>
-          </blockquote>
-
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REEMPLAZA_POST_2/" data-instgrm-version="14">
-            <a href="https://www.instagram.com/p/REEMPLAZA_POST_2/">Ver en Instagram</a>
-          </blockquote>
-
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/REEMPLAZA_POST_3/" data-instgrm-version="14">
-            <a href="https://www.instagram.com/p/REEMPLAZA_POST_3/">Ver en Instagram</a>
-          </blockquote>
+        <div class="insta-embeds">
+          <script>
+            fetch('assets/insta.json')
+              .then(r => r.json())
+              .then(data => {
+                data.posts.forEach(url => {
+                  document.write(`<blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14"><a href="${url}">Ver en Instagram</a></blockquote>`);
+                });
+              });
+          </script>
         </div>
 
         <script async src="https://www.instagram.com/embed.js"></script>
@@ -355,68 +264,96 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contacto" class="section">
+    <section class="section" id="contacto">
       <div class="container">
-        <header class="section-head">
+        <div class="section__head">
           <h2>Contacto</h2>
-          <p>Escríbenos y te responderemos lo antes posible.</p>
-        </header>
+          <p>Envíanos tu mensaje y te responderemos lo antes posible.</p>
+        </div>
 
-        <!-- NOTE: GitHub Pages doesn't process forms without backend -->
-        <form class="contact-form" action="mailto:info@mentesenmovimiento.org" method="post" enctype="text/plain">
-          <div class="form-row">
-            <label>
-              Nombre
-              <input name="name" type="text" required />
-            </label>
+        <div class="split">
 
-            <label>
-              Email
-              <input name="email" type="email" required />
-            </label>
+          <!-- Contact details -->
+          <div class="contact">
+            <li><strong>Email</strong><br><a href="mailto:info@mentesenmovimiento.org">info@mentesenmovimiento.org</a></li>
+            <li><strong>Ubicación</strong><br>Costa Daurada (Tarragona)</li>
           </div>
 
-          <label>
-            Mensaje
-            <textarea name="message" rows="6" required></textarea>
-          </label>
+          <!-- Contact form -->
+          <form id="contact-form" class="form" action="https://formsubmit.co/info@mentesenmovimiento.org" method="POST">
+            <!-- Hidden fields for FormSubmit -->
+            <input type="hidden" name="_subject" value="Consulta desde la web Mentes en Movimiento" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
 
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
+            <div class="field">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Teléfono (opcional)</label>
+              <input type="text" id="phone" name="phone">
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            </div>
+
+            <button class="btn btn--primary" type="submit">Enviar</button>
+
+            <div id="contact-success">
+              ¡Gracias! Tu mensaje ha sido enviado con éxito. Te responderemos pronto.
+            </div>
+          </form>
+
+        </div>
       </div>
     </section>
 
-    <!-- LEGAL / IMPRESSUM -->
-    <section id="legal" class="section section-soft">
+    <!-- LEGAL -->
+    <section class="section section--alt" id="legal">
       <div class="container">
-        <header class="section-head">
+        <div class="section__head">
           <h2>Legal, transparencia y privacidad</h2>
-          <p>Queremos que te sientas seguro/a al contactarnos. Aquí lo esencial, claro y sin letra pequeña.</p>
-        </header>
+          <p>Queremos que te sientas seguro/a al contactarnos. Aquí lo esencial explicado de forma clara.</p>
+        </div>
 
         <div class="legal-grid">
           <div class="legal-card">
-            <h3>Identidad</h3>
+            <h3>Identidad y contacto</h3>
             <p><strong>Mentes en Movimiento</strong></p>
             <p><strong>Email:</strong> <a href="mailto:info@mentesenmovimiento.org">info@mentesenmovimiento.org</a></p>
             <p><strong>Zona:</strong> Costa Daurada (Tarragona)</p>
-            <p class="small muted">La entidad legal (ONG/asociación) está en proceso de registro. Este apartado se actualizará con razón social, NIF y número de registro.</p>
+            <p class="muted small">
+              Nota: la entidad legal (ONG/asociación) está en proceso de registro. Este apartado se actualizará con razón social, NIF y número de registro.
+            </p>
           </div>
 
           <div class="legal-card">
-            <h3>Privacidad (resumen)</h3>
-            <p>Solo tratamos tus datos si nos los envías (email o formulario) y únicamente para responder a tu consulta.</p>
+            <h3>Privacidad</h3>
+            <p>
+              Solo procesamos tus datos si nos los envías mediante el formulario o correo. Únicamente los usamos para responder y coordinar.
+            </p>
             <ul>
-              <li>Datos: nombre, email, mensaje</li>
-              <li>Finalidad: responder y coordinar</li>
-              <li>Conservación: el tiempo necesario</li>
+              <li><strong>Datos tratados:</strong> nombre, email, teléfono (si lo proporcionas), mensaje</li>
+              <li><strong>Finalidad:</strong> responder y coordinar</li>
+              <li><strong>Conservación:</strong> el tiempo necesario para responder tu consulta</li>
             </ul>
           </div>
 
           <div class="legal-card">
             <h3>Contenido de terceros</h3>
-            <p>Podemos mostrar contenido incrustado (ej. Instagram). Estos servicios pueden usar cookies según sus políticas.</p>
-            <p class="small muted">Si prefieres, puedes bloquear este contenido desde tu navegador.</p>
+            <p>
+              Podemos mostrar contenido incrustado (por ejemplo de Instagram). Dichos servicios pueden utilizar cookies según sus propias políticas.
+            </p>
+            <p class="muted small">Puedes bloquear este contenido desde tu navegador si lo prefieres.</p>
           </div>
         </div>
       </div>
@@ -424,19 +361,27 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-row">
-      <div class="footer-brand">
-        <span class="brand-mentes">Mentes</span> en <span class="brand-mov">Movimiento</span>
+    <div class="container footer__grid">
+
+      <div>
+        <a class="brand" href="/">
+          <img src="assets/images/logo.svg" alt="Mentes en Movimiento logo" height="28">
+        </a>
+        <p class="muted small">© <span id="year"></span> Mentes en Movimiento</p>
       </div>
 
-      <div class="footer-links">
-        <a href="https://www.instagram.com/mentesinmotion/" rel="noopener">Instagram</a>
-        <span class="muted">© <span id="year"></span></span>
-      </div>
+      <nav class="footer__nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#enfoque">Enfoque</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#legal">Legal</a>
+      </nav>
+
     </div>
   </footer>
 
-  <script src="assets/js/site.js"></script>
+  <script src="assets/script.js"></script>
 </body>
 </html>
