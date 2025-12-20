@@ -192,7 +192,7 @@ a:hover { text-decoration: underline; }
   font-family: var(--font-head);
   font-weight: 500;
   color: var(--terracotta);
-  font-size: 0.90rem;
+  font-size: 0.5rem;
 }
 
 /* BUTTONS */
