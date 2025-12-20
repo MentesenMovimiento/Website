@@ -543,3 +543,50 @@ textarea {
     transition-duration: 0.01ms !important;
   }
 }
+/* Mobile nav: smooth open/close animation (open = animated; close = instant due to [hidden]) */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-flex; /* show hamburger on mobile */
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Collapsed state is non-interactive & visually hidden via [hidden] from JS.
+     When [hidden] is removed and .open is toggled, we animate the panel in. */
+  .nav-menu {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: rgba(251,245,236,0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(231,221,206,0.9);
+    display: grid;
+    gap: 10px;
+    padding: 12px 16px;
+
+    /* animation bits */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    overflow: hidden;
+    pointer-events: none;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    z-index: 1000;
+  }
+
+  /* Animated open state (triggered by JS adding .open and removing [hidden]) */
+  .nav-menu.open {
+    max-height: 320px;     /* enough for 6 links; adjust if you add more */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-menu .nav-link {
+    padding: 10px 6px;
+  }
+}
