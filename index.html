@@ -29,7 +29,6 @@
 
   <!-- Preload key imagery -->
   <link rel="preload" as="image" href="assets/images/logo-trans.svg" />
-  <link rel="preload" as="image" href="assets/images/logo-trans.svg" />
   <link rel="preload" as="image" href="assets/images/tiles-educacion.jpg" />
   <link rel="preload" as="image" href="assets/images/tiles-fisio.jpg" />
   <link rel="preload" as="image" href="assets/images/tiles-logopedia.jpg" />
@@ -65,23 +64,20 @@
         </svg>
       </button>
 
+      <!-- Removed “Contacto” and removed CTA button -->
       <nav class="nav-menu" id="primary-menu" data-menu aria-label="Navegación principal" hidden>
         <a class="nav-link" href="#servicios">Servicios</a>
         <a class="nav-link" href="#enfoque">Enfoque</a>
         <a class="nav-link" href="#blog">Blog</a>
         <a class="nav-link" href="#instagram">Instagram</a>
-        <a class="nav-link" href="#contacto">Contacto</a>
         <a class="nav-link" href="#legal">Legal</a>
       </nav>
-
-      <a class="btn btn--primary hide-sm" href="#contacto">Contactar</a>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner container">
-      <!-- Logo replaces text title -->
       <div class="hero-logo-wrap hero-animate" aria-label="Mentes en Movimiento">
         <img
           src="assets/images/logo-trans.svg"
@@ -113,7 +109,7 @@
 
         <div class="services-grid services-expand" data-services>
           <!-- Card 1 -->
-          <article class="service-card" data-service>
+          <article class="service-card" data-service data-service-id="educacion">
             <button class="service-hit" type="button" aria-expanded="false">
               <span class="sr-only">Abrir servicio: Educación Especial</span>
             </button>
@@ -138,7 +134,7 @@
           </article>
 
           <!-- Card 2 -->
-          <article class="service-card" data-service>
+          <article class="service-card" data-service data-service-id="fisio">
             <button class="service-hit" type="button" aria-expanded="false">
               <span class="sr-only">Abrir servicio: Fisioterapia Pediátrica</span>
             </button>
@@ -163,7 +159,7 @@
           </article>
 
           <!-- Card 3 -->
-          <article class="service-card" data-service>
+          <article class="service-card" data-service data-service-id="logopedia">
             <button class="service-hit" type="button" aria-expanded="false">
               <span class="sr-only">Abrir servicio: Logopedia</span>
             </button>
@@ -188,7 +184,7 @@
           </article>
 
           <!-- Card 4 -->
-          <article class="service-card" data-service>
+          <article class="service-card" data-service data-service-id="movimiento">
             <button class="service-hit" type="button" aria-expanded="false">
               <span class="sr-only">Abrir servicio: Movimiento y Regulación</span>
             </button>
@@ -335,7 +331,7 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION (kept; nav removed) -->
     <section class="section" id="contacto">
       <div class="container">
         <div class="section__head">
@@ -377,74 +373,36 @@
       </div>
     </section>
 
-    <!-- LEGAL SECTION -->
-    <section class="section section--alt" id="legal">
-      <div class="container">
-        <div class="section__head">
-          <h2>Legal y privacidad</h2>
-          <p>Transparencia, confianza y claridad. Aquí tienes lo esencial de forma sencilla.</p>
+    <!-- LEGAL FOOTER (compact) -->
+    <section class="legal-footer" id="legal" aria-label="Legal y privacidad">
+      <div class="container legal-footer__inner">
+        <div class="legal-footer__brand">
+          <div class="legal-footer__name">Mentes en Movimiento</div>
+          <div class="legal-footer__meta muted">
+            Costa Daurada (Tarragona) · España
+          </div>
+          <div class="legal-footer__meta muted small">
+            Dirección: <span class="muted">[Añadir dirección cuando esté confirmada]</span>
+          </div>
         </div>
 
-        <div class="legal-layout">
-          <aside class="legal-aside">
-            <div class="legal-badge">
-              <div class="legal-badge__title">Mentes en Movimiento</div>
-              <div class="legal-badge__meta">
-                <span class="chip">Costa Daurada</span>
-                <span class="chip chip--sage">Atención infantil</span>
-              </div>
-              <a class="legal-contact" href="mailto:info@mentesenmovimiento.org">
-                info@mentesenmovimiento.org
-              </a>
-              <p class="muted small" style="margin-top:10px;">
-                La entidad legal (ONG/asociación) está en proceso de registro.
-                Actualizaremos aquí razón social, NIF y registro cuando esté disponible.
-              </p>
-            </div>
-          </aside>
-
-          <div class="legal-main">
-            <div class="legal-cards">
-              <article class="legal-card">
-                <div class="legal-card__icon" aria-hidden="true">🧾</div>
-                <h3>Identidad</h3>
-                <ul class="legal-list">
-                  <li><span class="k">Nombre:</span> <span class="v">Mentes en Movimiento</span></li>
-                  <li><span class="k">Email:</span> <span class="v"><a href="mailto:info@mentesenmovimiento.org">info@mentesenmovimiento.org</a></span></li>
-                  <li><span class="k">Zona:</span> <span class="v">Costa Daurada (Tarragona)</span></li>
-                </ul>
-              </article>
-
-              <article class="legal-card">
-                <div class="legal-card__icon" aria-hidden="true">🔒</div>
-                <h3>Privacidad</h3>
-                <p class="muted" style="margin-top:6px;">
-                  Procesamos tus datos solo para responder a tu consulta y coordinar próximos pasos.
-                </p>
-                <ul class="legal-list">
-                  <li><span class="k">Datos:</span> <span class="v">Nombre, Email, Teléfono (si lo envías), Mensaje</span></li>
-                  <li><span class="k">Finalidad:</span> <span class="v">Responder y coordinar</span></li>
-                  <li><span class="k">Conservación:</span> <span class="v">El tiempo necesario para responder</span></li>
-                </ul>
-              </article>
-
-              <article class="legal-card">
-                <div class="legal-card__icon" aria-hidden="true">🧩</div>
-                <h3>Contenido de terceros</h3>
-                <p class="muted" style="margin-top:6px;">
-                  Mostramos contenido incrustado (por ejemplo Instagram). Estos servicios pueden usar cookies según sus propias políticas.
-                </p>
-                <p class="muted small" style="margin-top:10px;">
-                  Puedes bloquear este contenido desde tu navegador si lo prefieres.
-                </p>
-              </article>
-            </div>
-
-            <div class="legal-note">
-              <strong>Nota:</strong> Si necesitas un documento legal completo (política de privacidad/cookies y aviso legal)
-              para cumplimiento total en España/UE, lo preparamos cuando tengáis la razón social y registro final.
-            </div>
+        <div class="legal-footer__contact">
+          <div class="legal-footer__label">Contacto</div>
+          <a class="legal-footer__link" href="mailto:info@mentesenmovimiento.org">info@mentesenmovimiento.org</a>
+          <div class="muted small" style="margin-top:6px;">
+            Horario: <span class="muted">[Añadir si aplica]</span>
           </div>
+        </div>
+
+        <div class="legal-footer__privacy">
+          <div class="legal-footer__label">Privacidad</div>
+          <p class="muted small" style="margin:0;">
+            Usamos los datos del formulario únicamente para responder a tu consulta y coordinar el contacto.
+            No vendemos ni cedemos datos a terceros. Puedes solicitar acceso, rectificación o eliminación escribiendo al email.
+          </p>
+          <p class="muted small" style="margin:10px 0 0;">
+            <span class="muted">Entidad legal en proceso de registro.</span>
+          </p>
         </div>
       </div>
     </section>
