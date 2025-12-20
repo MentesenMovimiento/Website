@@ -54,8 +54,9 @@
     const sections = Array.from(navLinks)
       .map((link) => {
         const href = link.getAttribute("href");
-        if (!href || !href.startsWith("#")) return null;
-        const target = document.querySelector(href);
+        if (!href || !href.includes("#")) return null;
+        const hash = href.substring(href.indexOf("#"));
+        const target = document.querySelector(hash);
         return target ? { link, target } : null;
       })
       .filter(Boolean);
@@ -172,7 +173,7 @@
     applyExpandedStateClasses();
   })();
 
-  // TIMELINE: Auto-advance (progress bar + swap locked to 12 seconds)
+  // TIMELINE: Auto-advance starts ONLY when section is reached in scrolling
   (function () {
     const root = document.querySelector("[data-timeline]");
     if (!root) return;
@@ -196,19 +197,21 @@
 
     let index = 0;
     let timeoutId = null;
-    let paused = false;
+    let running = false; // whether autoplay is active (in view)
 
     const setBar = () => {
       if (!bar) return;
+
       if (prefersReducedMotion) {
         bar.style.transition = "none";
         bar.style.width = "100%";
         return;
       }
-      // restart the progress animation exactly INTERVAL long
+
+      // restart animation exactly INTERVAL long
       bar.style.transition = "none";
       bar.style.width = "0%";
-      void bar.offsetWidth;
+      void bar.offsetWidth; // reflow
       bar.style.transition = `width ${INTERVAL}ms linear`;
       bar.style.width = "100%";
     };
@@ -227,47 +230,69 @@
         contentEl.innerHTML = `<h3>${step.title}</h3><p>${step.body}</p>`;
       }
 
-      setBar();
+      if (running) setBar(); // only animate when running
+      else {
+        // not running: keep bar at 0 so it doesn't look like "in progress"
+        if (bar) {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+        }
+      }
+    };
+
+    const clearTimer = () => {
+      if (timeoutId) window.clearTimeout(timeoutId);
+      timeoutId = null;
     };
 
     const scheduleNext = () => {
       if (prefersReducedMotion) return;
-      if (paused) return;
-      if (timeoutId) window.clearTimeout(timeoutId);
+      if (!running) return;
 
+      clearTimer();
       timeoutId = window.setTimeout(() => {
+        if (!running) return;
         render(index + 1);
         scheduleNext();
       }, INTERVAL);
     };
 
-    const stop = () => {
-      paused = true;
-      if (timeoutId) window.clearTimeout(timeoutId);
-      timeoutId = null;
-      // freeze bar visually
-      if (bar && !prefersReducedMotion) {
-        const computed = window.getComputedStyle(bar);
-        const w = computed.width;
-        bar.style.transition = "none";
-        bar.style.width = w;
-      }
-    };
-
-    const start = () => {
-      paused = false;
+    const startAutoplay = () => {
+      if (prefersReducedMotion) return;
+      if (running) return;
+      running = true;
       setBar();
       scheduleNext();
     };
 
-    const next = () => { render(index + 1); start(); };
-    const prev = () => { render(index - 1); start(); };
+    const stopAutoplay = () => {
+      if (!running) return;
+      running = false;
+      clearTimer();
+      // freeze bar visually at its current width (optional) or reset to 0
+      if (bar) {
+        bar.style.transition = "none";
+        bar.style.width = "0%";
+      }
+    };
 
+    const userAdvance = (nextIndex) => {
+      render(nextIndex);
+      // If in view, restart the 12s cycle so progress aligns with new step
+      if (running) {
+        setBar();
+        scheduleNext();
+      }
+    };
+
+    const next = () => userAdvance(index + 1);
+    const prev = () => userAdvance(index - 1);
+
+    // Manual controls
     titles.forEach((btn) => {
       btn.addEventListener("click", () => {
         const stepIndex = Number(btn.getAttribute("data-step"));
-        render(Number.isFinite(stepIndex) ? stepIndex : 0);
-        start();
+        userAdvance(Number.isFinite(stepIndex) ? stepIndex : 0);
       });
 
       btn.addEventListener("keydown", (e) => {
@@ -279,13 +304,34 @@
     if (nextBtn) nextBtn.addEventListener("click", () => next());
     if (prevBtn) prevBtn.addEventListener("click", () => prev());
 
-    root.addEventListener("mouseenter", stop);
-    root.addEventListener("mouseleave", start);
-    root.addEventListener("focusin", stop);
-    root.addEventListener("focusout", start);
+    // Pause autoplay when user hovers/focuses the component (only if already running)
+    root.addEventListener("mouseenter", () => { if (running) stopAutoplay(); });
+    root.addEventListener("mouseleave", () => { if (isInView && !prefersReducedMotion) startAutoplay(); });
+    root.addEventListener("focusin", () => { if (running) stopAutoplay(); });
+    root.addEventListener("focusout", () => { if (isInView && !prefersReducedMotion) startAutoplay(); });
 
+    // IntersectionObserver: start timer only when section reached
+    let isInView = false;
+    const section = root.closest("section") || root;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.target !== section) continue;
+
+          isInView = entry.isIntersecting && entry.intersectionRatio >= 0.35;
+
+          if (isInView) startAutoplay();
+          else stopAutoplay();
+        }
+      },
+      { threshold: [0, 0.15, 0.35, 0.6, 1] }
+    );
+
+    observer.observe(section);
+
+    // Initial render (do NOT start timer yet)
     render(0);
-    start();
   })();
 
   // CONTACT FORM
