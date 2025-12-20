@@ -85,8 +85,6 @@
     const setMenuVisibility = (show) => {
       navToggle.setAttribute("aria-expanded", String(show));
       navMenu.classList.toggle("open", show);
-      if (show) navMenu.removeAttribute("hidden");
-      else navMenu.setAttribute("hidden", "");
     };
 
     navToggle.addEventListener("click", () => {
@@ -173,7 +171,7 @@
     applyExpandedStateClasses();
   })();
 
-  // TIMELINE: Auto-advance starts when in view; pauses out of view; resumes from same progress
+  // TIMELINE: starts in view; pauses out of view; resumes from same progress
   (function () {
     const root = document.querySelector("[data-timeline]");
     if (!root) return;
@@ -197,13 +195,11 @@
 
     let index = 0;
 
-    // autoplay state
     let running = false;
     let timeoutId = null;
 
-    // pause/resume progress tracking
-    let barStartTs = null;   // timestamp when current step progress started
-    let elapsedMs = 0;       // accumulated elapsed time for current step while running
+    let barStartTs = null;
+    let elapsedMs = 0;
 
     const clearTimer = () => {
       if (timeoutId) window.clearTimeout(timeoutId);
@@ -216,7 +212,7 @@
       if (!bar) return;
       bar.style.transition = "none";
       bar.style.width = `${pct}%`;
-      void bar.offsetWidth; // reflow to ensure next transition applies cleanly
+      void bar.offsetWidth;
     };
 
     const animateBarToEnd = (remainingMs, fromPct) => {
@@ -225,7 +221,6 @@
         setBarInstant(100);
         return;
       }
-
       setBarInstant(fromPct);
       bar.style.transition = `width ${remainingMs}ms linear`;
       bar.style.width = "100%";
@@ -254,12 +249,10 @@
       timeoutId = window.setTimeout(() => {
         if (!running) return;
 
-        // move to next step and reset timing
         elapsedMs = 0;
         barStartTs = performance.now();
         render(index + 1);
 
-        // start next bar cycle
         animateBarToEnd(INTERVAL, 0);
         scheduleNextSwap(INTERVAL);
       }, delayMs);
@@ -271,7 +264,6 @@
 
       running = true;
 
-      // resume from elapsedMs
       elapsedMs = clamp(elapsedMs, 0, INTERVAL);
       const remaining = clamp(INTERVAL - elapsedMs, 0, INTERVAL);
       const pct = (elapsedMs / INTERVAL) * 100;
@@ -287,20 +279,17 @@
       running = false;
       clearTimer();
 
-      // accumulate elapsed time so we can resume accurately
       if (barStartTs != null) {
         const now = performance.now();
         elapsedMs = clamp(elapsedMs + (now - barStartTs), 0, INTERVAL);
       }
       barStartTs = null;
 
-      // freeze bar at current percentage (no reset)
       const pct = (elapsedMs / INTERVAL) * 100;
       setBarInstant(pct);
     };
 
     const userAdvance = (nextIndex) => {
-      // when user changes step manually, reset progress for that step
       render(nextIndex);
       elapsedMs = 0;
       barStartTs = running ? performance.now() : null;
@@ -316,7 +305,6 @@
     const next = () => userAdvance(index + 1);
     const prev = () => userAdvance(index - 1);
 
-    // Manual controls
     titles.forEach((btn) => {
       btn.addEventListener("click", () => {
         const stepIndex = Number(btn.getAttribute("data-step"));
@@ -332,24 +320,19 @@
     if (nextBtn) nextBtn.addEventListener("click", () => next());
     if (prevBtn) prevBtn.addEventListener("click", () => prev());
 
-    // Hover/focus pauses ONLY while in view (resume on leave)
+    let isInView = false;
+    const section = root.closest("section") || root;
+
     root.addEventListener("mouseenter", () => { if (running) stopAutoplay(); });
     root.addEventListener("mouseleave", () => { if (isInView && !prefersReducedMotion) startAutoplay(); });
     root.addEventListener("focusin", () => { if (running) stopAutoplay(); });
     root.addEventListener("focusout", () => { if (isInView && !prefersReducedMotion) startAutoplay(); });
 
-    // IntersectionObserver: start/pause based on section visibility
-    let isInView = false;
-    const section = root.closest("section") || root;
-
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.target !== section) continue;
-
-          // require meaningful visibility so it doesn't flicker start/stop
           isInView = entry.isIntersecting && entry.intersectionRatio >= 0.35;
-
           if (isInView) startAutoplay();
           else stopAutoplay();
         }
@@ -359,9 +342,16 @@
 
     observer.observe(section);
 
-    // Initial render (do NOT autoplay until in view)
     render(0);
     if (bar) setBarInstant(0);
+
+    // keyboard convenience
+    if (section) {
+      section.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+      });
+    }
   })();
 
   // CONTACT FORM
