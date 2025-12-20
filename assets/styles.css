@@ -89,6 +89,18 @@ a:hover {
 }
 
 /* -----------------------------------
+   REDUCED MOTION (USER PREFERS)
+----------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -----------------------------------
    HEADER / NAVBAR
 ----------------------------------- */
 .site-header {
@@ -133,6 +145,32 @@ a:hover {
   display: none;
   border: none;
   background: transparent;
+}
+
+/* -----------------------------------
+   SCROLL PROGRESS BAR 
+------------------------------------*/
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: var(--fuchsia);
+  z-index: 2000;
+  transition: width 0.1s ease-out;
+}
+
+/* -----------------------------------
+   SMOOTH SCROLL 
+------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+/* SPACING FIX FOR STICKY HEADER WITH IN-PAGE LINKS */
+.anchor-offset {
+  scroll-margin-top: var(--nav-height);
 }
 
 /* -----------------------------------
@@ -483,4 +521,20 @@ textarea {
 .toc.visible {
   max-height: 500px;
   transition: max-height 0.45s ease;
+}
+
+/* ACTIVE TOC LINK */
+.toc a.active {
+  color: var(--fuchsia);
+  font-weight: 600;
+}
+
+.accordion-toggle,
+.toc-toggle {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.accordion-panel,
+.toc {
+  will-change: max-height;
 }
