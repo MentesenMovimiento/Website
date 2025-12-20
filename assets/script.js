@@ -8,26 +8,52 @@
   const yearElem = document.getElementById("year");
   if (yearElem) yearElem.textContent = new Date().getFullYear();
 
-  // ---- AUTO-HIDE NAVBAR ON SCROLL ----
+  // ---- AUTO-HIDE NAVBAR ON SCROLL (visible for first 40% of page) ----
   const header = document.querySelector(".site-header");
-  let lastScroll = 0;
-  if (header) {
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset;
+  let lastScroll = window.pageYOffset || 0;
+  let ticking = false;
+  let threshold = 0;
 
-      if (currentScroll <= 0) {
-        header.classList.remove("hide");
-        return;
-      }
+  const computeThreshold = () => {
+    const doc = document.documentElement;
+    const maxScroll = Math.max(0, doc.scrollHeight - window.innerHeight);
+    threshold = maxScroll * 0.40; // 40% of total scrollable height
+  };
+  computeThreshold();
+  window.addEventListener("resize", computeThreshold, { passive: true });
 
-      if (currentScroll > lastScroll + 10) {
-        header.classList.add("hide");
-      }
-      if (currentScroll < lastScroll - 10) {
-        header.classList.remove("hide");
-      }
+  const handleHeaderOnScroll = () => {
+    const currentScroll = window.pageYOffset || 0;
+
+    // Always show header before hitting threshold
+    if (currentScroll <= threshold) {
+      header && header.classList.remove("hide");
       lastScroll = currentScroll;
-    });
+      return;
+    }
+
+    // Hysteresis of 10px to avoid flicker
+    if (currentScroll > lastScroll + 10) {
+      header && header.classList.add("hide");      // scrolling down
+    } else if (currentScroll < lastScroll - 10) {
+      header && header.classList.remove("hide");   // scrolling up
+    }
+
+    lastScroll = currentScroll;
+  };
+
+  if (header) {
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        handleHeaderOnScroll();
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Run once on load
+    handleHeaderOnScroll();
   }
 
   // ---- NAVIGATION SCROLL-SPY ----
@@ -59,17 +85,24 @@
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMenu = document.querySelector("[data-menu]");
   if (navToggle && navMenu) {
+    const setMenuVisibility = (show) => {
+      navToggle.setAttribute("aria-expanded", String(show));
+      navMenu.classList.toggle("open", show);
+      // If markup uses [hidden], keep it in sync (no text/link changes)
+      if (navMenu.hasAttribute("hidden")) {
+        if (show) navMenu.removeAttribute("hidden");
+        else navMenu.setAttribute("hidden", "");
+      }
+    };
+
     navToggle.addEventListener("click", () => {
       const expanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!expanded));
-      navMenu.classList.toggle("open");
+      setMenuVisibility(!expanded);
     });
+
     navMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        if (window.innerWidth < 900) {
-          navMenu.classList.remove("open");
-          navToggle.setAttribute("aria-expanded", "false");
-        }
+        if (window.innerWidth < 900) setMenuVisibility(false);
       });
     });
   }
