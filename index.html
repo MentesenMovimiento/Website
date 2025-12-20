@@ -4,44 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mentes en Movimiento · Cada niño, su propio camino</title>
-  <meta name="description" content="Clínica de desarrollo infantil que integra mente, cuerpo y acción. Educación especial, fisioterapia pediátrica, logopedia y regulación con un enfoque cálido y profesional." />
+  <meta name="description" content="Clínica de desarrollo infantil que integra educación, mente y cuerpo. Educación especial, fisioterapia, logopedia y movimiento/regulación con enfoque cercano y profesional." />
   <link rel="canonical" href="https://mentesenmovimiento.github.io/Website/" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- OG -->
   <meta property="og:title" content="Mentes en Movimiento" />
   <meta property="og:description" content="Cada niño, su propio camino. Educación, comunicación, fisioterapia y movimiento integrados." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mentesenmovimiento.github.io/Website/" />
   <meta property="og:image" content="assets/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured data -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Mentes en Movimiento",
-    "url":"https://mentesenmovimiento.github.io/Website/",
-    "logo":"https://mentesenmovimiento.github.io/Website/assets/logo-horizontal.svg",
-    "sameAs":[]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "url":"https://mentesenmovimiento.github.io/Website/",
-    "name":"Mentes en Movimiento",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://mentesenmovimiento.github.io/Website/blog/index.html?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }
+  {"@context":"https://schema.org","@type":"Organization","name":"Mentes en Movimiento","url":"https://mentesenmovimiento.github.io/Website/","logo":"https://mentesenmovimiento.github.io/Website/assets/logo-horizontal.svg"}
   </script>
 </head>
-<body>
+<body data-base="">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <!-- Header -->
@@ -52,12 +39,11 @@
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" data-nav-toggle>
         <span class="sr-only">Abrir menú</span>
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
       <nav id="navmenu" class="menu" data-menu>
         <a href="#servicios">Servicios</a>
+        <a href="#pilares">Pilares</a>
         <a href="#enfoque">Enfoque</a>
         <a href="blog/index.html">Blog</a>
         <a href="#contacto">Contacto</a>
@@ -76,16 +62,16 @@
     </div>
     <div class="container hero__inner reveal">
       <h1 class="hero__title">Cada niño, su propio camino</h1>
-      <p class="hero__lead">Clínica de desarrollo infantil que integra <strong>mente, cuerpo y acción</strong>. Acompañamos a niños y adolescentes con un enfoque cálido, profesional e inclusivo, en coordinación con familias y centros educativos.</p>
+      <p class="hero__lead">Integramos <strong>educación, comunicación, fisioterapia y movimiento/regulación</strong> para planes reales, cálidos y profesionales.</p>
       <div class="hero__ctas">
         <a class="btn btn--primary" href="#contacto">Reservar valoración</a>
-        <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+        <a class="btn btn--ghost" href="#pilares">Ver pilares</a>
       </div>
     </div>
   </section>
 
   <main id="contenido">
-    <!-- Servicios -->
+    <!-- Servicios (expandibles) -->
     <section class="section" id="servicios">
       <div class="container">
         <header class="section__head reveal">
@@ -95,56 +81,40 @@
 
         <div class="grid cards">
           <article class="card reveal">
-            <details class="card__details">
-              <summary class="card__summary"><h3>Educación Especial</h3><span class="chev" aria-hidden="true">▾</span></summary>
+            <details class="card__details"><summary class="card__summary"><h3>Educación Especial</h3><span class="chev" aria-hidden="true">▾</span></summary>
               <p class="card__lead">Aprendizaje funcional, autonomía y apoyo al entorno escolar.</p>
               <ul class="card__list">
-                <li>Objetivos funcionales y realistas</li>
-                <li>Estrategias aplicables en casa y aula</li>
-                <li>Apoyo a autonomía y habilidades diarias</li>
-                <li>Coordinación con escuela cuando procede</li>
+                <li>Objetivos funcionales y realistas</li><li>Estrategias aplicables en casa y aula</li><li>Autonomía y habilidades diarias</li><li>Coordinación con escuela</li>
               </ul>
               <a class="btn btn--link" href="#contacto">Quiero información</a>
             </details>
           </article>
 
           <article class="card reveal">
-            <details class="card__details">
-              <summary class="card__summary"><h3>Fisioterapia Pediátrica</h3><span class="chev" aria-hidden="true">▾</span></summary>
+            <details class="card__details"><summary class="card__summary"><h3>Fisioterapia Pediátrica</h3><span class="chev" aria-hidden="true">▾</span></summary>
               <p class="card__lead">Función, postura y movimiento aplicado al día a día.</p>
               <ul class="card__list">
-                <li>Equilibrio, coordinación y fuerza funcional</li>
-                <li>Patrones de movimiento y control postural</li>
-                <li>Objetivos conectados con la vida diaria</li>
-                <li>Progreso medible y sostenido</li>
+                <li>Equilibrio, coordinación y fuerza</li><li>Control postural y patrones de movimiento</li><li>Objetivos conectados con la vida diaria</li><li>Progreso medible</li>
               </ul>
               <a class="btn btn--link" href="#contacto">Consultar</a>
             </details>
           </article>
 
           <article class="card reveal">
-            <details class="card__details">
-              <summary class="card__summary"><h3>Logopedia</h3><span class="chev" aria-hidden="true">▾</span></summary>
+            <details class="card__details"><summary class="card__summary"><h3>Logopedia</h3><span class="chev" aria-hidden="true">▾</span></summary>
               <p class="card__lead">Comunicación funcional: mucho más que hablar.</p>
               <ul class="card__list">
-                <li>Lenguaje verbal y no verbal</li>
-                <li>Atención compartida e interacción social</li>
-                <li>Comprensión, intención comunicativa</li>
-                <li>Transferencia a casa y escuela</li>
+                <li>Lenguaje verbal y no verbal</li><li>Atención compartida e interacción</li><li>Comprensión e intención comunicativa</li><li>Transferencia a casa y escuela</li>
               </ul>
               <a class="btn btn--link" href="#contacto">Quiero una valoración</a>
             </details>
           </article>
 
           <article class="card reveal">
-            <details class="card__details">
-              <summary class="card__summary"><h3>Movimiento &amp; Regulación</h3><span class="chev" aria-hidden="true">▾</span></summary>
-              <p class="card__lead">Conexión cuerpo–emoción para bienestar y aprendizaje.</p>
+            <details class="card__details"><summary class="card__summary"><h3>Movimiento &amp; Regulación</h3><span class="chev" aria-hidden="true">▾</span></summary>
+              <p class="card__lead">Cuerpo–emoción para bienestar y aprendizaje.</p>
               <ul class="card__list">
-                <li>Rutinas y herramientas para el día a día</li>
-                <li>Preparación para aprender (learning readiness)</li>
-                <li>Movimiento como apoyo emocional y atencional</li>
-                <li>Enfoque respetuoso, no punitivo</li>
+                <li>Rutinas para el día a día</li><li>Learning readiness</li><li>Apoyo emocional y atencional</li><li>Enfoque respetuoso</li>
               </ul>
               <a class="btn btn--link" href="#contacto">Hablar con nosotros</a>
             </details>
@@ -153,18 +123,47 @@
       </div>
     </section>
 
+    <!-- Pilares (4) -->
+    <section class="section section--alt" id="pilares">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2>Nuestros pilares</h2>
+          <p>Educación, Fisioterapia, Movimiento/Regulación y Logopedia — integrados.</p>
+        </header>
+        <div class="grid pillars">
+          <article class="pillar reveal">
+            <div class="pill__icon" aria-hidden="true">📘</div>
+            <h3>Educación</h3>
+            <p class="muted">Objetivos con sentido, autonomía y participación real.</p>
+          </article>
+          <article class="pillar reveal">
+            <div class="pill__icon" aria-hidden="true">🧩</div>
+            <h3>Fisioterapia</h3>
+            <p class="muted">Función, postura y movimiento para el día a día.</p>
+          </article>
+          <article class="pillar reveal">
+            <div class="pill__icon" aria-hidden="true">🏃‍♀️</div>
+            <h3>Movimiento / Regulación</h3>
+            <p class="muted">Cuerpo tranquilo para mente disponible.</p>
+          </article>
+          <article class="pillar reveal">
+            <div class="pill__icon" aria-hidden="true">🗣️</div>
+            <h3>Logopedia</h3>
+            <p class="muted">Comunicación funcional en contextos reales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Enfoque -->
-    <section class="section section--alt" id="enfoque">
+    <section class="section" id="enfoque">
       <div class="container">
         <div class="split">
           <div class="text reveal">
             <h2>Un enfoque integrado</h2>
             <p>Integramos educación, comunicación, fisioterapia y movimiento para crear planes coherentes, realistas y centrados en la vida diaria del niño.</p>
             <ul class="progress-points">
-              <li>Evaluación inicial</li>
-              <li>Objetivos con sentido</li>
-              <li>Intervención coordinada</li>
-              <li>Revisión y ajuste</li>
+              <li>Evaluación</li><li>Objetivos</li><li>Intervención</li><li>Revisión</li>
             </ul>
           </div>
           <figure class="media reveal">
@@ -175,59 +174,27 @@
       </div>
     </section>
 
-    <!-- Blog (3 cards) -->
+    <!-- Blog (dynamic) -->
     <section class="section" id="blog">
       <div class="container">
         <header class="section__head reveal">
           <h2>Blog</h2>
           <p>Contenido claro y útil para familias y centros.</p>
         </header>
-
-        <div class="grid blog-cards">
-          <article class="blog-card reveal">
+        <div id="home-blog" class="grid blog-cards" data-blog-home>
+          <!-- Fallback (por si falla JS) -->
+          <article class="blog-card">
             <a class="blog-card__link" href="blog/movimiento-desarrollo.html">
               <img loading="lazy" src="assets/images/blog/movimiento-cover.jpg" alt="" class="blog-card__img" />
-              <div class="blog-card__body">
-                <span class="badge">Movimiento</span>
-                <h3>¿Por qué el movimiento es clave en el desarrollo infantil?</h3>
-                <p class="muted">Conexión cerebro–cuerpo, regulación y preparación para aprender.</p>
-                <p class="meta">8 min · Lectura</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="blog-card reveal">
-            <a class="blog-card__link" href="blog/logopedia-desarrollo.html">
-              <img loading="lazy" src="assets/images/blog/logopedia-cover.jpg" alt="" class="blog-card__img" />
-              <div class="blog-card__body">
-                <span class="badge">Comunicación</span>
-                <h3>Logopedia y desarrollo global: mucho más que hablar</h3>
-                <p class="muted">Comunicación funcional, interacción y enfoque integrador.</p>
-                <p class="meta">7 min · Lectura</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="blog-card reveal">
-            <a class="blog-card__link" href="blog/intervencion-individualizada.html">
-              <img loading="lazy" src="assets/images/blog/individualizada-cover.jpg" alt="" class="blog-card__img" />
-              <div class="blog-card__body">
-                <span class="badge">Enfoque</span>
-                <h3>Cada niño, su propio camino: intervención individualizada</h3>
-                <p class="muted">Calidad, colaboración y enfoque basado en fortalezas.</p>
-                <p class="meta">6 min · Lectura</p>
-              </div>
+              <div class="blog-card__body"><span class="badge">Movimiento</span><h3>¿Por qué el movimiento es clave en el desarrollo infantil?</h3><p class="muted">Conexión cerebro–cuerpo y preparación para aprender.</p><p class="meta">8 min · Lectura</p></div>
             </a>
           </article>
         </div>
-
-        <div class="center">
-          <a class="btn btn--ghost" href="blog/index.html">Ver archivo del blog</a>
-        </div>
+        <div class="center"><a class="btn btn--ghost" href="blog/index.html">Ver archivo del blog</a></div>
       </div>
     </section>
 
-    <!-- Contacto (functional mailto form) -->
+    <!-- Contacto (serverless: FormSubmit) -->
     <section class="section" id="contacto">
       <div class="container">
         <div class="split">
@@ -240,8 +207,16 @@
             </ul>
           </div>
 
-          <!-- NOTE: mailto abre el cliente de correo; si prefieres backend o Formspree, te lo configuro. -->
-          <form class="form reveal" method="post" action="mailto:info@mentesenmovimiento.org" enctype="text/plain" data-validate novalidate>
+          <!-- IMPORTANT: FormSubmit sends without opening email client -->
+          <form class="form reveal" action="https://formsubmit.co/info@mentesenmovimiento.org" method="POST" data-validate novalidate>
+            <!-- FormSubmit settings -->
+            <input type="hidden" name="_subject" value="Nueva consulta desde la web" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://mentesenmovimiento.github.io/Website/thank-you.html" />
+            <!-- Honeypot -->
+            <input type="text" name="_honey" style="display:none">
+            <!-- Fields -->
             <div class="field">
               <label for="nombre">Nombre</label>
               <input id="nombre" name="nombre" required autocomplete="name" />
@@ -258,7 +233,7 @@
               <p class="err" data-err-for="mensaje"></p>
             </div>
             <button class="btn btn--primary" type="submit">Enviar</button>
-            <p class="form__note muted small">Tus datos se utilizan solo para responder a tu consulta.</p>
+            <p class="form__note muted small">Procesamos tus datos solo para responder a tu consulta.</p>
           </form>
         </div>
       </div>
