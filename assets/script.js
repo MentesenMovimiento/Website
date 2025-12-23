@@ -385,3 +385,30 @@
     });
   }
 })();
+/* PROJECT MODAL LOGIC */
+(function () {
+  const modal = document.getElementById("projectModal");
+  if (!modal) return;
+
+  const closeEls = modal.querySelectorAll("[data-modal-close]");
+
+  const closeModal = () => {
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  // Open on load
+  window.addEventListener("load", () => {
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  });
+
+  // Close handlers
+  closeEls.forEach(el => el.addEventListener("click", closeModal));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+      closeModal();
+    }
+  });
+})();
