@@ -932,18 +932,32 @@
       const attr = el.getAttribute("data-i18n-attr");
       const key = el.getAttribute("data-i18n");
       const val = getByPath(I18N[lang], key);
-      if (attr && typeof val === "string") el.setAttribute(attr, val);
+      if (
+  attr &&
+  typeof val === "string" &&
+  el.hasAttribute(attr)
+) {
+  el.setAttribute(attr, val);
+}
+
     });
   };
 
   const applyTimelineSteps = (lang) => {
-    const steps = I18N[lang]?.timeline?.steps;
-    if (!Array.isArray(steps) || steps.length !== 5) return;
+  const steps = I18N[lang]?.timeline?.steps;
+  if (!Array.isArray(steps) || steps.length !== 5) return;
 
+  const waitForTimeline = () => {
     if (window.__MM_TL__?.setSteps) {
       window.__MM_TL__.setSteps(steps);
+    } else {
+      setTimeout(waitForTimeline, 50);
     }
   };
+
+  waitForTimeline();
+};
+
 
   const setActiveLangBtn = (lang) => {
     document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
