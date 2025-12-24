@@ -1,1 +1,103 @@
-asd
+{
+  "es": {
+    "blog_index.meta.title": "Blog · Mentes en Movimiento",
+    "blog_index.meta.description": "Artículos claros y aplicables para familias y profesionales: movimiento, regulación, comunicación y enfoque individualizado.",
+
+    "breadcrumb.home": "Inicio",
+    "breadcrumb.blog": "Blog",
+
+    "blog_index.hero.title": "Blog",
+    "blog_index.hero.lead": "Artículos breves, claros y aplicables para familias y profesionales. Enfoque: <strong>movimiento</strong>, <strong>regulación</strong>, <strong>comunicación</strong> y <strong>aprendizaje</strong>.",
+
+    "blog_index.toc.title": "Empieza por aquí",
+    "blog_index.toc.i1": "Movimiento y desarrollo infantil",
+    "blog_index.toc.i2": "Logopedia funcional y desarrollo global",
+    "blog_index.toc.i3": "Intervención individualizada",
+
+    "blog_index.cards.movement.title": "Movimiento y desarrollo infantil",
+    "blog_index.cards.movement.desc": "Atención, regulación y preparación para aprender con ideas prácticas.",
+    "blog_index.cards.movement.time": "Lectura: 6–8 min",
+
+    "blog_index.cards.speech.title": "Logopedia funcional",
+    "blog_index.cards.speech.desc": "Comunicación más allá del habla: intención, comprensión y contexto.",
+    "blog_index.cards.speech.time": "Lectura: 7–9 min",
+
+    "blog_index.cards.individual.title": "Intervención individualizada",
+    "blog_index.cards.individual.desc": "Objetivos funcionales y coordinación familia–escuela.",
+    "blog_index.cards.individual.time": "Lectura: 7–10 min",
+
+    "blog_index.cta.title": "¿Te suena lo que lees?",
+    "blog_index.cta.lead": "Podemos ayudarte a priorizar objetivos y elegir estrategias prácticas para casa y colegio.",
+    "blog_index.cta.primary": "Cuéntanos tu caso",
+    "blog_index.cta.secondary": "Ver servicios",
+    "blog_index.cta.note": "Nota: este blog es informativo y no sustituye una valoración profesional."
+  },
+
+  "ca": {
+    "blog_index.meta.title": "Blog · Mentes en Movimiento",
+    "blog_index.meta.description": "Articles clars i aplicables per a famílies i professionals: moviment, regulació, comunicació i enfocament individualitzat.",
+
+    "breadcrumb.home": "Inici",
+    "breadcrumb.blog": "Blog",
+
+    "blog_index.hero.title": "Blog",
+    "blog_index.hero.lead": "Articles breus, clars i aplicables per a famílies i professionals. Enfocament: <strong>moviment</strong>, <strong>regulació</strong>, <strong>comunicació</strong> i <strong>aprenentatge</strong>.",
+
+    "blog_index.toc.title": "Comença per aquí",
+    "blog_index.toc.i1": "Moviment i desenvolupament infantil",
+    "blog_index.toc.i2": "Logopèdia funcional i desenvolupament global",
+    "blog_index.toc.i3": "Intervenció individualitzada",
+
+    "blog_index.cards.movement.title": "Moviment i desenvolupament infantil",
+    "blog_index.cards.movement.desc": "Atenció, regulació i preparació per aprendre amb idees pràctiques.",
+    "blog_index.cards.movement.time": "Lectura: 6–8 min",
+
+    "blog_index.cards.speech.title": "Logopèdia funcional",
+    "blog_index.cards.speech.desc": "Comunicació més enllà de la parla: intenció, comprensió i context.",
+    "blog_index.cards.speech.time": "Lectura: 7–9 min",
+
+    "blog_index.cards.individual.title": "Intervenció individualitzada",
+    "blog_index.cards.individual.desc": "Objectius funcionals i coordinació família–escola.",
+    "blog_index.cards.individual.time": "Lectura: 7–10 min",
+
+    "blog_index.cta.title": "Et sona el que llegeixes?",
+    "blog_index.cta.lead": "Podem ajudar-te a prioritzar objectius i triar estratègies pràctiques per a casa i escola.",
+    "blog_index.cta.primary": "Explica’ns el teu cas",
+    "blog_index.cta.secondary": "Veure serveis",
+    "blog_index.cta.note": "Nota: aquest blog és informatiu i no substitueix una valoració professional."
+  },
+
+  "en": {
+    "blog_index.meta.title": "Blog · Mentes en Movimiento",
+    "blog_index.meta.description": "Clear, practical articles for families and professionals: movement, regulation, communication and individualised support.",
+
+    "breadcrumb.home": "Home",
+    "breadcrumb.blog": "Blog",
+
+    "blog_index.hero.title": "Blog",
+    "blog_index.hero.lead": "Short, clear and practical articles for families and professionals. Focus: <strong>movement</strong>, <strong>regulation</strong>, <strong>communication</strong> and <strong>learning</strong>.",
+
+    "blog_index.toc.title": "Start here",
+    "blog_index.toc.i1": "Movement and child development",
+    "blog_index.toc.i2": "Functional speech therapy and global development",
+    "blog_index.toc.i3": "Individualised intervention",
+
+    "blog_index.cards.movement.title": "Movement and child development",
+    "blog_index.cards.movement.desc": "Attention, regulation and readiness to learn with practical ideas.",
+    "blog_index.cards.movement.time": "Read time: 6–8 min",
+
+    "blog_index.cards.speech.title": "Functional speech therapy",
+    "blog_index.cards.speech.desc": "Communication beyond speech: intention, understanding and context.",
+    "blog_index.cards.speech.time": "Read time: 7–9 min",
+
+    "blog_index.cards.individual.title": "Individualised intervention",
+    "blog_index.cards.individual.desc": "Functional goals and family–school coordination.",
+    "blog_index.cards.individual.time": "Read time: 7–10 min",
+
+    "blog_index.cta.title": "Does this sound familiar?",
+    "blog_index.cta.lead": "We can help you prioritise goals and choose practical strategies for home and school.",
+    "blog_index.cta.primary": "Tell us about your case",
+    "blog_index.cta.secondary": "View services",
+    "blog_index.cta.note": "Note: this blog is for informational purposes and does not replace professional assessment."
+  }
+}
