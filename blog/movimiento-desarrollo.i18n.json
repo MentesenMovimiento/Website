@@ -1,0 +1,67 @@
+{
+  "es": {
+    "meta": {
+      "title": "Movimiento y desarrollo infantil: por qué es una base para aprender | Mentes en Movimiento",
+      "description": "Cómo el movimiento apoya regulación emocional, atención y preparación para aprender."
+    },
+    "breadcrumb.home": "Inicio",
+    "breadcrumb.blog": "Blog",
+    "breadcrumb.topic": "Movimiento",
+    "title": "Movimiento y desarrollo infantil: por qué es una base para aprender",
+    "meta": "Movimiento · Regulación · Aprendizaje · Lectura: 7–10 min",
+    "hero_alt": "Niño en actividad motora que apoya el desarrollo",
+    "intro": "En la infancia, el movimiento no es solo ejercicio: es una base para regular el cuerpo y preparar el cerebro para aprender.",
+    "box_parent.title": "<span class='badge'>Familias</span> Quizá te suene si…",
+    "box_parent.li1": "Tu hijo no para y la calma dura poco.",
+    "box_parent.li2": "Se frustra rápido con deberes o transiciones.",
+    "box_parent.li3": "Parece que no escucha cuando hay ruido.",
+    "box_parent.li4": "Necesita moverse para poder concentrarse.",
+    "nav.back": "← Volver al blog",
+    "nav.next": "Siguiente: Logopedia →",
+    "nav.contact": "Contactar"
+  },
+
+  "ca": {
+    "meta": {
+      "title": "Moviment i desenvolupament infantil: per què és una base per aprendre | Mentes en Movimiento",
+      "description": "Com el moviment ajuda a la regulació emocional, l’atenció i la preparació per aprendre."
+    },
+    "breadcrumb.home": "Inici",
+    "breadcrumb.blog": "Blog",
+    "breadcrumb.topic": "Moviment",
+    "title": "Moviment i desenvolupament infantil: per què és una base per aprendre",
+    "meta": "Moviment · Regulació · Aprenentatge · Lectura: 7–10 min",
+    "hero_alt": "Infant en activitat motora que afavoreix el desenvolupament",
+    "intro": "En la infància, el moviment no és només exercici: és una base per regular el cos i preparar el cervell per aprendre.",
+    "box_parent.title": "<span class='badge'>Famílies</span> Potser et sona si…",
+    "box_parent.li1": "El teu fill no para i la calma dura poc.",
+    "box_parent.li2": "Es frustra ràpid amb deures o transicions.",
+    "box_parent.li3": "Sembla que no escolta quan hi ha soroll.",
+    "box_parent.li4": "Necessita moure’s per concentrar-se.",
+    "nav.back": "← Tornar al blog",
+    "nav.next": "Següent: Logopèdia →",
+    "nav.contact": "Contactar"
+  },
+
+  "en": {
+    "meta": {
+      "title": "Movement and child development: why it’s a foundation for learning | Mentes en Movimiento",
+      "description": "How movement supports regulation, attention and readiness to learn."
+    },
+    "breadcrumb.home": "Home",
+    "breadcrumb.blog": "Blog",
+    "breadcrumb.topic": "Movement",
+    "title": "Movement and child development: why it’s a foundation for learning",
+    "meta": "Movement · Regulation · Learning · Read time: 7–10 min",
+    "hero_alt": "Child engaging in movement to support development",
+    "intro": "In childhood, movement is not just exercise: it helps regulate the body and prepares the brain for learning.",
+    "box_parent.title": "<span class='badge'>Families</span> You might recognise this if…",
+    "box_parent.li1": "Your child is constantly on the move.",
+    "box_parent.li2": "They get frustrated quickly with tasks or transitions.",
+    "box_parent.li3": "They struggle to listen in noisy environments.",
+    "box_parent.li4": "They need to move in order to focus.",
+    "nav.back": "← Back to blog",
+    "nav.next": "Next: Speech therapy →",
+    "nav.contact": "Contact us"
+  }
+}
