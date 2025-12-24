@@ -28,15 +28,68 @@
 </head>
 
 <body>
+  <body data-blog data-blog-i18n="./movimiento-desarrollo.i18n.json">
   <a href="#contenido" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
 
   <header class="site-header auto-hide" role="banner">
-    <div class="container nav">
-      <a class="brand" href="../index.html" aria-label="Ir al inicio">
-        <img src="../assets/images/logo-trans.svg" alt="Mentes en Movimiento" class="nav-logo">
-      </a>
+  <div class="container nav">
+    <a class="brand" href="../index.html" aria-label="Ir al inicio">
+      <img
+        src="../assets/images/logo-trans.svg"
+        alt="Mentes en Movimiento"
+        class="nav-logo"
+        decoding="async"
+      >
+    </a>
+
+    <!-- Mobile toggle -->
+    <button
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-menu"
+      data-nav-toggle
+    >
+      <span class="sr-only">Abrir menú</span>
+      <svg width="24" height="24" aria-hidden="true">
+        <path
+          d="M3 6h18M3 12h18M3 18h18"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav
+      class="nav-menu"
+      id="primary-menu"
+      data-menu
+      aria-label="Navegación principal"
+      hidden
+    >
+      <a class="nav-link" href="../index.html#servicios">Servicios</a>
+      <a class="nav-link" href="../index.html#enfoque">Enfoque</a>
+      <a class="nav-link active" href="./index.html">Blog</a>
+      <a class="nav-link" href="../index.html#instagram">Instagram</a>
+      <a class="nav-link" href="../index.html#legal">Legal</a>
+    </nav>
+
+    <!-- Language switcher -->
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="es" aria-label="Español">
+        <span class="lang-flag">🇪🇸</span>
+      </button>
+      <button class="lang-btn" data-lang="ca" aria-label="Català">
+        <span class="lang-flag ca"></span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <span class="lang-flag">🇬🇧</span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <main id="contenido" class="blog-wrap">
     <div class="container">
