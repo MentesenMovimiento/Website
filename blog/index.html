@@ -4,8 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Blog · Mentes en Movimiento</title>
-  <meta name="description" content="Artículos claros y aplicables para familias y profesionales: movimiento, regulación, comunicación y enfoque individualizado." />
+  <title data-i18n="blog_index.meta.title">Blog · Mentes en Movimiento</title>
+
+  <meta
+    name="description"
+    content="Artículos claros y aplicables para familias y profesionales: movimiento, regulación, comunicación y enfoque individualizado."
+    data-i18n="blog_index.meta.description"
+    data-i18n-attr="content"
+  />
+
   <link rel="canonical" href="https://mentesenmovimiento.github.io/blog/index.html" />
 
   <meta property="og:title" content="Blog · Mentes en Movimiento" />
@@ -29,104 +36,164 @@
 </head>
 
 <body>
-  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
+  <a href="#contenido" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
+
+  <!-- HEADER -->
   <header class="site-header auto-hide" role="banner">
     <div class="container nav">
-      <a class="brand" href="../index.html" aria-label="Ir al inicio">
-        <img src="../assets/images/logo-trans.svg" alt="Mentes en Movimiento" class="nav-logo" decoding="async">
+      <a
+        class="brand"
+        href="../index.html"
+        aria-label="Ir al inicio"
+        data-i18n="nav.home_aria"
+        data-i18n-attr="aria-label"
+      >
+        <img
+          src="../assets/images/logo-trans.svg"
+          alt="Mentes en Movimiento"
+          class="nav-logo"
+          decoding="async"
+        >
       </a>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" data-nav-toggle>
-        <span class="sr-only">Abrir menú</span>
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-menu"
+        data-nav-toggle
+      >
+        <span class="sr-only" data-i18n="nav.menu_open">Abrir menú</span>
         <svg width="24" height="24" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
       </button>
 
-      <nav class="nav-menu" id="primary-menu" data-menu aria-label="Navegación principal" hidden>
-        <a class="nav-link" href="../index.html#servicios">Servicios</a>
-        <a class="nav-link" href="../index.html#enfoque">Enfoque</a>
-        <a class="nav-link active" href="./index.html">Blog</a>
-        <a class="nav-link" href="../index.html#instagram">Instagram</a>
-        <a class="nav-link" href="../index.html#legal">Legal</a>
+      <nav
+        class="nav-menu"
+        id="primary-menu"
+        data-menu
+        aria-label="Navegación principal"
+        data-i18n="nav.aria"
+        data-i18n-attr="aria-label"
+        hidden
+      >
+        <a class="nav-link" href="../index.html#servicios" data-i18n="nav.services">Servicios</a>
+        <a class="nav-link" href="../index.html#enfoque" data-i18n="nav.approach">Enfoque</a>
+        <a class="nav-link active" href="./index.html" data-i18n="nav.blog">Blog</a>
+        <a class="nav-link" href="../index.html#instagram" data-i18n="nav.instagram">Instagram</a>
+        <a class="nav-link" href="../index.html#legal" data-i18n="nav.legal">Legal</a>
       </nav>
+
+      <!-- Language switcher -->
+      <div class="lang-switcher" aria-label="Selector de idioma">
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Español">
+          <span class="lang-flag">🇪🇸</span><span class="lang-code">ES</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="ca" aria-label="Català">
+          <span class="lang-flag ca" aria-hidden="true"></span><span class="lang-code">CA</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+          <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+        </button>
+      </div>
     </div>
   </header>
 
+  <!-- MAIN -->
   <main id="contenido" class="blog-wrap">
     <div class="container">
 
+      <!-- HERO -->
       <section class="blog-hero">
         <div class="blog-breadcrumb">
-          <a href="../index.html">Inicio</a>
+          <a href="../index.html" data-i18n="breadcrumb.home">Inicio</a>
           <span aria-hidden="true">›</span>
-          <span>Blog</span>
+          <span data-i18n="breadcrumb.blog">Blog</span>
         </div>
-        <h1>Blog</h1>
-        <p class="blog-meta">
+
+        <h1 data-i18n="blog_index.hero.title">Blog</h1>
+
+        <p class="blog-meta" data-i18n-html="blog_index.hero.lead">
           Artículos breves, claros y aplicables para familias y profesionales.
-          Enfoque: <strong>movimiento</strong>, <strong>regulación</strong>, <strong>comunicación</strong> y <strong>aprendizaje</strong>.
+          Enfoque: <strong>movimiento</strong>, <strong>regulación</strong>,
+          <strong>comunicación</strong> y <strong>aprendizaje</strong>.
         </p>
       </section>
 
+      <!-- CONTENT -->
       <section class="blog-article" aria-label="Artículos">
+
+        <!-- TOC -->
         <div class="toc">
-          <strong>Empieza por aquí</strong>
+          <strong data-i18n="blog_index.toc.title">Empieza por aquí</strong>
           <ul>
-            <li><a href="movimiento-desarrollo.html">Movimiento y desarrollo infantil</a></li>
-            <li><a href="logopedia-global.html">Logopedia funcional y desarrollo global</a></li>
-            <li><a href="intervencion-individualizada.html">Intervención individualizada</a></li>
+            <li><a href="movimiento-desarrollo.html" data-i18n="blog_index.toc.i1">Movimiento y desarrollo infantil</a></li>
+            <li><a href="logopedia-global.html" data-i18n="blog_index.toc.i2">Logopedia funcional y desarrollo global</a></li>
+            <li><a href="intervencion-individualizada.html" data-i18n="blog_index.toc.i3">Intervención individualizada</a></li>
           </ul>
         </div>
 
+        <!-- GRID -->
         <div class="blog-index-grid">
+
           <a class="blog-index-card" href="movimiento-desarrollo.html">
-            <img src="../assets/images/blog-movimiento.jpg" alt="Movimiento y desarrollo infantil" loading="lazy" decoding="async">
+            <img src="../assets/images/blog-movimiento.jpg" alt="" loading="lazy" decoding="async">
             <div>
-              <h3>Movimiento y desarrollo infantil</h3>
-              <p>Atención, regulación y “preparación para aprender” con ideas prácticas.</p>
-              <p class="muted small" style="margin-top:8px;">Lectura: 6–8 min</p>
+              <h3 data-i18n="blog_index.cards.movement.title">Movimiento y desarrollo infantil</h3>
+              <p data-i18n="blog_index.cards.movement.desc">
+                Atención, regulación y preparación para aprender con ideas prácticas.
+              </p>
+              <p class="muted small" data-i18n="blog_index.cards.movement.time">Lectura: 6–8 min</p>
             </div>
           </a>
 
           <a class="blog-index-card" href="logopedia-global.html">
-            <img src="../assets/images/blog-logopedia.jpg" alt="Logopedia funcional" loading="lazy" decoding="async">
+            <img src="../assets/images/blog-logopedia.jpg" alt="" loading="lazy" decoding="async">
             <div>
-              <h3>Logopedia funcional</h3>
-              <p>Comunicación más allá del habla: intención, comprensión, turnos y contexto.</p>
-              <p class="muted small" style="margin-top:8px;">Lectura: 7–9 min</p>
+              <h3 data-i18n="blog_index.cards.speech.title">Logopedia funcional</h3>
+              <p data-i18n="blog_index.cards.speech.desc">
+                Comunicación más allá del habla: intención, comprensión y contexto.
+              </p>
+              <p class="muted small" data-i18n="blog_index.cards.speech.time">Lectura: 7–9 min</p>
             </div>
           </a>
 
           <a class="blog-index-card" href="intervencion-individualizada.html">
-            <img src="../assets/images/blog-camino.jpg" alt="Intervención individualizada" loading="lazy" decoding="async">
+            <img src="../assets/images/blog-camino.jpg" alt="" loading="lazy" decoding="async">
             <div>
-              <h3>Intervención individualizada</h3>
-              <p>Objetivos funcionales, apoyos a medida y coordinación familia–escuela.</p>
-              <p class="muted small" style="margin-top:8px;">Lectura: 7–10 min</p>
+              <h3 data-i18n="blog_index.cards.individual.title">Intervención individualizada</h3>
+              <p data-i18n="blog_index.cards.individual.desc">
+                Objetivos funcionales y coordinación familia–escuela.
+              </p>
+              <p class="muted small" data-i18n="blog_index.cards.individual.time">Lectura: 7–10 min</p>
             </div>
           </a>
+
         </div>
 
+        <!-- CTA -->
         <div class="blog-cta" role="region" aria-label="Siguiente paso">
           <div class="row">
-            <strong style="font-family:var(--font-head); color:var(--terracotta);">¿Te suena lo que lees?</strong>
-            <span class="muted">Podemos ayudarte a priorizar objetivos y elegir estrategias prácticas para casa y colegio.</span>
+            <strong data-i18n="blog_index.cta.title">¿Te suena lo que lees?</strong>
+            <span class="muted" data-i18n="blog_index.cta.lead">
+              Podemos ayudarte a priorizar objetivos y elegir estrategias prácticas.
+            </span>
           </div>
           <div class="row">
-            <a class="btnlike primary" href="../index.html#contacto">Cuéntanos tu caso</a>
-            <a class="btnlike" href="../index.html#servicios">Ver servicios</a>
+            <a class="btnlike primary" href="../index.html#contacto" data-i18n="blog_index.cta.primary">Cuéntanos tu caso</a>
+            <a class="btnlike" href="../index.html#servicios" data-i18n="blog_index.cta.secondary">Ver servicios</a>
           </div>
-          <p class="muted small" style="margin:0;">
+          <p class="muted small" data-i18n="blog_index.cta.note">
             Nota: este blog es informativo y no sustituye una valoración profesional.
           </p>
         </div>
-      </section>
 
+      </section>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <p class="muted small">© <span id="year"></span> Mentes en Movimiento</p>
