@@ -993,63 +993,43 @@ setActiveLangBtn(lang);
         setLang(lang || "es");
       });
     });
-
-    /* ============================
-   BLOG i18n LOADER (GENERIC)
-   ============================ */
+  });
+})();
+ /* ================= BLOG I18N LOADER ================= */
 (function () {
-  // Detect if this is a blog page with i18n support
-  const srcEl = document.getElementById("blog-i18n-src");
-  if (!srcEl) return;
+  const blogRoot = document.querySelector("[data-blog]");
+  if (!blogRoot) return;
 
-  const jsonPath = srcEl.textContent.trim();
-  if (!jsonPath) return;
+  const src = blogRoot.getAttribute("data-blog-i18n");
+  if (!src) return;
 
   const lang = localStorage.getItem("mm_lang") || "es";
 
-  fetch(jsonPath)
-    .then((res) => {
-      if (!res.ok) throw new Error("Blog i18n JSON not found");
-      return res.json();
-    })
-    .then((data) => {
-      const dict = data[lang] || data.es;
-      if (!dict) return;
+  fetch(src)
+    .then(r => r.json())
+    .then(dict => {
+      const data = dict[lang] || dict.es;
+      if (!data) return;
 
-      // TEXT nodes
-      document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.getAttribute("data-i18n");
-        const val = dict[key];
-        if (typeof val === "string") {
+      // Meta
+      if (data["__meta.title"]) document.title = data["__meta.title"];
+      if (data["__meta.description"]) {
+        const m = document.querySelector('meta[name="description"]');
+        if (m) m.setAttribute("content", data["__meta.description"]);
+      }
+
+      // Text
+      document.querySelectorAll("[data-blog-i18n]").forEach(el => {
+        const key = el.getAttribute("data-blog-i18n");
+        const val = data[key];
+        if (!val) return;
+
+        if (el.hasAttribute("data-blog-i18n-html")) {
+          el.innerHTML = val;
+        } else {
           el.textContent = val;
         }
       });
-
-      // HTML nodes (explicit only)
-      document.querySelectorAll("[data-i18n-html]").forEach((el) => {
-        const key = el.getAttribute("data-i18n-html");
-        const val = dict[key];
-        if (typeof val === "string") {
-          el.innerHTML = val;
-        }
-      });
-      // Optional: update document title + meta description
-      if (dict.__meta) {
-        if (dict.__meta.title) {
-          document.title = dict.__meta.title;
-        }
-        if (dict.__meta.description) {
-          const meta = document.querySelector('meta[name="description"]');
-          if (meta) meta.setAttribute("content", dict.__meta.description);
-        }
-      }
-
-      document.documentElement.setAttribute("lang", lang);
     })
-    .catch((err) => {
-      console.warn("Blog i18n load failed:", err.message);
-    });
-})();
-
-  });
+    .catch(err => console.error("Blog i18n error:", err));
 })();
