@@ -913,7 +913,7 @@
       const val = getByPath(I18N[lang], key);
 
       // Special: timeline labels are arrays
-      if (key?.startsWith("timeline.labels.")) {
+      if (typeof key === "string" && key.startsWith("timeline.labels.")) {
         const idx = Number(key.split(".").pop());
         const arr = I18N[lang]?.timeline?.labels;
         if (Array.isArray(arr) && Number.isFinite(idx) && arr[idx]) {
