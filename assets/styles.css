@@ -762,6 +762,27 @@ textarea { resize: vertical; }
   background: rgba(255,255,255,0.35);
 }
 
+.lang-flag.ca {
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    #FFD400 0%,
+    #FFD400 20%,
+    #DA121A 20%,
+    #DA121A 40%,
+    #FFD400 40%,
+    #FFD400 60%,
+    #DA121A 60%,
+    #DA121A 80%,
+    #FFD400 80%,
+    #FFD400 100%
+  );
+  color: transparent;
+}
+
 .lang-code{
   font-size: 0.85rem;
   letter-spacing: 0.02em;
