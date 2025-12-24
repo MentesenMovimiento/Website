@@ -3,6 +3,8 @@
     "__meta.title": "Movimiento y desarrollo infantil: atención, regulación y aprendizaje | Mentes en Movimiento",
     "__meta.description": "Cómo el movimiento apoya regulación emocional, atención y preparación para aprender. Señales frecuentes, ideas prácticas y estrategias para casa y aula.",
 
+    "a11y.skip": "Saltar al contenido",
+
     "breadcrumb.home": "Inicio",
     "breadcrumb.blog": "Blog",
     "breadcrumb.category": "Movimiento",
@@ -40,7 +42,7 @@
     "sections.s2.li1": "Se levanta constantemente o “no para”.",
     "sections.s2.li2": "Se derrumba en la silla o se cansa rápido.",
     "sections.s2.li3": "Explota o se bloquea ante cambios pequeños.",
-    "sections.s2.li4": "Busca presión (empujar, chocar, morder objetos).",
+    "sections.s2.li4": "Busca presión: empuja, choca o muerde objetos.",
 
     "sections.s3.title": "3) Preparación para el aprendizaje",
     "sections.s3.p1": "Antes de pedir una tarea cognitiva, conviene preparar el sistema: postura, atención y estado emocional.",
@@ -55,18 +57,20 @@
 
     "faq.title": "Preguntas frecuentes",
     "faq.q1": "¿Cuánto movimiento necesita un niño?",
-    "faq.a1": "Depende del perfil. Más que minutos, observa si mejora atención y calma tras un bloque breve.",
+    "faq.a1": "Depende del perfil. Más que minutos, observa si mejora la atención y la calma tras bloques breves y repetibles.",
     "faq.q2": "¿Y si el colegio no permite pausas?",
-    "faq.a2": "Se pueden usar microajustes discretos: encargos, cambios de postura o presión en manos.",
+    "faq.a2": "Se pueden usar microajustes discretos: encargos, cambios de postura, presión en manos o temporizadores.",
 
-    "nav.back": "← Volver al blog",
-    "nav.next": "Siguiente: Logopedia →",
-    "nav.contact": "Contactar"
+    "blognav.back": "← Volver al blog",
+    "blognav.next": "Siguiente: Logopedia →",
+    "blognav.contact": "Contactar"
   },
 
   "ca": {
     "__meta.title": "Moviment i desenvolupament infantil: atenció, regulació i aprenentatge | Mentes en Movimiento",
-    "__meta.description": "Com el moviment afavoreix la regulació emocional, l’atenció i la preparació per aprendre. Senyals freqüents i estratègies pràctiques.",
+    "__meta.description": "Com el moviment afavoreix la regulació emocional, l’atenció i la preparació per aprendre. Estratègies pràctiques per a casa i escola.",
+
+    "a11y.skip": "Saltar al contingut",
 
     "breadcrumb.home": "Inici",
     "breadcrumb.blog": "Blog",
@@ -76,31 +80,31 @@
     "hero.meta": "Moviment · Regulació · Aprenentatge · Lectura: 7–10 min",
     "hero.image_alt": "Infant realitzant activitat motora que afavoreix el desenvolupament",
 
-    "intro.p1": "A la infància, el moviment no és “només exercici”: és una manera primària d’explorar, organitzar el cos i regular l’estat intern. Quan el cos està més regulat, el cervell sol estar més disponible per <strong>atendre</strong>, <strong>processar informació</strong> i <strong>aprendre</strong>.",
+    "intro.p1": "A la infància, el moviment no és “només exercici”: és una manera primària d’explorar, organitzar el cos i regular l’estat intern. Quan el cos està regulat, el cervell està més disponible per <strong>atendre</strong>, <strong>processar informació</strong> i <strong>aprendre</strong>.",
 
     "boxes.parent.badge": "Famílies",
     "boxes.parent.title": "Potser t’hi reconeixes si…",
-    "boxes.parent.li1": "El teu fill “no para” i la calma dura poc.",
+    "boxes.parent.li1": "El teu fill no para i la calma dura poc.",
     "boxes.parent.li2": "Es frustra ràpid amb deures o transicions.",
-    "boxes.parent.li3": "Sembla que “no escolta” quan hi ha soroll.",
-    "boxes.parent.li4": "Necessita moure’s per poder estar en una activitat.",
+    "boxes.parent.li3": "Sembla que no escolta amb soroll o presses.",
+    "boxes.parent.li4": "Necessita moure’s per mantenir-se en una activitat.",
 
     "toc.title": "En aquest article",
     "toc.i1": "1) Cos–cervell",
     "toc.i2": "2) Regulació emocional",
     "toc.i3": "3) Preparació per aprendre",
     "toc.i4": "4) Rutina 2–5–2",
-    "toc.i5": "5) Si s’activa més",
+    "toc.i5": "5) Si s’activa massa",
     "toc.i6": "Preguntes freqüents",
 
-    "sections.s1.title": "1) Connexió cos–cervell a la vida real",
+    "sections.s1.title": "1) Connexió cos–cervell en la vida real",
     "sections.s1.p1": "Moltes habilitats escolars es basen en fonaments motors i sensorials.",
 
     "callout.key": "Idea clau:",
     "callout.text": "si el cos necessita moviment per regular-se, exigir quietud sense estratègies pot empitjorar l’atenció.",
 
     "sections.s2.title": "2) Moviment i regulació emocional",
-    "sections.s2.p1": "Regular-se no és “portar-se bé”, sinó poder passar d’un estat a un altre amb suport.",
+    "sections.s2.p1": "Regular-se no és portar-se bé, sinó poder canviar d’estat amb suport.",
 
     "sections.s3.title": "3) Preparació per a l’aprenentatge",
     "sections.s3.p1": "Abans d’exigir una tasca cognitiva, cal preparar el sistema.",
@@ -115,18 +119,20 @@
 
     "faq.title": "Preguntes freqüents",
     "faq.q1": "Quant moviment necessita un infant?",
-    "faq.a1": "Depèn del perfil. Observa si millora l’atenció després d’un bloc breu.",
+    "faq.a1": "Depèn del perfil. Observa si millora l’atenció després de blocs breus.",
     "faq.q2": "I si l’escola no permet pauses?",
     "faq.a2": "Es poden fer ajustos discrets sense interrompre la classe.",
 
-    "nav.back": "← Tornar al blog",
-    "nav.next": "Següent: Logopèdia →",
-    "nav.contact": "Contactar"
+    "blognav.back": "← Tornar al blog",
+    "blognav.next": "Següent: Logopèdia →",
+    "blognav.contact": "Contactar"
   },
 
   "en": {
     "__meta.title": "Movement and child development: attention, regulation and learning | Mentes en Movimiento",
     "__meta.description": "How movement supports emotional regulation, attention and readiness to learn. Practical strategies for home and school.",
+
+    "a11y.skip": "Skip to content",
 
     "breadcrumb.home": "Home",
     "breadcrumb.blog": "Blog",
@@ -143,7 +149,7 @@
     "boxes.parent.li1": "Your child is constantly on the move.",
     "boxes.parent.li2": "They become easily frustrated during transitions.",
     "boxes.parent.li3": "They seem not to listen in noisy environments.",
-    "boxes.parent.li4": "They need to move in order to stay engaged.",
+    "boxes.parent.li4": "They need movement to stay engaged.",
 
     "toc.title": "In this article",
     "toc.i1": "1) Body–brain",
@@ -179,8 +185,8 @@
     "faq.q2": "What if school doesn’t allow movement breaks?",
     "faq.a2": "Small, discreet adjustments can still support regulation.",
 
-    "nav.back": "← Back to blog",
-    "nav.next": "Next: Speech therapy →",
-    "nav.contact": "Contact us"
+    "blognav.back": "← Back to blog",
+    "blognav.next": "Next: Speech therapy →",
+    "blognav.contact": "Contact us"
   }
 }
