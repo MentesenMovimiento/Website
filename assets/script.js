@@ -1018,18 +1018,25 @@ setActiveLangBtn(lang);
         if (m) m.setAttribute("content", data["__meta.description"]);
       }
 
-      // Text
-      document.querySelectorAll("[data-blog-i18n]").forEach(el => {
-        const key = el.getAttribute("data-blog-i18n");
-        const val = data[key];
-        if (!val) return;
+      // Text + Attr (alt/aria-label/etc.)
+document.querySelectorAll("[data-blog-i18n]").forEach(el => {
+  const key = el.getAttribute("data-blog-i18n");
+  const val = data[key];
+  if (typeof val !== "string") return;
 
-        if (el.hasAttribute("data-blog-i18n-html")) {
-          el.innerHTML = val;
-        } else {
-          el.textContent = val;
-        }
-      });
+  const attr = el.getAttribute("data-blog-i18n-attr");
+  if (attr) {
+    el.setAttribute(attr, val);
+    return;
+  }
+
+  if (el.hasAttribute("data-blog-i18n-html")) {
+    el.innerHTML = val;
+  } else {
+    el.textContent = val;
+  }
+});
+
     })
     .catch(err => console.error("Blog i18n error:", err));
 })();
