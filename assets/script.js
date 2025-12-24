@@ -908,52 +908,46 @@
   };
 
   const applyText = (lang) => {
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      const val = getByPath(I18N[lang], key);
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const val = getByPath(I18N[lang], key);
 
-      // Special: timeline labels are arrays
-      if (typeof key === "string" && key.startsWith("timeline.labels.")) {
-        const idx = Number(key.split(".").pop());
-        const arr = I18N[lang]?.timeline?.labels;
-        if (Array.isArray(arr) && Number.isFinite(idx) && arr[idx]) {
-          el.textContent = arr[idx];
+    // Timeline labels (array-based)
+    if (typeof key === "string" && key.startsWith("timeline.labels.")) {
+      const idx = Number(key.split(".").pop());
+      const arr = I18N[lang]?.timeline?.labels;
+      if (Array.isArray(arr) && Number.isFinite(idx) && arr[idx]) {
+        el.textContent = arr[idx];
+      }
+      return;
+    }
+
+    if (typeof val === "string") {
+      if (el.hasAttribute("data-i18n-html")) {
+        // Only allow HTML replacement on leaf nodes
+        if (el.children.length === 0) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
         }
-        return;
+      } else {
+        el.textContent = val;
       }
+    }
+  });
 
-      if (typeof val === "string") {
-  if (el.hasAttribute("data-i18n-html")) {
-  // Only allow HTML replacement on leaf nodes
-  if (el.children.length === 0) {
-    el.innerHTML = val;
-  } else {
-    el.textContent = val;
-  }
-} else {
-  el.textContent = val;
-}
+  // Attributes (aria-label, alt, etc.)
+  document.querySelectorAll("[data-i18n-attr][data-i18n]").forEach((el) => {
+    const attr = el.getAttribute("data-i18n-attr");
+    const key = el.getAttribute("data-i18n");
+    const val = getByPath(I18N[lang], key);
 
-}
+    if (attr && typeof val === "string" && el.hasAttribute(attr)) {
+      el.setAttribute(attr, val);
+    }
+  });
+};
 
-      }
-    });
-
-    // Attributes: aria-label / alt etc.
-    document.querySelectorAll("[data-i18n-attr][data-i18n]").forEach((el) => {
-      const attr = el.getAttribute("data-i18n-attr");
-      const key = el.getAttribute("data-i18n");
-      const val = getByPath(I18N[lang], key);
-      if (
-  attr &&
-  typeof val === "string" &&
-  el.hasAttribute(attr)
-) {
-  el.setAttribute(attr, val);
-}
-
-    });
-  };
 
   const applyTimelineSteps = (lang) => {
   const steps = I18N[lang]?.timeline?.steps;
