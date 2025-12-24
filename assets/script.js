@@ -946,6 +946,7 @@
 
 
 
+
   const applyTimelineSteps = (lang) => {
   const steps = I18N[lang]?.timeline?.steps;
   if (!Array.isArray(steps) || steps.length !== 5) return;
