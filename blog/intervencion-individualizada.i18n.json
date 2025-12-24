@@ -1,0 +1,256 @@
+{
+  "es": {
+    "__meta.title": "Intervención individualizada: cada niño, su propio camino | Mentes en Movimiento",
+    "__meta.description": "Qué significa intervención individualizada: objetivos funcionales, apoyos a medida, coordinación familia-escuela y seguimiento real con indicadores claros.",
+
+    "a11y.skip": "Saltar al contenido",
+
+    "nav.menu": "Abrir menú",
+    "nav.services": "Servicios",
+    "nav.approach": "Enfoque",
+    "nav.blog": "Blog",
+    "nav.instagram": "Instagram",
+    "nav.legal": "Legal",
+
+    "breadcrumb.home": "Inicio",
+    "breadcrumb.blog": "Blog",
+    "breadcrumb.category": "Intervención",
+
+    "hero.title": "Cada niño, su propio camino: qué significa una intervención individualizada",
+    "hero.meta": "Intervención · Familia-escuela · Objetivos funcionales · Lectura: 9–12 min",
+    "hero.image_alt": "Camino y acompañamiento individualizado",
+
+    "intro.p1": "“Intervención individualizada” no significa hacer algo distinto cada día sin estructura. Significa diseñar un plan <strong>con objetivos claros</strong>, basado en el perfil del niño, su entorno y lo que realmente mejora su participación en la vida diaria.",
+
+    "boxes.parent.badge": "Familias",
+    "boxes.parent.title": "Quizá te suene si…",
+    "boxes.parent.li1": "Has probado “consejos generales” y nada se mantiene.",
+    "boxes.parent.li2": "En casa funciona algo, pero en el cole no (o al revés).",
+    "boxes.parent.li3": "Tu hijo puede hacerlo a veces… pero no siempre.",
+    "boxes.parent.li4": "Te sientes cansada/o de “ir apagando fuegos”.",
+
+    "toc.title": "En este artículo",
+    "toc.i1": "1) Individualizar empieza por lo funcional",
+    "toc.i2": "2) Qué se personaliza",
+    "toc.i3": "3) Coordinación familia–escuela",
+    "toc.i4": "4) Cómo saber si funciona",
+    "toc.i5": "5) Checklist de calidad",
+    "toc.i6": "Preguntas frecuentes",
+
+    "sections.s1.title": "1) Individualizar empieza por lo funcional",
+    "sections.s1.p1": "Un objetivo es funcional cuando mejora algo concreto en casa o en el colegio: vestirse, tolerar espera, seguir una instrucción, iniciar interacción o manejar una transición.",
+    "sections.s1.callout.title": "Ejemplo:",
+    "sections.s1.callout.text": "en vez de “mejorar atención”, usar “mantenerse en actividad 5 minutos con apoyo visual y pausa planificada”.",
+
+    "boxes.reassure.badge": "Tranquilidad",
+    "boxes.reassure.title": "Esto NO significa que…",
+    "boxes.reassure.li1": "El plan sea rígido o “militar”.",
+    "boxes.reassure.li2": "El niño tenga que adaptarse sin apoyos.",
+    "boxes.reassure.li3": "Haya que esperar a estar “peor” para actuar.",
+    "boxes.reassure.note": "Significa combinar claridad + flexibilidad: objetivos claros, apoyos ajustados y seguimiento.",
+
+    "sections.s2.title": "2) No hay “talla única”: qué se personaliza",
+    "sections.s2.li1": "<strong>Objetivos</strong>: priorizar lo que desbloquea participación.",
+    "sections.s2.li2": "<strong>Ritmo</strong>: demanda, duración y descansos.",
+    "sections.s2.li3": "<strong>Canal</strong>: visual, verbal, sensorial, motor.",
+    "sections.s2.li4": "<strong>Contexto</strong>: casa, cole, comunidad.",
+    "sections.s2.li5": "<strong>Apoyos</strong>: anticipación, pausas y estructura.",
+
+    "sections.s3.title": "3) Coordinación familia–escuela",
+    "sections.s3.p1": "Cuando casa y escuela usan señales parecidas, el niño aprende más rápido y con menos frustración.",
+
+    "sections.s4.title": "4) Cómo saber si un plan funciona",
+    "sections.s4.li1": "Menos conflictos en momentos específicos.",
+    "sections.s4.li2": "Más intentos de comunicación.",
+    "sections.s4.li3": "Mayor tolerancia a cambios.",
+    "sections.s4.li4": "Menos ayuda para la misma tarea.",
+    "sections.s4.li5": "Más participación.",
+
+    "sections.s5.title": "5) Mini-checklist de intervención de calidad",
+    "sections.s5.li1": "Objetivos medibles y funcionales.",
+    "sections.s5.li2": "Práctica en el contexto real.",
+    "sections.s5.li3": "Apoyos visibles.",
+    "sections.s5.li4": "Pausas planificadas.",
+    "sections.s5.li5": "Revisión con datos.",
+
+    "faq.title": "Preguntas frecuentes",
+    "faq.q1": "¿Esto es solo para niños con diagnóstico?",
+    "faq.a1": "No. Es útil para cualquier niño que necesite apoyos específicos.",
+    "faq.q2": "¿Cuándo pedir ayuda profesional?",
+    "faq.a2": "Cuando el día a día se vuelve difícil o las estrategias generales no funcionan.",
+
+    "nav.prev": "← Anterior: Logopedia",
+    "nav.back": "Volver al blog",
+    "nav.contact": "Contactar"
+  },
+
+  "ca": {
+    "__meta.title": "Intervenció individualitzada: cada infant, el seu propi camí | Mentes en Movimiento",
+    "__meta.description": "Què significa intervenció individualitzada: objectius funcionals, suports a mida, coordinació família-escola i seguiment real.",
+
+    "a11y.skip": "Saltar al contingut",
+
+    "nav.menu": "Obrir menú",
+    "nav.services": "Serveis",
+    "nav.approach": "Enfocament",
+    "nav.blog": "Blog",
+    "nav.instagram": "Instagram",
+    "nav.legal": "Legal",
+
+    "breadcrumb.home": "Inici",
+    "breadcrumb.blog": "Blog",
+    "breadcrumb.category": "Intervenció",
+
+    "hero.title": "Cada infant, el seu propi camí: què significa una intervenció individualitzada",
+    "hero.meta": "Intervenció · Família-escola · Objectius funcionals · Lectura: 9–12 min",
+    "hero.image_alt": "Camí i acompanyament individualitzat",
+
+    "intro.p1": "“Intervenció individualitzada” no vol dir fer alguna cosa diferent cada dia sense estructura. Vol dir dissenyar un pla <strong>amb objectius clars</strong>, basat en el perfil de l’infant, el seu entorn i el que realment millora la seva participació.",
+
+    "boxes.parent.badge": "Famílies",
+    "boxes.parent.title": "Potser t’hi reconeixes si…",
+    "boxes.parent.li1": "Has provat consells generals i res es manté.",
+    "boxes.parent.li2": "A casa funciona alguna cosa, però a l’escola no.",
+    "boxes.parent.li3": "El teu fill ho pot fer a vegades… però no sempre.",
+    "boxes.parent.li4": "Et sents cansat/da d’anar apagant focs.",
+
+    "toc.title": "En aquest article",
+    "toc.i1": "1) Individualitzar des del funcional",
+    "toc.i2": "2) Què es personalitza",
+    "toc.i3": "3) Coordinació família–escola",
+    "toc.i4": "4) Com saber si funciona",
+    "toc.i5": "5) Checklist de qualitat",
+    "toc.i6": "Preguntes freqüents",
+
+    "sections.s1.title": "1) Individualitzar comença pel funcional",
+    "sections.s1.p1": "Un objectiu és funcional quan millora una situació concreta a casa o a l’escola.",
+    "sections.s1.callout.title": "Exemple:",
+    "sections.s1.callout.text": "en lloc de “millorar l’atenció”, usar “mantenir-se en activitat 5 minuts amb suport visual i pausa planificada”.",
+
+    "boxes.reassure.badge": "Tranquil·litat",
+    "boxes.reassure.title": "Això NO vol dir que…",
+    "boxes.reassure.li1": "El pla sigui rígid.",
+    "boxes.reassure.li2": "L’infant s’hagi d’adaptar sense suports.",
+    "boxes.reassure.li3": "Calgui esperar a estar pitjor.",
+    "boxes.reassure.note": "Vol dir combinar claredat i flexibilitat.",
+
+    "sections.s2.title": "2) No hi ha talla única",
+    "sections.s2.li1": "<strong>Objectius</strong>: prioritzar participació.",
+    "sections.s2.li2": "<strong>Ritme</strong>: demanda i descansos.",
+    "sections.s2.li3": "<strong>Canal</strong>: visual, verbal o motor.",
+    "sections.s2.li4": "<strong>Context</strong>: casa, escola, comunitat.",
+    "sections.s2.li5": "<strong>Suports</strong>: anticipació i estructura.",
+
+    "sections.s3.title": "3) Coordinació família–escola",
+    "sections.s3.p1": "Quan casa i escola comparteixen estratègies, l’aprenentatge és més ràpid.",
+
+    "sections.s4.title": "4) Com saber si un pla funciona",
+    "sections.s4.li1": "Menys conflictes.",
+    "sections.s4.li2": "Més intents comunicatius.",
+    "sections.s4.li3": "Més tolerància als canvis.",
+    "sections.s4.li4": "Menys ajuda necessària.",
+    "sections.s4.li5": "Més participació.",
+
+    "sections.s5.title": "5) Mini-checklist",
+    "sections.s5.li1": "Objectius mesurables.",
+    "sections.s5.li2": "Pràctica real.",
+    "sections.s5.li3": "Suports visibles.",
+    "sections.s5.li4": "Pausas planificades.",
+    "sections.s5.li5": "Seguiment.",
+
+    "faq.title": "Preguntes freqüents",
+    "faq.q1": "És només per a infants amb diagnòstic?",
+    "faq.a1": "No. Pot ajudar qualsevol infant.",
+    "faq.q2": "Quan cal ajuda professional?",
+    "faq.a2": "Quan el dia a dia és difícil.",
+
+    "nav.prev": "← Anterior: Logopèdia",
+    "nav.back": "Tornar al blog",
+    "nav.contact": "Contactar"
+  },
+
+  "en": {
+    "__meta.title": "Individualised intervention: every child, their own path | Mentes en Movimiento",
+    "__meta.description": "What individualised intervention means: functional goals, tailored supports, family–school coordination and real monitoring.",
+
+    "a11y.skip": "Skip to content",
+
+    "nav.menu": "Open menu",
+    "nav.services": "Services",
+    "nav.approach": "Approach",
+    "nav.blog": "Blog",
+    "nav.instagram": "Instagram",
+    "nav.legal": "Legal",
+
+    "breadcrumb.home": "Home",
+    "breadcrumb.blog": "Blog",
+    "breadcrumb.category": "Intervention",
+
+    "hero.title": "Every child, their own path: what individualised intervention really means",
+    "hero.meta": "Intervention · Family–school · Functional goals · Read time: 9–12 min",
+    "hero.image_alt": "Individualised support and pathway",
+
+    "intro.p1": "“Individualised intervention” does not mean doing something different every day without structure. It means designing a plan <strong>with clear goals</strong>, based on the child’s profile, environment and what truly improves daily participation.",
+
+    "boxes.parent.badge": "Families",
+    "boxes.parent.title": "You may recognise this if…",
+    "boxes.parent.li1": "General advice hasn’t worked.",
+    "boxes.parent.li2": "Something works at home but not at school.",
+    "boxes.parent.li3": "The child can do it sometimes, but not consistently.",
+    "boxes.parent.li4": "You feel exhausted managing constant challenges.",
+
+    "toc.title": "In this article",
+    "toc.i1": "1) Start with functional goals",
+    "toc.i2": "2) What is personalised",
+    "toc.i3": "3) Family–school coordination",
+    "toc.i4": "4) How to know it works",
+    "toc.i5": "5) Quality checklist",
+    "toc.i6": "FAQs",
+
+    "sections.s1.title": "1) Individualisation starts with function",
+    "sections.s1.p1": "A goal is functional when it improves daily life situations.",
+    "sections.s1.callout.title": "Example:",
+    "sections.s1.callout.text": "instead of “improve attention”, use “stay engaged for 5 minutes with visual support and planned break”.",
+
+    "boxes.reassure.badge": "Reassurance",
+    "boxes.reassure.title": "This does NOT mean…",
+    "boxes.reassure.li1": "The plan is rigid.",
+    "boxes.reassure.li2": "The child must adapt without support.",
+    "boxes.reassure.li3": "You must wait until things get worse.",
+    "boxes.reassure.note": "It means clarity combined with flexibility.",
+
+    "sections.s2.title": "2) No one-size-fits-all",
+    "sections.s2.li1": "<strong>Goals</strong>: prioritise participation.",
+    "sections.s2.li2": "<strong>Pace</strong>: demands and breaks.",
+    "sections.s2.li3": "<strong>Channel</strong>: visual, verbal, motor.",
+    "sections.s2.li4": "<strong>Context</strong>: home, school, community.",
+    "sections.s2.li5": "<strong>Supports</strong>: structure and anticipation.",
+
+    "sections.s3.title": "3) Family–school coordination",
+    "sections.s3.p1": "When home and school align, learning accelerates.",
+
+    "sections.s4.title": "4) How to know a plan works",
+    "sections.s4.li1": "Fewer conflicts.",
+    "sections.s4.li2": "More communication attempts.",
+    "sections.s4.li3": "Greater tolerance for change.",
+    "sections.s4.li4": "Less support needed.",
+    "sections.s4.li5": "More participation.",
+
+    "sections.s5.title": "5) Mini quality checklist",
+    "sections.s5.li1": "Measurable goals.",
+    "sections.s5.li2": "Real-life practice.",
+    "sections.s5.li3": "Visible supports.",
+    "sections.s5.li4": "Planned breaks.",
+    "sections.s5.li5": "Ongoing review.",
+
+    "faq.title": "Frequently asked questions",
+    "faq.q1": "Is this only for children with a diagnosis?",
+    "faq.a1": "No. It can support any child.",
+    "faq.q2": "When should professional help be considered?",
+    "faq.a2": "When daily life becomes difficult.",
+
+    "nav.prev": "← Previous: Speech therapy",
+    "nav.back": "Back to blog",
+    "nav.contact": "Contact us"
+  }
+}
