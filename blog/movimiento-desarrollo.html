@@ -4,91 +4,71 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title data-i18n="__meta.title">
-    Movimiento y desarrollo infantil: atención, regulación y aprendizaje | Mentes en Movimiento
-  </title>
+  <!-- NOTE: <title> text is set by blog i18n loader (meta key) -->
+  <title>Movimiento y desarrollo infantil | Mentes en Movimiento</title>
 
   <meta
     name="description"
-    content="Cómo el movimiento apoya regulación emocional, atención y preparación para aprender. Señales frecuentes, ideas prácticas y estrategias para casa y aula."
-    data-i18n-attr="content"
-    data-i18n="__meta.description"
+    content="Cómo el movimiento apoya regulación emocional, atención y preparación para aprender."
   />
 
   <link rel="canonical" href="https://mentesenmovimiento.github.io/blog/movimiento-desarrollo.html" />
 
   <meta property="og:title" content="Movimiento y desarrollo infantil: atención, regulación y aprendizaje" />
-  <meta property="og:description" content="Movimiento con intención para regular, atender y aprender." />
+  <meta property="og:description" content="Movimiento con intención para regular, atender y aprender: explicación clara + estrategias para casa y escuela." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://mentesenmovimiento.github.io/blog/movimiento-desarrollo.html" />
   <meta property="og:image" content="https://mentesenmovimiento.github.io/assets/images/blog-movimiento.jpg" />
 
   <link rel="stylesheet" href="../assets/styles.css" />
   <link rel="stylesheet" href="../assets/blog.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Movimiento y desarrollo infantil: atención, regulación y aprendizaje",
+    "description":"Cómo el movimiento apoya regulación emocional, atención y preparación para aprender. Señales frecuentes e ideas prácticas para casa y escuela.",
+    "image":"https://mentesenmovimiento.github.io/assets/images/blog-movimiento.jpg",
+    "author":{"@type":"Organization","name":"Mentes en Movimiento"},
+    "publisher":{"@type":"Organization","name":"Mentes en Movimiento"},
+    "mainEntityOfPage":"https://mentesenmovimiento.github.io/blog/movimiento-desarrollo.html",
+    "keywords":["movimiento y desarrollo infantil","regulación emocional","atención","preparación para aprender","pausas activas","estrategias aula","rutinas casa"]
+  }
+  </script>
 </head>
 
-  <body data-blog data-blog-i18n="./movimiento-desarrollo.i18n.json">
-  <a href="#contenido" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
+<body data-blog data-blog-i18n="./movimiento-desarrollo.i18n.json">
+  <a href="#contenido" class="skip-link" data-blog-i18n="a11y.skip">Saltar al contenido</a>
 
-  <header class="site-header auto-hide" role="banner">
-  <div class="container nav">
-    <a class="brand" href="../index.html" aria-label="Ir al inicio">
-      <img
-        src="../assets/images/logo-trans.svg"
-        alt="Mentes en Movimiento"
-        class="nav-logo"
-        decoding="async"
-      >
-    </a>
-
-    <!-- Mobile toggle -->
-    <button
-      class="nav-toggle"
-      aria-expanded="false"
-      aria-controls="primary-menu"
-      data-nav-toggle
-    >
-      <span class="sr-only">Abrir menú</span>
-      <svg width="24" height="24" aria-hidden="true">
-        <path
-          d="M3 6h18M3 12h18M3 18h18"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-    </button>
-
-    <!-- NAV -->
   <header class="site-header auto-hide" role="banner">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="Ir al inicio" data-i18n-attr="aria-label" data-i18n="nav.home_aria">
-        <img src="assets/images/logo-trans.svg" alt="Mentes en Movimiento" class="nav-logo" fetchpriority="high" decoding="async">
+      <a class="brand" href="../index.html" aria-label="Ir al inicio" data-blog-i18n="nav.home_aria" data-blog-i18n-attr="aria-label">
+        <img src="../assets/images/logo-trans.svg" alt="Mentes en Movimiento" class="nav-logo" decoding="async">
       </a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" data-nav-toggle>
-        <span class="sr-only" data-i18n="nav.menu_open">Abrir menú</span>
+        <span class="sr-only" data-blog-i18n="nav.menu_open">Abrir menú</span>
         <svg width="24" height="24" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
       </button>
 
-      <nav class="nav-menu" id="primary-menu" data-menu aria-label="Navegación principal" data-i18n-attr="aria-label" data-i18n="nav.aria">
-        <a class="nav-link" href="#servicios" data-i18n="nav.services">Servicios</a>
-        <a class="nav-link" href="#enfoque" data-i18n="nav.approach">Enfoque</a>
-        <a class="nav-link" href="blog/index.html" data-i18n="nav.blog">Blog</a>
-        <a class="nav-link" href="#instagram" data-i18n="nav.instagram">Instagram</a>
-        <a class="nav-link" href="#legal" data-i18n="nav.legal">Legal</a>
+      <nav class="nav-menu" id="primary-menu" data-menu aria-label="Navegación principal" hidden data-blog-i18n="nav.aria" data-blog-i18n-attr="aria-label">
+        <a class="nav-link" href="../index.html#servicios" data-blog-i18n="nav.services">Servicios</a>
+        <a class="nav-link" href="../index.html#enfoque" data-blog-i18n="nav.approach">Enfoque</a>
+        <a class="nav-link active" href="./index.html" data-blog-i18n="nav.blog">Blog</a>
+        <a class="nav-link" href="../index.html#instagram" data-blog-i18n="nav.instagram">Instagram</a>
+        <a class="nav-link" href="../index.html#legal" data-blog-i18n="nav.legal">Legal</a>
       </nav>
 
-      <!-- Language switcher (desktop + mobile) -->
-      <div class="lang-switcher" aria-label="Selector de idioma">
+      <!-- Language switcher (same UX as homepage; uses global mm_lang + .lang-btn click handler) -->
+      <div class="lang-switcher" aria-label="Selector de idioma" data-blog-i18n="nav.lang_aria" data-blog-i18n-attr="aria-label">
         <button type="button" class="lang-btn" data-lang="es" aria-label="Español">
           <span class="lang-flag" aria-hidden="true">🇪🇸</span><span class="lang-code">ES</span>
         </button>
         <button type="button" class="lang-btn" data-lang="ca" aria-label="Català">
-          <span class="lang-flag ca" aria-hidden="true">CA</span>
-          <span class="lang-code">CA</span>
+          <span class="lang-flag ca" aria-hidden="true"></span><span class="lang-code">CA</span>
         </button>
         <button type="button" class="lang-btn" data-lang="en" aria-label="English">
           <span class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-code">EN</span>
@@ -97,177 +77,211 @@
     </div>
   </header>
 
-
   <main id="contenido" class="blog-wrap">
     <div class="container">
-
-      <!-- HERO -->
       <section class="blog-hero">
         <div class="blog-breadcrumb">
-          <a href="../index.html" data-i18n="breadcrumb.home">Inicio</a>
-          <span aria-hidden="true">›</span>
-          <a href="./index.html" data-i18n="breadcrumb.blog">Blog</a>
-          <span aria-hidden="true">›</span>
-          <span data-i18n="breadcrumb.category">Movimiento</span>
+          <a href="../index.html" data-blog-i18n="breadcrumb.home">Inicio</a><span aria-hidden="true">›</span>
+          <a href="./index.html" data-blog-i18n="breadcrumb.blog">Blog</a><span aria-hidden="true">›</span>
+          <span data-blog-i18n="breadcrumb.category">Movimiento</span>
         </div>
 
-        <h1 data-i18n="hero.title">
-          Movimiento y desarrollo infantil: por qué es una base para aprender
-        </h1>
-
-        <p class="blog-meta" data-i18n="hero.meta">
-          Movimiento · Regulación · Aprendizaje · Lectura: 7–10 min
-        </p>
+        <h1 data-blog-i18n="hero.title">Movimiento y desarrollo infantil: por qué es una base para aprender</h1>
+        <p class="blog-meta" data-blog-i18n="hero.meta">Movimiento · Regulación · Aprendizaje · Lectura: 7–10 min</p>
       </section>
 
-      <!-- ARTICLE -->
       <article class="blog-article">
-
         <img
           src="../assets/images/blog-movimiento.jpg"
           alt="Niño en actividad motora que apoya el desarrollo"
           loading="lazy"
-          data-i18n-attr="alt"
-          data-i18n="hero.image_alt"
+          decoding="async"
+          data-blog-i18n="hero.image_alt"
+          data-blog-i18n-attr="alt"
         >
 
-        <p data-i18n-html="intro.p1">
+        <p data-blog-i18n-html="intro.p1">
           En la infancia, el movimiento no es “solo ejercicio”: es una forma primaria de explorar, organizar el cuerpo y regular el estado interno.
-          Cuando el cuerpo está más regulado, el cerebro suele estar más disponible para <strong>atender</strong>,
-          <strong>procesar información</strong> y <strong>aprender</strong>.
+          Cuando el cuerpo está más regulado, el cerebro suele estar más disponible para <strong>atender</strong>, <strong>procesar información</strong> y <strong>aprender</strong>.
         </p>
 
-        <!-- BOX: FAMILIAS -->
         <div class="box box--parent">
           <div class="box-title">
-            <span class="badge" data-i18n="boxes.parent.badge">Familias</span>
-            <span data-i18n="boxes.parent.title">Quizá te suene si…</span>
+            <span class="badge" data-blog-i18n="boxes.parent.badge">Familias</span>
+            <span data-blog-i18n="boxes.parent.title">Quizá te suene si…</span>
           </div>
           <ul>
-            <li data-i18n="boxes.parent.li1">Tu hijo “no para” y la calma dura muy poco.</li>
-            <li data-i18n="boxes.parent.li2">Se frustra rápido con deberes o transiciones (casa → cole).</li>
-            <li data-i18n="boxes.parent.li3">Parece que “no escucha” cuando hay ruido o prisas.</li>
-            <li data-i18n="boxes.parent.li4">Necesita moverse para poder estar en una actividad.</li>
+            <li data-blog-i18n="boxes.parent.li1">Tu hijo “no para” y la calma dura muy poco.</li>
+            <li data-blog-i18n="boxes.parent.li2">Se frustra rápido con deberes o transiciones (casa → cole, juego → cena).</li>
+            <li data-blog-i18n="boxes.parent.li3">Parece que “no escucha” cuando hay ruido o prisas.</li>
+            <li data-blog-i18n="boxes.parent.li4">Necesita moverse para poder estar en una actividad.</li>
           </ul>
         </div>
 
-        <!-- TOC -->
-        <div class="toc" aria-label="Contenido del artículo">
-          <strong data-i18n="toc.title">En este artículo</strong>
+        <div class="toc" aria-label="Contenido del artículo" data-blog-i18n="toc.aria" data-blog-i18n-attr="aria-label">
+          <strong data-blog-i18n="toc.title">En este artículo</strong>
           <ul>
-            <li><a href="#cuerpo-cerebro" data-i18n="toc.i1">1) Cuerpo–cerebro</a></li>
-            <li><a href="#regulacion" data-i18n="toc.i2">2) Regulación emocional</a></li>
-            <li><a href="#readiness" data-i18n="toc.i3">3) Preparación para aprender</a></li>
-            <li><a href="#rutina" data-i18n="toc.i4">4) Rutina 2–5–2</a></li>
-            <li><a href="#si-aumenta" data-i18n="toc.i5">5) Si se activa más</a></li>
-            <li><a href="#faq" data-i18n="toc.i6">Preguntas frecuentes</a></li>
+            <li><a href="#cuerpo-cerebro" data-blog-i18n="toc.i1">1) Cuerpo–cerebro: qué significa</a></li>
+            <li><a href="#regulacion" data-blog-i18n="toc.i2">2) Movimiento y regulación emocional</a></li>
+            <li><a href="#readiness" data-blog-i18n="toc.i3">3) Preparación para aprender</a></li>
+            <li><a href="#rutina" data-blog-i18n="toc.i4">4) Rutina 2–5–2 (casa/aula)</a></li>
+            <li><a href="#si-aumenta" data-blog-i18n="toc.i5">5) Si se activa más con movimiento</a></li>
+            <li><a href="#faq" data-blog-i18n="toc.i6">Preguntas frecuentes</a></li>
           </ul>
         </div>
 
-        <!-- SECTION 1 -->
-        <h2 id="cuerpo-cerebro" data-i18n="sections.s1.title">
-          1) Conexión cuerpo–cerebro: qué significa en la vida real
-        </h2>
-
-        <p data-i18n="sections.s1.p1">
+        <h2 id="cuerpo-cerebro" data-blog-i18n="sections.s1.title">1) Conexión cuerpo–cerebro: qué significa en la vida real</h2>
+        <p data-blog-i18n="sections.s1.p1">
           Muchas habilidades escolares (mantener postura, escuchar, esperar turno, copiar, planificar una tarea)
-          se sostienen sobre bases motoras y sensoriales.
+          se sostienen sobre bases motoras y sensoriales: estabilidad, control ocular, coordinación, ritmo y autorregulación.
+          Por eso a veces “parece” un tema de atención, pero el cuerpo está pidiendo ayuda para organizarse.
         </p>
 
         <div class="callout">
-          <strong data-i18n="callout.key">Idea clave:</strong>
-          <span data-i18n="callout.text">
+          <strong data-blog-i18n="callout.key">Idea clave:</strong>
+          <span data-blog-i18n-html="callout.text">
             si el cuerpo necesita moverse para regularse, exigir quietud sin estrategias suele empeorar la atención.
+            El objetivo es <em>movimiento con intención</em> (organizador), no “moverse por moverse”.
           </span>
         </div>
 
-        <!-- SECTION 2 -->
-        <h2 id="regulacion" data-i18n="sections.s2.title">
-          2) Movimiento y regulación emocional
-        </h2>
-
-        <p data-i18n="sections.s2.p1">
+        <h2 id="regulacion" data-blog-i18n="sections.s2.title">2) Movimiento y regulación emocional</h2>
+        <p data-blog-i18n="sections.s2.p1">
           Regularse no es “portarse bien”. Es poder pasar de un estado a otro (activación ↔ calma) con apoyo.
+          El movimiento puede ayudar a bajar activación (descargar tensión) o subirla (activar) según la necesidad.
         </p>
 
-        <h3 data-i18n="sections.s2.h3">Señales frecuentes</h3>
+        <h3 data-blog-i18n="sections.s2.h3">Señales frecuentes de que falta regulación corporal</h3>
         <ul>
-          <li data-i18n="sections.s2.li1">Se levanta constantemente o “no para”.</li>
-          <li data-i18n="sections.s2.li2">Se derrumba en la silla o se cansa rápido.</li>
-          <li data-i18n="sections.s2.li3">Explota o se bloquea ante cambios pequeños.</li>
-          <li data-i18n="sections.s2.li4">Busca presión (empujar, chocar, morder objetos).</li>
+          <li data-blog-i18n="sections.s2.li1">Se levanta constantemente o “no para” incluso cuando quiere hacerlo.</li>
+          <li data-blog-i18n="sections.s2.li2">Se derrumba en la silla, apoya la cabeza, se cansa rápido.</li>
+          <li data-blog-i18n="sections.s2.li3">Explota o se bloquea ante cambios pequeños.</li>
+          <li data-blog-i18n="sections.s2.li4">Busca presión: empuja, choca, se pega, muerde objetos (a veces).</li>
         </ul>
 
-        <!-- SECTION 3 -->
-        <h2 id="readiness" data-i18n="sections.s3.title">
-          3) Preparación para el aprendizaje
-        </h2>
+        <div class="box box--reassure">
+          <div class="box-title">
+            <span class="badge" data-blog-i18n="boxes.reassure.badge">Tranquilidad</span>
+            <span data-blog-i18n="boxes.reassure.title">Esto NO significa que…</span>
+          </div>
+          <ul>
+            <li data-blog-i18n="boxes.reassure.li1">Tu hijo “no quiera” o “sea vago”.</li>
+            <li data-blog-i18n="boxes.reassure.li2">Tenga un diagnóstico necesariamente.</li>
+            <li data-blog-i18n="boxes.reassure.li3">La solución sea “más disciplina”.</li>
+          </ul>
+          <p class="muted small" style="margin-bottom:0;" data-blog-i18n="boxes.reassure.note">
+            Significa que el cuerpo puede necesitar apoyos más específicos para organizarse en ciertos contextos.
+          </p>
+        </div>
 
-        <p data-i18n="sections.s3.p1">
-          Antes de pedir una tarea cognitiva, conviene preparar el sistema: postura, atención y estado emocional.
+        <h2 id="readiness" data-blog-i18n="sections.s3.title">3) Preparación para el aprendizaje (learning readiness)</h2>
+        <p data-blog-i18n="sections.s3.p1">
+          Antes de pedir una tarea cognitiva, conviene preparar el sistema: postura + atención + estado emocional.
+          A veces <strong>2–5 minutos</strong> de actividad motora antes de empezar cambian totalmente el resultado.
         </p>
 
-        <!-- SECTION 4 -->
-        <h2 id="rutina" data-i18n="sections.s4.title">
-          4) Rutina práctica 2–5–2
-        </h2>
+        <div class="box box--teacher">
+          <div class="box-title">
+            <span class="badge" data-blog-i18n="boxes.teacher.badge">Aula</span>
+            <span data-blog-i18n="boxes.teacher.title">Sin interrumpir a la clase</span>
+          </div>
+          <ul>
+            <li data-blog-i18n-html="boxes.teacher.li1"><strong>Micropausas</strong> (20–40s): estirar brazos, presión en manos, respiración guiada.</li>
+            <li data-blog-i18n-html="boxes.teacher.li2"><strong>Encargos</strong> (30–60s): llevar un papel, borrar pizarra, recoger material.</li>
+            <li data-blog-i18n-html="boxes.teacher.li3"><strong>Cambio de postura</strong>: 2 min de pie en el sitio con norma clara.</li>
+            <li data-blog-i18n-html="boxes.teacher.li4"><strong>Inicio de tarea</strong>: “primero 3 minutos, luego pausa breve”.</li>
+          </ul>
+        </div>
+
+        <h2 id="rutina" data-blog-i18n="sections.s4.title">4) Rutina práctica: “2–5–2” para casa o aula</h2>
+        <p data-blog-i18n="sections.s4.p1">
+          Una estructura simple para probar durante 7–14 días. La clave es que sea <strong>repetible</strong> y <strong>predecible</strong>.
+        </p>
 
         <ol>
-          <li data-i18n="sections.s4.li1"><strong>2 min</strong> de movimiento organizador.</li>
-          <li data-i18n="sections.s4.li2"><strong>5 min</strong> de tarea concreta.</li>
-          <li data-i18n="sections.s4.li3"><strong>2 min</strong> de pausa reguladora.</li>
+          <li data-blog-i18n-html="sections.s4.li1"><strong>2 min</strong> de movimiento organizador (empujar pared, “animal walk”, escalón, arrastrar cojín).</li>
+          <li data-blog-i18n-html="sections.s4.li2"><strong>5 min</strong> de tarea (con inicio/fin claros, muy concreta).</li>
+          <li data-blog-i18n-html="sections.s4.li3"><strong>2 min</strong> de pausa reguladora (beber agua, estirar, presión profunda, respirar).</li>
         </ol>
 
-        <!-- SECTION 5 -->
-        <h2 id="si-aumenta" data-i18n="sections.s5.title">
-          5) Qué hacer si se activa más con movimiento
-        </h2>
+        <div class="box box--trytoday">
+          <div class="box-title">
+            <span class="badge" data-blog-i18n="boxes.trytoday.badge">Hoy</span>
+            <span data-blog-i18n="boxes.trytoday.title">Prueba esto en 10 minutos</span>
+          </div>
+          <ol>
+            <li data-blog-i18n="boxes.trytoday.li1">Elige 1 tarea corta (ej: 5 líneas de lectura, 3 sumas, recoger juguetes).</li>
+            <li data-blog-i18n="boxes.trytoday.li2">Haz 90 segundos de “empujar pared” + 30 segundos de respiración lenta.</li>
+            <li data-blog-i18n="boxes.trytoday.li3">Haz la tarea con temporizador visible (5 min).</li>
+            <li data-blog-i18n="boxes.trytoday.li4">Pausa breve (2 min) antes de “otra cosa”.</li>
+          </ol>
+          <p class="muted small" style="margin-bottom:0;" data-blog-i18n="boxes.trytoday.note">
+            Si funciona, repítelo igual 5–7 días antes de cambiar.
+          </p>
+        </div>
 
-        <p data-i18n="sections.s5.p1">
-          Puede pasar si el movimiento elegido es demasiado activador.
-          Cambia a opciones más organizadoras como empujar, arrastrar o ritmos lentos.
+        <h2 id="si-aumenta" data-blog-i18n="sections.s5.title">5) Qué hacer si “se activa más” con movimiento</h2>
+        <p data-blog-i18n-html="sections.s5.p1">
+          Puede pasar si el movimiento elegido es demasiado activador (saltos rápidos, correr, música intensa).
+          Cambia a opciones más organizadoras: <strong>propiocepción</strong> (empujar, arrastrar, cargar), ritmos lentos y pausas estructuradas.
         </p>
 
-        <!-- FAQ -->
-        <section class="faq" id="faq">
-          <h2 data-i18n="faq.title">Preguntas frecuentes</h2>
+        <div class="key-takeaways" aria-label="Resumen" data-blog-i18n="summary.aria" data-blog-i18n-attr="aria-label">
+          <h2 data-blog-i18n="summary.title">Resumen rápido</h2>
+          <ul>
+            <li data-blog-i18n-html="summary.li1">El movimiento puede ser una herramienta para regular (no un premio ni un castigo).</li>
+            <li data-blog-i18n-html="summary.li2">Mejor que “más movimiento” es <strong>movimiento adecuado</strong> para ese niño y ese momento.</li>
+            <li data-blog-i18n-html="summary.li3">La estructura (2–5–2) ayuda a generalizar en casa y en clase.</li>
+          </ul>
+        </div>
+
+        <section class="faq" id="faq" aria-label="Preguntas frecuentes" data-blog-i18n="faq.aria" data-blog-i18n-attr="aria-label">
+          <h2 data-blog-i18n="faq.title">Preguntas frecuentes</h2>
 
           <details>
-            <summary data-i18n="faq.q1">¿Cuánto movimiento necesita un niño?</summary>
-            <p data-i18n="faq.a1">
-              Depende del perfil. Más que minutos, observa si mejora atención y calma tras un bloque breve.
+            <summary data-blog-i18n="faq.q1">¿Cuánto movimiento necesita un niño al día?</summary>
+            <p data-blog-i18n="faq.a1">
+              Depende de edad, contexto y perfil. Más útil que contar minutos es observar: ¿mejora atención y calma tras un bloque breve y repetible?
+              Si sí, vas por buen camino.
             </p>
           </details>
 
           <details>
-            <summary data-i18n="faq.q2">¿Y si el colegio no permite pausas?</summary>
-            <p data-i18n="faq.a2">
-              Se pueden usar microajustes discretos: encargos, cambios de postura o presión en manos.
+            <summary data-blog-i18n="faq.q2">¿Y si el colegio no permite “pausas activas”?</summary>
+            <p data-blog-i18n="faq.a2">
+              Se puede empezar con microajustes discretos: encargos, cambios de postura, presión en manos, apoyos visuales y temporizadores.
+              La clave es que sea planificado, no solo “cuando explota”.
+            </p>
+          </details>
+
+          <details>
+            <summary data-blog-i18n="faq.q3">¿Esto funciona para todos los niños?</summary>
+            <p data-blog-i18n="faq.a3">
+              No de la misma manera. Algunos se regulan con movimiento intenso; otros necesitan presión y ritmos lentos.
+              Si algo empeora, no es un fracaso: es información para ajustar.
             </p>
           </details>
         </section>
 
-        <!-- NAV -->
-        <div class="blog-nav">
-          <a href="./index.html" data-i18n="nav.back">← Volver al blog</a>
-          <a href="./logopedia-global.html" data-i18n="nav.next">Siguiente: Logopedia →</a>
-          <a href="../index.html#contacto" data-i18n="nav.contact">Contactar</a>
-        </div>
+        <p class="muted small" style="margin-top:14px;" data-blog-i18n-html="related.p1">
+          Si además hay dificultades de comunicación, lee <a href="./logopedia-global.html">Logopedia funcional</a>.
+          Y si quieres entender cómo se ajusta un plan al perfil del niño, lee <a href="./intervencion-individualizada.html">Intervención individualizada</a>.
+        </p>
 
+        <div class="blog-nav">
+          <a href="./index.html" data-blog-i18n="blognav.back">← Volver al blog</a>
+          <a href="./logopedia-global.html" data-blog-i18n="blognav.next">Siguiente: Logopedia →</a>
+          <a href="../index.html#contacto" data-blog-i18n="blognav.contact">Contactar</a>
+        </div>
       </article>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p class="muted small">© <span id="year"></span> Mentes en Movimiento</p>
+      <p class="muted small">© <span id="year"></span> <span data-blog-i18n="footer.brand">Mentes en Movimiento</span></p>
     </div>
   </footer>
-
-  <!-- BLOG i18n SOURCE -->
-  <script type="application/json" id="blog-i18n-src">
-    ./movimiento-desarrollo.i18n.json
-  </script>
 
   <script src="../assets/script.js"></script>
 </body>
