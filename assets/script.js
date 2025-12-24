@@ -993,5 +993,63 @@ setActiveLangBtn(lang);
         setLang(lang || "es");
       });
     });
+
+    /* ============================
+   BLOG i18n LOADER (GENERIC)
+   ============================ */
+(function () {
+  // Detect if this is a blog page with i18n support
+  const srcEl = document.getElementById("blog-i18n-src");
+  if (!srcEl) return;
+
+  const jsonPath = srcEl.textContent.trim();
+  if (!jsonPath) return;
+
+  const lang = localStorage.getItem("mm_lang") || "es";
+
+  fetch(jsonPath)
+    .then((res) => {
+      if (!res.ok) throw new Error("Blog i18n JSON not found");
+      return res.json();
+    })
+    .then((data) => {
+      const dict = data[lang] || data.es;
+      if (!dict) return;
+
+      // TEXT nodes
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        const val = dict[key];
+        if (typeof val === "string") {
+          el.textContent = val;
+        }
+      });
+
+      // HTML nodes (explicit only)
+      document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-html");
+        const val = dict[key];
+        if (typeof val === "string") {
+          el.innerHTML = val;
+        }
+      });
+      // Optional: update document title + meta description
+      if (dict.__meta) {
+        if (dict.__meta.title) {
+          document.title = dict.__meta.title;
+        }
+        if (dict.__meta.description) {
+          const meta = document.querySelector('meta[name="description"]');
+          if (meta) meta.setAttribute("content", dict.__meta.description);
+        }
+      }
+
+      document.documentElement.setAttribute("lang", lang);
+    })
+    .catch((err) => {
+      console.warn("Blog i18n load failed:", err.message);
+    });
+})();
+
   });
 })();
