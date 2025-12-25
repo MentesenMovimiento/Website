@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title data-i18n="blog_index.meta.title">Blog · Mentes en Movimiento</title>
+  <title data-blog-i18n="blog_index.meta.title">Blog · Mentes en Movimiento</title>
 
   <meta
     name="description"
     content="Artículos claros y aplicables para familias y profesionales: movimiento, regulación, comunicación y enfoque individualizado."
-    data-i18n="blog_index.meta.description"
-    data-i18n-attr="content"
+    data-blog-i18n="blog_index.meta.description"
+    data-blog-i18n-attr="content"
   />
 
   <link rel="canonical" href="https://mentesenmovimiento.github.io/blog/index.html" />
@@ -23,95 +23,88 @@
 
   <link rel="stylesheet" href="../assets/styles.css" />
   <link rel="stylesheet" href="../assets/blog.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Blog",
-    "name":"Blog · Mentes en Movimiento",
-    "url":"https://mentesenmovimiento.github.io/blog/index.html",
-    "publisher":{"@type":"Organization","name":"Mentes en Movimiento"}
-  }
-  </script>
 </head>
 
 <body>
 
-  <a href="#contenido" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
+  <a href="#contenido" class="skip-link" data-blog-i18n="a11y.skip">Saltar al contenido</a>
 
   <!-- HEADER -->
   <header class="site-header auto-hide" role="banner">
-  <div class="container nav">
-    <a class="brand"
-       href="../index.html"
-       aria-label="Ir al inicio"
-       data-i18n-attr="aria-label"
-       data-i18n="nav.home_aria">
-      <img src="../assets/images/logo-trans.svg"
-           alt="Mentes en Movimiento"
-           class="nav-logo"
-           fetchpriority="high"
-           decoding="async">
-    </a>
+    <div class="container nav">
+      <a class="brand"
+         href="../index.html"
+         aria-label="Ir al inicio"
+         data-blog-i18n-attr="aria-label"
+         data-blog-i18n="nav.home_aria">
+        <img src="../assets/images/logo-trans.svg"
+             alt="Mentes en Movimiento"
+             class="nav-logo"
+             fetchpriority="high"
+             decoding="async">
+      </a>
 
-    <button class="nav-toggle"
-            aria-expanded="false"
-            aria-controls="primary-menu"
-            data-nav-toggle>
-      <span class="sr-only" data-i18n="nav.menu_open">Abrir menú</span>
-      <svg width="24" height="24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round" />
-      </svg>
-    </button>
+      <button class="nav-toggle"
+              aria-expanded="false"
+              aria-controls="primary-menu"
+              data-nav-toggle>
+        <span class="sr-only" data-blog-i18n="nav.menu_open">Abrir menú</span>
+        <svg width="24" height="24" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round" />
+        </svg>
+      </button>
 
-    <nav class="nav-menu"
-         id="primary-menu"
-         data-menu
-         aria-label="Navegación principal"
-         data-i18n-attr="aria-label"
-         data-i18n="nav.aria">
-      <a class="nav-link" href="../index.html#servicios" data-i18n="nav.services">Servicios</a>
-      <a class="nav-link" href="../index.html#enfoque" data-i18n="nav.approach">Enfoque</a>
-      <a class="nav-link active" href="./index.html" data-i18n="nav.blog">Blog</a>
-      <a class="nav-link" href="../index.html#instagram" data-i18n="nav.instagram">Instagram</a>
-      <a class="nav-link" href="../index.html#legal" data-i18n="nav.legal">Legal</a>
-    </nav>
+      <nav class="nav-menu"
+           id="primary-menu"
+           data-menu
+           aria-label="Navegación principal"
+           data-blog-i18n-attr="aria-label"
+           data-blog-i18n="nav.aria">
+        <a class="nav-link" href="../index.html#servicios" data-blog-i18n="nav.services">Servicios</a>
+        <a class="nav-link" href="../index.html#enfoque" data-blog-i18n="nav.approach">Enfoque</a>
+        <a class="nav-link active" href="./index.html" data-blog-i18n="nav.blog">Blog</a>
+        <a class="nav-link" href="../index.html#instagram" data-blog-i18n="nav.instagram">Instagram</a>
+        <a class="nav-link" href="../index.html#legal" data-blog-i18n="nav.legal">Legal</a>
+      </nav>
 
-    <!-- Language switcher -->
-    <div class="lang-switcher" aria-label="Selector de idioma">
-      <button type="button" class="lang-btn" data-lang="es" aria-label="Español">
-        <span class="lang-flag">🇪🇸</span><span class="lang-code">ES</span>
-      </button>
-      <button type="button" class="lang-btn" data-lang="ca" aria-label="Català">
-        <span class="lang-flag ca">CA</span><span class="lang-code">CA</span>
-      </button>
-      <button type="button" class="lang-btn" data-lang="en" aria-label="English">
-        <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
-      </button>
+      <!-- Language switcher -->
+      <div class="lang-switcher" aria-label="Selector de idioma">
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Español">
+          <span class="lang-flag">🇪🇸</span><span class="lang-code">ES</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="ca" aria-label="Català">
+          <span class="lang-flag ca">CA</span><span class="lang-code">CA</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+          <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+        </button>
+      </div>
     </div>
-  </div>
-</header>
-
+  </header>
 
   <!-- MAIN -->
-  <main id="contenido" class="blog-wrap" data-blog data-blog-i18n="./index.i18n.json"
->
+  <main id="contenido"
+        class="blog-wrap"
+        data-blog
+        data-blog-i18n="./index.i18n.json">
     <div class="container">
 
       <!-- HERO -->
       <section class="blog-hero">
         <div class="blog-breadcrumb">
-          <a href="../index.html" data-i18n="breadcrumb.home">Inicio</a>
+          <a href="../index.html" data-blog-i18n="breadcrumb.home">Inicio</a>
           <span aria-hidden="true">›</span>
-          <span data-i18n="breadcrumb.blog">Blog</span>
+          <span data-blog-i18n="breadcrumb.blog">Blog</span>
         </div>
 
-        <h1 data-i18n="blog_index.hero.title">Blog</h1>
+        <h1 data-blog-i18n="blog_index.hero.title">Blog</h1>
 
-        <p class="blog-meta" data-i18n-html="blog_index.hero.lead">
+        <p class="blog-meta"
+           data-blog-i18n-html
+           data-blog-i18n="blog_index.hero.lead">
           Artículos breves, claros y aplicables para familias y profesionales.
           Enfoque: <strong>movimiento</strong>, <strong>regulación</strong>,
           <strong>comunicación</strong> y <strong>aprendizaje</strong>.
@@ -123,11 +116,11 @@
 
         <!-- TOC -->
         <div class="toc">
-          <strong data-i18n="blog_index.toc.title">Empieza por aquí</strong>
+          <strong data-blog-i18n="blog_index.toc.title">Empieza por aquí</strong>
           <ul>
-            <li><a href="movimiento-desarrollo.html" data-i18n="blog_index.toc.i1">Movimiento y desarrollo infantil</a></li>
-            <li><a href="logopedia-global.html" data-i18n="blog_index.toc.i2">Logopedia funcional y desarrollo global</a></li>
-            <li><a href="intervencion-individualizada.html" data-i18n="blog_index.toc.i3">Intervención individualizada</a></li>
+            <li><a href="movimiento-desarrollo.html" data-blog-i18n="blog_index.toc.i1">Movimiento y desarrollo infantil</a></li>
+            <li><a href="logopedia-global.html" data-blog-i18n="blog_index.toc.i2">Logopedia funcional y desarrollo global</a></li>
+            <li><a href="intervencion-individualizada.html" data-blog-i18n="blog_index.toc.i3">Intervención individualizada</a></li>
           </ul>
         </div>
 
@@ -137,33 +130,33 @@
           <a class="blog-index-card" href="movimiento-desarrollo.html">
             <img src="../assets/images/blog-movimiento.jpg" alt="" loading="lazy" decoding="async">
             <div>
-              <h3 data-i18n="blog_index.cards.movement.title">Movimiento y desarrollo infantil</h3>
-              <p data-i18n="blog_index.cards.movement.desc">
+              <h3 data-blog-i18n="blog_index.cards.movement.title">Movimiento y desarrollo infantil</h3>
+              <p data-blog-i18n="blog_index.cards.movement.desc">
                 Atención, regulación y preparación para aprender con ideas prácticas.
               </p>
-              <p class="muted small" data-i18n="blog_index.cards.movement.time">Lectura: 6–8 min</p>
+              <p class="muted small" data-blog-i18n="blog_index.cards.movement.time">Lectura: 6–8 min</p>
             </div>
           </a>
 
           <a class="blog-index-card" href="logopedia-global.html">
             <img src="../assets/images/blog-logopedia.jpg" alt="" loading="lazy" decoding="async">
             <div>
-              <h3 data-i18n="blog_index.cards.speech.title">Logopedia funcional</h3>
-              <p data-i18n="blog_index.cards.speech.desc">
+              <h3 data-blog-i18n="blog_index.cards.speech.title">Logopedia funcional</h3>
+              <p data-blog-i18n="blog_index.cards.speech.desc">
                 Comunicación más allá del habla: intención, comprensión y contexto.
               </p>
-              <p class="muted small" data-i18n="blog_index.cards.speech.time">Lectura: 7–9 min</p>
+              <p class="muted small" data-blog-i18n="blog_index.cards.speech.time">Lectura: 7–9 min</p>
             </div>
           </a>
 
           <a class="blog-index-card" href="intervencion-individualizada.html">
             <img src="../assets/images/blog-camino.jpg" alt="" loading="lazy" decoding="async">
             <div>
-              <h3 data-i18n="blog_index.cards.individual.title">Intervención individualizada</h3>
-              <p data-i18n="blog_index.cards.individual.desc">
+              <h3 data-blog-i18n="blog_index.cards.individual.title">Intervención individualizada</h3>
+              <p data-blog-i18n="blog_index.cards.individual.desc">
                 Objetivos funcionales y coordinación familia–escuela.
               </p>
-              <p class="muted small" data-i18n="blog_index.cards.individual.time">Lectura: 7–10 min</p>
+              <p class="muted small" data-blog-i18n="blog_index.cards.individual.time">Lectura: 7–10 min</p>
             </div>
           </a>
 
@@ -172,16 +165,20 @@
         <!-- CTA -->
         <div class="blog-cta" role="region" aria-label="Siguiente paso">
           <div class="row">
-            <strong data-i18n="blog_index.cta.title">¿Te suena lo que lees?</strong>
-            <span class="muted" data-i18n="blog_index.cta.lead">
+            <strong data-blog-i18n="blog_index.cta.title">¿Te suena lo que lees?</strong>
+            <span class="muted" data-blog-i18n="blog_index.cta.lead">
               Podemos ayudarte a priorizar objetivos y elegir estrategias prácticas.
             </span>
           </div>
           <div class="row">
-            <a class="btnlike primary" href="../index.html#contacto" data-i18n="blog_index.cta.primary">Cuéntanos tu caso</a>
-            <a class="btnlike" href="../index.html#servicios" data-i18n="blog_index.cta.secondary">Ver servicios</a>
+            <a class="btnlike primary"
+               href="../index.html#contacto"
+               data-blog-i18n="blog_index.cta.primary">Cuéntanos tu caso</a>
+            <a class="btnlike"
+               href="../index.html#servicios"
+               data-blog-i18n="blog_index.cta.secondary">Ver servicios</a>
           </div>
-          <p class="muted small" data-i18n="blog_index.cta.note">
+          <p class="muted small" data-blog-i18n="blog_index.cta.note">
             Nota: este blog es informativo y no sustituye una valoración profesional.
           </p>
         </div>
