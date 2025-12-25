@@ -887,52 +887,118 @@
 
 /* ================= CORE I18N ================= */
 
-const detectLang = () => {
-  const saved = localStorage.getItem("mm_lang");
-  if (saved && (window.I18N?.[saved])) return saved;
+  const detectLang = () => {
+    const saved = localStorage.getItem("mm_lang");
+    if (saved && I18N[saved]) return saved;
 
-  const nav = (navigator.language || "es").toLowerCase().slice(0, 2);
-  if (window.I18N?.[nav]) return nav;
+    const nav = (navigator.language || "es").toLowerCase().slice(0, 2);
+    if (I18N[nav]) return nav;
 
-  return "es";
-};
+    return "es";
+  };
 
-const applyMeta = (lang) => {
-  const meta = window.I18N?.[lang]?.meta;
-  if (!meta) return;
+  const applyMeta = (lang) => {
+    const meta = I18N[lang]?.meta;
+    if (!meta) return;
 
-  if (meta.title) document.title = meta.title;
+    if (meta.title) document.title = meta.title;
 
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc && meta.description) desc.setAttribute("content", meta.description);
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc && meta.description) desc.setAttribute("content", meta.description);
 
-  document.documentElement.setAttribute("lang", lang);
-};
+    document.documentElement.setAttribute("lang", lang);
+  };
 
-const applyText = (lang) => {
+  const applyText = (lang) => {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const val = getByPath(window.I18N?.[lang], key);
+    const val = getByPath(I18N[lang], key);
+
+    // ⛔ Do nothing if no translation exists
     if (typeof val !== "string") return;
 
+    // Timeline labels (array-based)
+    if (key.startsWith("timeline.labels.")) {
+      el.textContent = val;
+      return;
+    }
+
+    // ✅ Explicit opt-in only
     if (el.hasAttribute("data-i18n-html")) {
       el.innerHTML = val;
     } else if (el.childElementCount === 0) {
+      // Only replace leaf nodes
       el.textContent = val;
     }
   });
 
+  // Attributes (aria-label, alt, etc.)
   document.querySelectorAll("[data-i18n-attr][data-i18n]").forEach((el) => {
     const attr = el.getAttribute("data-i18n-attr");
     const key = el.getAttribute("data-i18n");
-    const val = getByPath(window.I18N?.[lang], key);
+    const val = getByPath(I18N[lang], key);
+
     if (attr && typeof val === "string") {
       el.setAttribute(attr, val);
     }
   });
 };
 
-/* ================= BLOG I18N ================= */
+  const applyTimelineSteps = (lang) => {
+  const steps = I18N[lang]?.timeline?.steps;
+  if (!Array.isArray(steps) || steps.length !== 5) return;
+
+  const waitForTimeline = () => {
+    if (window.__MM_TL__?.setSteps) {
+      window.__MM_TL__.setSteps(steps);
+    } else {
+      setTimeout(waitForTimeline, 50);
+    }
+  };
+
+  waitForTimeline();
+};
+
+
+  const setActiveLangBtn = (lang) => {
+    document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+  };
+
+  const setLang = (lang) => {
+    if (!I18N[lang]) lang = "es";
+    localStorage.setItem("mm_lang", lang);
+
+  applyMeta(lang);
+  applyText(lang);
+  applyBlogI18n(lang);
+  applyTimelineSteps(lang);
+
+  // 🔁 restart timeline safely after DOM text changes
+  setTimeout(() => {
+  if (window.__MM_TL__?.setSteps) {
+    window.__MM_TL__.setSteps(I18N[lang]?.timeline?.steps || []);
+  }
+}, 0);
+
+setActiveLangBtn(lang);
+
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const initial = detectLang();
+    setLang(initial);
+
+    document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const lang = btn.getAttribute("data-lang");
+        setLang(lang || "es");
+      });
+    });
+  });
+})();
+ /* ================= BLOG I18N LOADER ================= */
 
 const applyBlogI18n = (lang) => {
   const blogRoot = document.querySelector("[data-blog]");
@@ -947,12 +1013,17 @@ const applyBlogI18n = (lang) => {
       const data = dict[lang] || dict.es;
       if (!data) return;
 
-      if (data["__meta.title"]) document.title = data["__meta.title"];
+      // Meta
+      if (data["__meta.title"]) {
+        document.title = data["__meta.title"];
+      }
+
       if (data["__meta.description"]) {
         const m = document.querySelector('meta[name="description"]');
         if (m) m.setAttribute("content", data["__meta.description"]);
       }
 
+      // Text + attributes (alt, aria-label, etc.)
       document.querySelectorAll("[data-blog-i18n]").forEach(el => {
         const key = el.getAttribute("data-blog-i18n");
         const val = data[key];
@@ -961,43 +1032,16 @@ const applyBlogI18n = (lang) => {
         const attr = el.getAttribute("data-blog-i18n-attr");
         if (attr) {
           el.setAttribute(attr, val);
-        } else if (el.hasAttribute("data-blog-i18n-html")) {
+          return;
+        }
+
+        if (el.hasAttribute("data-blog-i18n-html")) {
           el.innerHTML = val;
         } else {
           el.textContent = val;
         }
       });
-    });
+    })
+    .catch(err => console.error("Blog i18n error:", err));
 };
 
-/* ================= STATE ================= */
-
-const setActiveLangBtn = (lang) => {
-  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
-};
-
-const setLang = (lang) => {
-  if (!window.I18N?.[lang]) lang = "es";
-
-  localStorage.setItem("mm_lang", lang);
-
-  applyMeta(lang);
-  applyText(lang);
-  applyBlogI18n(lang);
-  setActiveLangBtn(lang);
-};
-
-/* ================= INIT ================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const initial = detectLang();
-  setLang(initial);
-
-  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setLang(btn.dataset.lang);
-    });
-  });
-});
