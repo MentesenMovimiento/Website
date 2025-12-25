@@ -885,20 +885,20 @@
     return cur;
   };
 
- /* ================= CORE I18N ================= */
+/* ================= CORE I18N ================= */
 
 const detectLang = () => {
   const saved = localStorage.getItem("mm_lang");
-  if (saved && I18N[saved]) return saved;
+  if (saved && (window.I18N?.[saved])) return saved;
 
   const nav = (navigator.language || "es").toLowerCase().slice(0, 2);
-  if (I18N[nav]) return nav;
+  if (window.I18N?.[nav]) return nav;
 
   return "es";
 };
 
 const applyMeta = (lang) => {
-  const meta = I18N[lang]?.meta;
+  const meta = window.I18N?.[lang]?.meta;
   if (!meta) return;
 
   if (meta.title) document.title = meta.title;
@@ -912,18 +912,9 @@ const applyMeta = (lang) => {
 const applyText = (lang) => {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const val = getByPath(I18N[lang], key);
-
-    // ⛔ skip if no translation
+    const val = getByPath(window.I18N?.[lang], key);
     if (typeof val !== "string") return;
 
-    // Timeline labels (array-based)
-    if (key.startsWith("timeline.labels.")) {
-      el.textContent = val;
-      return;
-    }
-
-    // Explicit HTML opt-in only
     if (el.hasAttribute("data-i18n-html")) {
       el.innerHTML = val;
     } else if (el.childElementCount === 0) {
@@ -931,31 +922,14 @@ const applyText = (lang) => {
     }
   });
 
-  // Attributes (aria-label, alt, etc.)
   document.querySelectorAll("[data-i18n-attr][data-i18n]").forEach((el) => {
     const attr = el.getAttribute("data-i18n-attr");
     const key = el.getAttribute("data-i18n");
-    const val = getByPath(I18N[lang], key);
-
+    const val = getByPath(window.I18N?.[lang], key);
     if (attr && typeof val === "string") {
       el.setAttribute(attr, val);
     }
   });
-};
-
-const applyTimelineSteps = (lang) => {
-  const steps = I18N[lang]?.timeline?.steps;
-  if (!Array.isArray(steps) || steps.length !== 5) return;
-
-  const waitForTimeline = () => {
-    if (window.__MM_TL__?.setSteps) {
-      window.__MM_TL__.setSteps(steps);
-    } else {
-      setTimeout(waitForTimeline, 50);
-    }
-  };
-
-  waitForTimeline();
 };
 
 /* ================= BLOG I18N ================= */
@@ -973,14 +947,12 @@ const applyBlogI18n = (lang) => {
       const data = dict[lang] || dict.es;
       if (!data) return;
 
-      // Meta
       if (data["__meta.title"]) document.title = data["__meta.title"];
       if (data["__meta.description"]) {
         const m = document.querySelector('meta[name="description"]');
         if (m) m.setAttribute("content", data["__meta.description"]);
       }
 
-      // Text + attributes
       document.querySelectorAll("[data-blog-i18n]").forEach(el => {
         const key = el.getAttribute("data-blog-i18n");
         const val = data[key];
@@ -989,43 +961,31 @@ const applyBlogI18n = (lang) => {
         const attr = el.getAttribute("data-blog-i18n-attr");
         if (attr) {
           el.setAttribute(attr, val);
-          return;
-        }
-
-        if (el.hasAttribute("data-blog-i18n-html")) {
+        } else if (el.hasAttribute("data-blog-i18n-html")) {
           el.innerHTML = val;
         } else {
           el.textContent = val;
         }
       });
-    })
-    .catch(err => console.error("Blog i18n error:", err));
+    });
 };
 
-/* ================= LANG STATE ================= */
+/* ================= STATE ================= */
 
 const setActiveLangBtn = (lang) => {
   document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
-    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 };
 
 const setLang = (lang) => {
-  if (!I18N[lang]) lang = "es";
+  if (!window.I18N?.[lang]) lang = "es";
+
   localStorage.setItem("mm_lang", lang);
 
   applyMeta(lang);
   applyText(lang);
-  applyTimelineSteps(lang);
-  applyBlogI18n(lang); // ✅ KEY FIX
-
-  // Restart timeline safely after DOM updates
-  setTimeout(() => {
-    if (window.__MM_TL__?.setSteps) {
-      window.__MM_TL__.setSteps(I18N[lang]?.timeline?.steps || []);
-    }
-  }, 0);
-
+  applyBlogI18n(lang);
   setActiveLangBtn(lang);
 };
 
@@ -1037,8 +997,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const lang = btn.getAttribute("data-lang");
-      setLang(lang || "es");
+      setLang(btn.dataset.lang);
     });
   });
 });
