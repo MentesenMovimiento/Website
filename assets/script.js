@@ -772,7 +772,7 @@ window.I18N = {
         phase3: { title: "Fase 3 · Subvenciones", desc: "ACNEAE, ayuntamientos, diputación y fundaciones." },
         phase4: { title: "Fase 4 · Local", desc: "Elección del espacio, proyecto técnico y adecuación." },
         phase5: { title: "Fase 5 · Apertura", desc: "Contratación, inspecciones y apertura progresiva." }
-      }
+      },
       footer: {
         project_progress: "Ver progreso del proyecto"
       }
@@ -924,7 +924,7 @@ window.I18N = {
         phase3: { title: "Fase 3 · Subvencions", desc: "ACNEAE, ajuntaments, diputació i fundacions." },
         phase4: { title: "Fase 4 · Local", desc: "Elecció de l’espai, projecte tècnic i adequació." },
         phase5: { title: "Fase 5 · Obertura", desc: "Contractació, inspeccions i obertura progressiva." }
-      }
+      },
       footer: {
         project_progress: "Veure l’estat del projecte"
       }
@@ -1076,7 +1076,7 @@ window.I18N = {
         phase3: { title: "Phase 3 · Funding", desc: "ACNEAE, local councils, provincial support and foundations." },
         phase4: { title: "Phase 4 · Premises", desc: "Select premises, technical project and compliance works." },
         phase5: { title: "Phase 5 · Opening", desc: "Hiring, inspections and phased opening." }
-      }
+      },
       footer: {
         project_progress: "View project progress"
       }
