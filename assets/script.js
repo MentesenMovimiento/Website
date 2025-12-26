@@ -118,8 +118,6 @@ function setLang(lang) {
 window.addEventListener("mm:i18n-ready", () => {
   const initial = detectLang();
   setLang(initial);
-});
-
 
   if (typeof mmBlogInit === "function") {
     mmBlogInit();
@@ -131,6 +129,7 @@ window.addEventListener("mm:i18n-ready", () => {
     });
   });
 });
+
 
 /* ================= BLOG I18N LOADER ================= */
 
