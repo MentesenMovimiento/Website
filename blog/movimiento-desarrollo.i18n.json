@@ -112,6 +112,11 @@
 
     "sections.s2.title": "2) Moviment i regulació emocional",
     "sections.s2.p1": "Regular-se no és portar-se bé, sinó poder canviar d’estat amb suport.",
+    "sections.s2.h3": "Senyals freqüents",
+    "sections.s2.li1": "S’aixeca constantment o no pot estar quiet.",
+    "sections.s2.li2": "S’enfonsa a la cadira o es cansa ràpid.",
+    "sections.s2.li3": "Explota o es bloqueja davant canvis petits.",
+    "sections.s2.li4": "Busca pressió: empeny, xoca o mossega objectes.",
 
     "sections.s3.title": "3) Preparació per a l’aprenentatge",
     "sections.s3.p1": "Abans d’exigir una tasca cognitiva, cal preparar el sistema.",
@@ -180,6 +185,11 @@
 
     "sections.s2.title": "2) Movement and emotional regulation",
     "sections.s2.p1": "Regulation is not about behaviour, but about shifting states with support.",
+    "sections.s2.h3": "Common signs",
+    "sections.s2.li1": "Gets up constantly or cannot stay still.",
+    "sections.s2.li2": "Slumps in the chair or tires quickly.",
+    "sections.s2.li3": "Melts down or freezes with small changes.",
+    "sections.s2.li4": "Seeks pressure: pushing, crashing or chewing objects.",
 
     "sections.s3.title": "3) Readiness for learning",
     "sections.s3.p1": "Before asking for cognitive work, it helps to prepare the system.",
