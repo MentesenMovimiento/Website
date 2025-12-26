@@ -904,20 +904,26 @@ function safeGetByPath(obj, path) {
 function detectLang() {
   try {
     const saved = localStorage.getItem("mm_lang");
-    if (typeof I18N === "object" && saved && I18N[saved]) return saved;
+    if (window.I18N && typeof window.I18N === "object" && saved && window.I18N[saved]) {
+      return saved;
+    }
 
     const nav = (navigator.language || "es").toLowerCase().slice(0, 2);
-    if (typeof I18N === "object" && I18N[nav]) return nav;
-  } catch (_) {}
+    if (window.I18N && typeof window.I18N === "object" && window.I18N[nav]) {
+      return nav;
+    }
+  } catch (err) {
+    console.warn("detectLang fallback:", err);
+  }
 
   return "es";
 }
 
 // ---- meta ----
 function applyMeta(lang) {
-  if (typeof I18N !== "object") return;
+  if (!window.I18N || typeof window.I18N !== "object") return;
 
-  const meta = I18N[lang]?.meta;
+  const meta = window.I18N[lang]?.meta;
   if (!meta) return;
 
   if (typeof meta.title === "string") {
@@ -934,11 +940,11 @@ function applyMeta(lang) {
 
 // ---- text ----
 function applyText(lang) {
-  if (typeof I18N !== "object") return;
+  if (!window.I18N || typeof window.I18N !== "object") return;
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const val = safeGetByPath(I18N[lang], key);
+    const val = safeGetByPath(window.I18N[lang], key);
     if (typeof val !== "string") return;
 
     if (el.hasAttribute("data-i18n-html")) {
@@ -951,7 +957,7 @@ function applyText(lang) {
   document.querySelectorAll("[data-i18n-attr][data-i18n]").forEach((el) => {
     const attr = el.getAttribute("data-i18n-attr");
     const key = el.getAttribute("data-i18n");
-    const val = safeGetByPath(I18N[lang], key);
+    const val = safeGetByPath(window.I18N[lang], key);
     if (attr && typeof val === "string") {
       el.setAttribute(attr, val);
     }
@@ -968,9 +974,12 @@ function setActiveLangBtn(lang) {
 // ---- main setter ----
 function setLang(lang) {
   try {
-    if (typeof I18N === "object" && !I18N[lang]) {
-      lang = "es";
+    if (!window.I18N || typeof window.I18N !== "object") {
+      console.warn("I18N not ready yet");
+      return;
     }
+
+    if (!window.I18N[lang]) lang = "es";
 
     localStorage.setItem("mm_lang", lang);
 
@@ -983,7 +992,7 @@ function setLang(lang) {
 
     setActiveLangBtn(lang);
 
-    // blog support
+    // blog support (optional)
     if (typeof mmBlogApplyLang === "function") {
       mmBlogApplyLang(lang);
     }
@@ -1074,3 +1083,4 @@ function mmBlogInit() {
     })
     .catch((err) => console.error("Blog i18n error:", err));
 }
+
