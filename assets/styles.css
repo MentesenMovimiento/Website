@@ -183,6 +183,14 @@ a:hover { text-decoration: underline; }
     transform: translateX(0);
   }
 }
+@media (max-width: 900px) {
+  .service-card,
+  .service-front,
+  .service-back {
+    height: auto;
+    max-height: none;
+  }
+}
 
 .trust-strip{
   display: flex;
