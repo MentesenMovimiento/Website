@@ -1,4 +1,201 @@
 /* assets/script.js */
+/* ================= CORE I18N ================= */
+
+// ---- utilities ----
+function safeGetByPath(obj, path) {
+  if (!obj || !path) return undefined;
+  const parts = path.split(".");
+  let cur = obj;
+  for (const p of parts) {
+    if (cur == null) return undefined;
+    cur = cur[p];
+  }
+  return cur;
+}
+
+// ---- language detection ----
+function detectLang() {
+  try {
+    const saved = localStorage.getItem("mm_lang");
+    if (window.I18N && typeof window.I18N === "object" && saved && window.I18N[saved]) {
+      return saved;
+    }
+
+    const nav = (navigator.language || "es").toLowerCase().slice(0, 2);
+    if (window.I18N && typeof window.I18N === "object" && window.I18N[nav]) {
+      return nav;
+    }
+  } catch (err) {
+    console.warn("detectLang fallback:", err);
+  }
+
+  return "es";
+}
+
+// ---- meta ----
+function applyMeta(lang) {
+  if (!window.I18N || typeof window.I18N !== "object") return;
+
+  const meta = window.I18N[lang]?.meta;
+  if (!meta) return;
+
+  if (typeof meta.title === "string") {
+    document.title = meta.title;
+  }
+
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc && typeof meta.description === "string") {
+    desc.setAttribute("content", meta.description);
+  }
+
+  document.documentElement.setAttribute("lang", lang);
+}
+
+// ---- text ----
+function applyText(lang) {
+  if (!window.I18N || typeof window.I18N !== "object") return;
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const val = safeGetByPath(window.I18N[lang], key);
+    if (typeof val !== "string") return;
+
+    if (el.hasAttribute("data-i18n-html")) {
+      el.innerHTML = val;
+    } else if (el.childElementCount === 0) {
+      el.textContent = val;
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-attr][data-i18n]").forEach((el) => {
+    const attr = el.getAttribute("data-i18n-attr");
+    const key = el.getAttribute("data-i18n");
+    const val = safeGetByPath(window.I18N[lang], key);
+    if (attr && typeof val === "string") {
+      el.setAttribute(attr, val);
+    }
+  });
+}
+
+// ---- UI ----
+function setActiveLangBtn(lang) {
+  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
+    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+  });
+}
+
+// ---- main setter ----
+function setLang(lang) {
+  try {
+    if (!window.I18N || typeof window.I18N !== "object") {
+      console.warn("I18N not ready yet");
+      return;
+    }
+
+    if (!window.I18N[lang]) lang = "es";
+
+    localStorage.setItem("mm_lang", lang);
+
+    applyMeta(lang);
+    applyText(lang);
+
+    if (typeof applyTimelineSteps === "function") {
+      applyTimelineSteps(lang);
+    }
+
+    setActiveLangBtn(lang);
+
+    // blog support (optional)
+    if (typeof mmBlogApplyLang === "function") {
+      mmBlogApplyLang(lang);
+    }
+  } catch (err) {
+    console.error("setLang error:", err);
+  }
+}
+
+// ---- boot ----
+document.addEventListener("DOMContentLoaded", () => {
+  const initial = detectLang();
+  setLang(initial);
+
+  if (typeof mmBlogInit === "function") {
+    mmBlogInit();
+  }
+
+  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setLang(btn.getAttribute("data-lang") || "es");
+    });
+  });
+});
+
+/* ================= BLOG I18N LOADER ================= */
+
+let __MM_BLOG_DICT__ = null;
+let __MM_BLOG_SRC__ = null;
+
+function mmBlogApplyLang(lang) {
+  const blogRoot = document.querySelector("[data-blog]");
+  if (!blogRoot || !__MM_BLOG_DICT__) return;
+
+  const data = __MM_BLOG_DICT__[lang] || __MM_BLOG_DICT__.es;
+  if (!data) return;
+
+  if (typeof data["__meta.title"] === "string") {
+    document.title = data["__meta.title"];
+  }
+
+  if (typeof data["__meta.description"] === "string") {
+    const m = document.querySelector('meta[name="description"]');
+    if (m) m.setAttribute("content", data["__meta.description"]);
+  }
+
+  document
+    .querySelectorAll("[data-blog-i18n], [data-blog-i18n-html]")
+    .forEach((el) => {
+      const key =
+        el.getAttribute("data-blog-i18n") ||
+        el.getAttribute("data-blog-i18n-html");
+
+      if (!key) return;
+
+      const val = data[key];
+      if (typeof val !== "string") return;
+
+      const attr = el.getAttribute("data-blog-i18n-attr");
+      if (attr) {
+        el.setAttribute(attr, val);
+      } else if (el.hasAttribute("data-blog-i18n-html")) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+}
+
+function mmBlogInit() {
+  const blogRoot = document.querySelector("[data-blog]");
+  if (!blogRoot) return;
+
+  const src = blogRoot.getAttribute("data-blog-i18n");
+  if (!src) return;
+
+  if (__MM_BLOG_DICT__ && __MM_BLOG_SRC__ === src) {
+    mmBlogApplyLang(localStorage.getItem("mm_lang") || "es");
+    return;
+  }
+
+  __MM_BLOG_SRC__ = src;
+
+  fetch(src)
+    .then((r) => r.json())
+    .then((dict) => {
+      __MM_BLOG_DICT__ = dict || null;
+      mmBlogApplyLang(localStorage.getItem("mm_lang") || "es");
+    })
+    .catch((err) => console.error("Blog i18n error:", err));
+}
 (function () {
   // FOOTER YEAR
   const yearElem = document.getElementById("year");
@@ -885,202 +1082,3 @@
     return cur;
   };
 })();
-
-/* ================= CORE I18N (SAFE) ================= */
-
-// ---- utilities ----
-function safeGetByPath(obj, path) {
-  if (!obj || !path) return undefined;
-  const parts = path.split(".");
-  let cur = obj;
-  for (const p of parts) {
-    if (cur == null) return undefined;
-    cur = cur[p];
-  }
-  return cur;
-}
-
-// ---- language detection ----
-function detectLang() {
-  try {
-    const saved = localStorage.getItem("mm_lang");
-    if (window.I18N && typeof window.I18N === "object" && saved && window.I18N[saved]) {
-      return saved;
-    }
-
-    const nav = (navigator.language || "es").toLowerCase().slice(0, 2);
-    if (window.I18N && typeof window.I18N === "object" && window.I18N[nav]) {
-      return nav;
-    }
-  } catch (err) {
-    console.warn("detectLang fallback:", err);
-  }
-
-  return "es";
-}
-
-// ---- meta ----
-function applyMeta(lang) {
-  if (!window.I18N || typeof window.I18N !== "object") return;
-
-  const meta = window.I18N[lang]?.meta;
-  if (!meta) return;
-
-  if (typeof meta.title === "string") {
-    document.title = meta.title;
-  }
-
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc && typeof meta.description === "string") {
-    desc.setAttribute("content", meta.description);
-  }
-
-  document.documentElement.setAttribute("lang", lang);
-}
-
-// ---- text ----
-function applyText(lang) {
-  if (!window.I18N || typeof window.I18N !== "object") return;
-
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const val = safeGetByPath(window.I18N[lang], key);
-    if (typeof val !== "string") return;
-
-    if (el.hasAttribute("data-i18n-html")) {
-      el.innerHTML = val;
-    } else if (el.childElementCount === 0) {
-      el.textContent = val;
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-attr][data-i18n]").forEach((el) => {
-    const attr = el.getAttribute("data-i18n-attr");
-    const key = el.getAttribute("data-i18n");
-    const val = safeGetByPath(window.I18N[lang], key);
-    if (attr && typeof val === "string") {
-      el.setAttribute(attr, val);
-    }
-  });
-}
-
-// ---- UI ----
-function setActiveLangBtn(lang) {
-  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
-    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
-  });
-}
-
-// ---- main setter ----
-function setLang(lang) {
-  try {
-    if (!window.I18N || typeof window.I18N !== "object") {
-      console.warn("I18N not ready yet");
-      return;
-    }
-
-    if (!window.I18N[lang]) lang = "es";
-
-    localStorage.setItem("mm_lang", lang);
-
-    applyMeta(lang);
-    applyText(lang);
-
-    if (typeof applyTimelineSteps === "function") {
-      applyTimelineSteps(lang);
-    }
-
-    setActiveLangBtn(lang);
-
-    // blog support (optional)
-    if (typeof mmBlogApplyLang === "function") {
-      mmBlogApplyLang(lang);
-    }
-  } catch (err) {
-    console.error("setLang error:", err);
-  }
-}
-
-// ---- boot ----
-document.addEventListener("DOMContentLoaded", () => {
-  const initial = detectLang();
-  setLang(initial);
-
-  if (typeof mmBlogInit === "function") {
-    mmBlogInit();
-  }
-
-  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setLang(btn.getAttribute("data-lang") || "es");
-    });
-  });
-});
-
-/* ================= BLOG I18N LOADER ================= */
-
-let __MM_BLOG_DICT__ = null;
-let __MM_BLOG_SRC__ = null;
-
-function mmBlogApplyLang(lang) {
-  const blogRoot = document.querySelector("[data-blog]");
-  if (!blogRoot || !__MM_BLOG_DICT__) return;
-
-  const data = __MM_BLOG_DICT__[lang] || __MM_BLOG_DICT__.es;
-  if (!data) return;
-
-  if (typeof data["__meta.title"] === "string") {
-    document.title = data["__meta.title"];
-  }
-
-  if (typeof data["__meta.description"] === "string") {
-    const m = document.querySelector('meta[name="description"]');
-    if (m) m.setAttribute("content", data["__meta.description"]);
-  }
-
-  document
-    .querySelectorAll("[data-blog-i18n], [data-blog-i18n-html]")
-    .forEach((el) => {
-      const key =
-        el.getAttribute("data-blog-i18n") ||
-        el.getAttribute("data-blog-i18n-html");
-
-      if (!key) return;
-
-      const val = data[key];
-      if (typeof val !== "string") return;
-
-      const attr = el.getAttribute("data-blog-i18n-attr");
-      if (attr) {
-        el.setAttribute(attr, val);
-      } else if (el.hasAttribute("data-blog-i18n-html")) {
-        el.innerHTML = val;
-      } else {
-        el.textContent = val;
-      }
-    });
-}
-
-function mmBlogInit() {
-  const blogRoot = document.querySelector("[data-blog]");
-  if (!blogRoot) return;
-
-  const src = blogRoot.getAttribute("data-blog-i18n");
-  if (!src) return;
-
-  if (__MM_BLOG_DICT__ && __MM_BLOG_SRC__ === src) {
-    mmBlogApplyLang(localStorage.getItem("mm_lang") || "es");
-    return;
-  }
-
-  __MM_BLOG_SRC__ = src;
-
-  fetch(src)
-    .then((r) => r.json())
-    .then((dict) => {
-      __MM_BLOG_DICT__ = dict || null;
-      mmBlogApplyLang(localStorage.getItem("mm_lang") || "es");
-    })
-    .catch((err) => console.error("Blog i18n error:", err));
-}
-
