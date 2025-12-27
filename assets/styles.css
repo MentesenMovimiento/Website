@@ -371,7 +371,7 @@ a:hover { text-decoration: underline; }
   color: #fff;
 }
 
-/* 🔧 FIX: top-aligned text */
+/* 🔧 FIX: end-aligned text */
 .service-media{
   position: absolute;
   inset: 0;
@@ -379,7 +379,7 @@ a:hover { text-decoration: underline; }
   background-position: center;
   display: flex;
   align-items: flex-end;   
-  padding: 16px;
+  padding: 8px;
 }
 
 /* Overlay */
@@ -507,7 +507,7 @@ a:hover { text-decoration: underline; }
 
   .service-card{
     aspect-ratio: auto;
-    min-height: 360px;
+
   }
 }
 
