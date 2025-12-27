@@ -153,6 +153,23 @@
     "faq.a3": "No de la mateixa manera. Alguns es regulen amb moviment intens; altres necessiten pressió i ritmes lents. Si alguna cosa empitjora, no és un fracàs: és informació per ajustar.",
 
     "related.p1": "Si també hi ha dificultats de comunicació, llegeix <a href=\"./logopedia-global.html\">Logopèdia funcional</a>. I si vols entendre com s’ajusta un pla al perfil de l’infant, llegeix <a href=\"./intervencion-individualizada.html\">Intervenció individualitzada</a>.",
+    
+    "boxes.teacher.badge": "Aula",
+    "boxes.teacher.title": "Sense interrompre la classe",
+    "boxes.teacher.li1": "<strong>Micropausas</strong> (20–40s): estirar braços, pressió a les mans, respiració guiada.",
+    "boxes.teacher.li2": "<strong>Encàrrecs</strong> (30–60s): portar un paper, esborrar la pissarra, recollir material.",
+    "boxes.teacher.li3": "<strong>Canvi de postura</strong>: 2 min dret al lloc amb norma clara.",
+    "boxes.teacher.li4": "<strong>Inici de tasca</strong>: “primer 3 minuts, després una pausa breu”.",
+    
+    "sections.s4.p1": "Una estructura simple per provar durant 7–14 dies. La clau és que sigui <strong>repetible</strong> i <strong>previsible</strong>.",
+    
+    "boxes.trytoday.badge": "Avui",
+    "boxes.trytoday.title": "Prova això en 10 minuts",
+    "boxes.trytoday.li1": "Tria 1 tasca curta (ex: 5 línies de lectura, 3 sumes, recollir joguines).",
+    "boxes.trytoday.li2": "Fes 90 segons d’“empenyer la paret” + 30 segons de respiració lenta.",
+    "boxes.trytoday.li3": "Fes la tasca amb temporitzador visible (5 min).",
+    "boxes.trytoday.li4": "Pausa breu (2 min) abans de “una altra cosa”.",
+    "boxes.trytoday.note": "Si funciona, repeteix-ho igual durant 5–7 dies abans de canviar."
 
     "blognav.back": "← Tornar al blog",
     "blognav.next": "Següent: Logopèdia →",
@@ -234,6 +251,23 @@
     "faq.a3": "Not in the same way. Some children regulate with intense movement; others need pressure and slower rhythms. If something worsens, it’s not a failure — it’s information to adjust.",
 
     "related.p1": "If there are also communication difficulties, read <a href=\"./logopedia-global.html\">Functional speech therapy</a>. And if you want to understand how a plan is tailored to a child’s profile, read <a href=\"./intervencion-individualizada.html\">Individualised intervention</a>.",
+
+    "boxes.teacher.badge": "Classroom",
+    "boxes.teacher.title": "Without interrupting the class",
+    "boxes.teacher.li1": "<strong>Micro-breaks</strong> (20–40s): arm stretches, hand pressure, guided breathing.",
+    "boxes.teacher.li2": "<strong>Errands</strong> (30–60s): carrying a paper, wiping the board, collecting materials.",
+    "boxes.teacher.li3": "<strong>Posture change</strong>: 2 min standing in place with a clear rule.",
+    "boxes.teacher.li4": "<strong>Task start</strong>: “first 3 minutes, then a short break”.",
+    
+    "sections.s4.p1": "A simple structure to try for 7–14 days. The key is that it is <strong>repeatable</strong> and <strong>predictable</strong>.",
+    
+    "boxes.trytoday.badge": "Today",
+    "boxes.trytoday.title": "Try this in 10 minutes",
+    "boxes.trytoday.li1": "Choose 1 short task (e.g. 5 reading lines, 3 sums, tidying toys).",
+    "boxes.trytoday.li2": "Do 90 seconds of “wall push” + 30 seconds of slow breathing.",
+    "boxes.trytoday.li3": "Do the task with a visible timer (5 min).",
+    "boxes.trytoday.li4": "Short break (2 min) before moving on.",
+    "boxes.trytoday.note": "If it works, repeat it the same way for 5–7 days before changing."
 
     "blognav.back": "← Back to blog",
     "blognav.next": "Next: Speech therapy →",
