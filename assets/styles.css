@@ -639,6 +639,32 @@ a:hover { text-decoration: underline; }
     height: 84px;
   }
 }
+/* ========================
+   MOBILE — EXPANDED STACK FIX
+   ======================== */
+
+@media (max-width: 599px){
+
+  /* Force single-column grid ALWAYS */
+  .services-grid,
+  .services-expand,
+  .services-expand.has-expanded{
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row !important;
+  }
+
+  /* Reset ALL card positioning */
+  .services-expand.has-expanded .service-card,
+  .services-expand.has-expanded .service-card.is-expanded{
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* Ensure expanded card stays first */
+  .services-expand.has-expanded .service-card.is-expanded{
+    order: -1;
+  }
+}
 
 
 /* CTA panel */
