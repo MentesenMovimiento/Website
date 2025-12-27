@@ -56,12 +56,20 @@
     "sections.s5.title": "5) Qué hacer si se activa más con movimiento",
     "sections.s5.p1": "Puede pasar si el movimiento elegido es demasiado activador. Cambia a opciones más organizadoras como empujar, arrastrar o ritmos lentos.",
 
+    "summary.aria": "Resumen",
+    "summary.title": "Resumen rápido",
+    "summary.li1": "El movimiento puede ser una herramienta para regular (no un premio ni un castigo).",
+    "summary.li2": "Mejor que “más movimiento” es movimiento adecuado para ese niño y ese momento.",
+    "summary.li3": "La estructura (2–5–2) ayuda a generalizar en casa y en clase.",
+
     "faq.aria": "Preguntas frecuentes",
     "faq.title": "Preguntas frecuentes",
     "faq.q1": "¿Cuánto movimiento necesita un niño?",
     "faq.a1": "Depende del perfil. Más que minutos, observa si mejora la atención y la calma tras bloques breves y repetibles.",
     "faq.q2": "¿Y si el colegio no permite pausas?",
     "faq.a2": "Se pueden usar microajustes discretos: encargos, cambios de postura, presión en manos o temporizadores.",
+    "faq.q3": "¿Esto funciona para todos los niños?",
+    "faq.a3": "No de la misma manera. Algunos se regulan con movimiento intenso; otros necesitan presión y ritmos lentos. Si algo empeora, no es un fracaso: es información para ajustar.",
 
     "related.p1": "Si además hay dificultades de comunicación, lee <a href=\"./logopedia-global.html\">Logopedia funcional</a>. Y si quieres entender cómo se ajusta un plan al perfil del niño, lee <a href=\"./intervencion-individualizada.html\">Intervención individualizada</a>.",
 
@@ -129,12 +137,20 @@
     "sections.s5.title": "5) Què fer si el moviment activa massa",
     "sections.s5.p1": "Si el moviment és massa activador, opta per opcions més organitzadores.",
 
+    "summary.aria": "Resum",
+    "summary.title": "Resum ràpid",
+    "summary.li1": "El moviment pot ser una eina per regular (no un premi ni un càstig).",
+    "summary.li2": "Millor que més moviment és moviment adequat per a aquell infant i aquell moment.",
+    "summary.li3": "L’estructura (2–5–2) ajuda a generalitzar a casa i a l’aula.",
+
     "faq.aria": "Preguntes freqüents",
     "faq.title": "Preguntes freqüents",
     "faq.q1": "Quant moviment necessita un infant?",
     "faq.a1": "Depèn del perfil. Observa si millora l’atenció després de blocs breus.",
     "faq.q2": "I si l’escola no permet pauses?",
     "faq.a2": "Es poden fer ajustos discrets sense interrompre la classe.",
+    "faq.q3": "Això funciona per a tots els infants?",
+    "faq.a3": "No de la mateixa manera. Alguns es regulen amb moviment intens; altres necessiten pressió i ritmes lents. Si alguna cosa empitjora, no és un fracàs: és informació per ajustar.",
 
     "related.p1": "Si també hi ha dificultats de comunicació, llegeix <a href=\"./logopedia-global.html\">Logopèdia funcional</a>. I si vols entendre com s’ajusta un pla al perfil de l’infant, llegeix <a href=\"./intervencion-individualizada.html\">Intervenció individualitzada</a>.",
 
@@ -202,12 +218,20 @@
     "sections.s5.title": "5) What to do if movement increases activation",
     "sections.s5.p1": "If movement is too stimulating, switch to more organising options.",
 
+    "summary.aria": "Summary",
+    "summary.title": "Quick summary",
+    "summary.li1": "Movement can be a tool for regulation (not a reward or punishment).",
+    "summary.li2": "Better than more movement is the right movement for that child and moment.",
+    "summary.li3": "Structure (2–5–2) helps generalise at home and in the classroom.",
+
     "faq.aria": "Frequently asked questions",
     "faq.title": "Frequently asked questions",
     "faq.q1": "How much movement does a child need?",
     "faq.a1": "It depends on the child. Look for improved attention after short, repeatable blocks.",
     "faq.q2": "What if school doesn’t allow movement breaks?",
     "faq.a2": "Small, discreet adjustments can still support regulation.",
+    "faq.q3": "Does this work for all children?",
+    "faq.a3": "Not in the same way. Some children regulate with intense movement; others need pressure and slower rhythms. If something worsens, it’s not a failure — it’s information to adjust.",
 
     "related.p1": "If there are also communication difficulties, read <a href=\"./logopedia-global.html\">Functional speech therapy</a>. And if you want to understand how a plan is tailored to a child’s profile, read <a href=\"./intervencion-individualizada.html\">Individualised intervention</a>.",
 
