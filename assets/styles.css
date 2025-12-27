@@ -693,13 +693,9 @@ a:hover { text-decoration: underline; }
   }
 }
 
-/* ========================
-   MOBILE — IN-PLACE EXPANSION
-   ======================== */
-
 @media (max-width: 599px){
 
-  /* Always single column */
+  /* Single-column, linear flow */
   .services-grid,
   .services-expand,
   .services-expand.has-expanded{
@@ -707,15 +703,22 @@ a:hover { text-decoration: underline; }
     grid-auto-flow: row !important;
   }
 
-  /* Reset any desktop grid spanning */
+  /* Disable ALL desktop / tablet expansion logic */
   .services-expand.has-expanded .service-card,
   .services-expand.has-expanded .service-card.is-expanded{
     grid-column: auto !important;
     grid-row: auto !important;
+    order: initial !important;
   }
 
-  /* Expanded card opens in place */
+  /* Prevent ordering maps from applying */
+  .services-expand.has-expanded[class*="expanded-"] .service-card{
+    grid-row: auto !important;
+  }
+
+  /* Expanded card opens IN PLACE */
   .service-card.is-expanded{
+    position: static !important;
     aspect-ratio: auto;
     height: auto;
   }
@@ -727,7 +730,7 @@ a:hover { text-decoration: underline; }
     overflow: visible;
   }
 
-  /* Detail becomes natural document flow */
+  /* Detail flows naturally below the image */
   .service-detail{
     position: static;
     transform: none;
@@ -735,6 +738,7 @@ a:hover { text-decoration: underline; }
     overflow: visible;
   }
 }
+
 
 
 /* CTA panel */
