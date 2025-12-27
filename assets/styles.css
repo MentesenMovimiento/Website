@@ -382,6 +382,14 @@ a:hover { text-decoration: underline; }
   .service-card{ aspect-ratio: 16 / 12; }
 }
 
+@media (max-width: 599px){
+  .service-card.is-expanded{
+    aspect-ratio: auto;
+    height: auto;
+    min-height: auto;
+  }
+}
+
 @media (min-width: 992px){
   .service-card.is-expanded{
     grid-column: span 2;
