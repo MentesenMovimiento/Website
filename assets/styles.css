@@ -390,8 +390,11 @@ a:hover { text-decoration: underline; }
   
 /* Prevent oversized expansion on wide desktops */
 @media (min-width: 1200px){
-  [data-services]{
+  .service-card.is-expanded{
+    [data-services]{
+    grid-column: span 2;
     grid-auto-rows: minmax(220px, 26vh);
+    }
   }
 }
 
