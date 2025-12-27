@@ -487,7 +487,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* ========================
-   MOBILE — FORCE SINGLE COLUMN STACK
+   MOBILE 
    ======================== */
 
 @media (max-width: 599px){
@@ -511,6 +511,13 @@ a:hover { text-decoration: underline; }
   }
 }
 
+@media (max-width: 520px){
+  .team-bio img{
+    width: 84px;
+    height: 84px;
+    object-position: center 28%;
+  }
+}
 
 /* ========================
    TABLET — INLINE EXPANSION
@@ -628,13 +635,15 @@ a:hover { text-decoration: underline; }
 .team-bio img{
   width: 72px;
   height: 72px;
-  border-radius: 999px;
+  border-radius: 50%;
   object-fit: cover;
+  object-position: center 30%; /* 🔑 subtle vertical lift */
   border: 1px solid rgba(231,221,206,0.9);
   box-shadow: 0 10px 22px rgba(47,39,34,0.08);
   flex: 0 0 auto;
   background: rgba(255,255,255,0.7);
 }
+
 
 .team-name{
   font-family: var(--font-head);
