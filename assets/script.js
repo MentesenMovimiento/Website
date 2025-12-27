@@ -153,32 +153,33 @@ function mmBlogApplyLang(lang) {
   }
 
   document
-    .querySelectorAll("[data-blog-i18n], [data-blog-i18n-html]")
-    .forEach((el) => {
-      const key =
-        el.getAttribute("data-blog-i18n") ||
-        el.getAttribute("data-blog-i18n-html");
+  .querySelectorAll("[data-blog-i18n], [data-blog-i18n-html]")
+  .forEach((el) => {
+    const key =
+      el.getAttribute("data-blog-i18n") ||
+      el.getAttribute("data-blog-i18n-html");
 
-      if (!key) return;
+    if (!key) return;
 
-      const val = data[key];
-      if (typeof val !== "string") return;
+    const val = data[key];
+    if (typeof val !== "string") return;
 
-      const attr = el.getAttribute("data-blog-i18n-attr");
+    const attr = el.getAttribute("data-blog-i18n-attr");
 
-      if (attr) {
-        // Attribute translation (aria-label, alt, title, etc.)
-        el.setAttribute(attr, value);
-      
-      } else if (el.hasAttribute("data-blog-i18n-html")) {
-        // HTML-safe translation (strong, em, a, etc.)
-        el.innerHTML = value;
-      
-      } else {
-        // Plain text translation
-        el.textContent = value;
-      }  
-    });
+    if (attr) {
+      // Attribute translation (alt, aria-label, title, etc.)
+      el.setAttribute(attr, val);
+
+    } else if (el.hasAttribute("data-blog-i18n-html")) {
+      // HTML-safe translation (<strong>, <em>, <a>, etc.)
+      el.innerHTML = val;
+
+    } else {
+      // Plain text translation
+      el.textContent = val;
+    }
+  });
+
 }
 
 function mmBlogInit() {
