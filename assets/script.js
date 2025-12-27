@@ -177,10 +177,7 @@ function mmBlogApplyLang(lang) {
       } else {
         // Plain text translation
         el.textContent = value;
-      }
-
-
-      }
+      }  
     });
 }
 
