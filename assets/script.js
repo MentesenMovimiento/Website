@@ -671,7 +671,7 @@ window.I18N = {
       },
       services: {
         title: "Servicios",
-        lead: "Haz clic en cada área para ver detalles y conocer al profesional responsable.",
+        lead: "Áreas de trabajo que se integran para acompañar al niño de forma coherente y funcional.",
         education: {
           open_aria: "Abrir: Educación Especial",
           detail_aria: "Detalle: Educación Especial",
@@ -695,8 +695,7 @@ window.I18N = {
           alt: "Profesional de fisioterapia pediátrica",
           name: "Profesional de Fisioterapia",
           role: "Fisioterapia pediátrica",
-          bio: "Intervención basada en objetivos funcionales y participación. Trabajo coordinado con familia y escuela para generalizar avances.",
-          placeholder: "(Si aún no has definido nombre/foto, esto queda como placeholder.)"
+          bio: "Intervención basada en objetivos funcionales y participación. Trabajo coordinado con familia y escuela para generalizar avances."
         },
         speech: {
           open_aria: "Abrir: Logopedia",
@@ -709,8 +708,7 @@ window.I18N = {
           alt: "Profesional de logopedia",
           name: "Profesional de Logopedia",
           role: "Logopedia · Comunicación funcional",
-          bio: "Enfoque centrado en participación: reducir frustración, aumentar iniciativa comunicativa y mejorar comprensión en rutinas reales.",
-          placeholder: "(Placeholder editable: nombre, foto y credenciales.)"
+          bio: "Enfoque centrado en participación: reducir frustración, aumentar iniciativa comunicativa y mejorar comprensión en rutinas reales."
         },
         movement: {
           open_aria: "Abrir: Movimiento y Regulación",
@@ -726,7 +724,7 @@ window.I18N = {
       },
       timeline: {
         title: "Un enfoque integrado",
-        lead: "Títulos siempre visibles. El contenido cambia automáticamente (12s) y se sincroniza con la barra de progreso.",
+        lead: "Un proceso claro y estructurado que conecta evaluación, acción y seguimiento.",
         aria: "Etapas del enfoque",
         panel_aria: "Contenido del enfoque",
         controls_aria: "Controles de enfoque",
@@ -754,7 +752,7 @@ window.I18N = {
       instagram: {
         title: "Instagram",
         lead: "Contenido educativo: desarrollo, regulación, aprendizaje y estrategias prácticas.",
-        placeholder: "Integra aquí tus embeds reales o enlaces a reels destacados."
+        placeholder: "Compartimos ideas, estrategias y reflexiones sobre desarrollo infantil, regulación y aprendizaje."
       },
       contact: {
         title: "Contacto",
@@ -783,7 +781,6 @@ window.I18N = {
       footer: {
         project_progress: "Ver progreso del proyecto"
       }
-
     },
 
     ca: {
@@ -823,7 +820,7 @@ window.I18N = {
       },
       services: {
         title: "Serveis",
-        lead: "Fes clic a cada àrea per veure detalls i conèixer el/la professional responsable.",
+        lead: "Àrees de treball que s’integren per acompanyar l’infant de manera coherent i funcional.",
         education: {
           open_aria: "Obrir: Educació Especial",
           detail_aria: "Detall: Educació Especial",
@@ -847,8 +844,7 @@ window.I18N = {
           alt: "Professional de fisioteràpia pediàtrica",
           name: "Professional de Fisioteràpia",
           role: "Fisioteràpia pediàtrica",
-          bio: "Intervenció basada en objectius funcionals i participació. Treball coordinat amb família i escola per generalitzar avenços.",
-          placeholder: "(Si encara no has definit nom/foto, això queda com a placeholder.)"
+          bio: "Intervenció basada en objectius funcionals i participació. Treball coordinat amb família i escola per generalitzar avenços."
         },
         speech: {
           open_aria: "Obrir: Logopèdia",
@@ -861,8 +857,7 @@ window.I18N = {
           alt: "Professional de logopèdia",
           name: "Professional de Logopèdia",
           role: "Logopèdia · Comunicació funcional",
-          bio: "Enfocament centrat en participació: reduir frustració, augmentar iniciativa comunicativa i millorar comprensió en rutines reals.",
-          placeholder: "(Placeholder editable: nom, foto i credencials.)"
+          bio: "Enfocament centrat en participació: reduir frustració, augmentar iniciativa comunicativa i millorar comprensió en rutines reals."
         },
         movement: {
           open_aria: "Obrir: Moviment i Regulació",
@@ -878,7 +873,7 @@ window.I18N = {
       },
       timeline: {
         title: "Un enfocament integrat",
-        lead: "Títols sempre visibles. El contingut canvia automàticament (12s) i es sincronitza amb la barra de progrés.",
+        lead: "Un procés clar i estructurat que connecta avaluació, acció i seguiment.",
         aria: "Etapes de l’enfocament",
         panel_aria: "Contingut de l’enfocament",
         controls_aria: "Controls de l’enfocament",
@@ -906,7 +901,7 @@ window.I18N = {
       instagram: {
         title: "Instagram",
         lead: "Contingut educatiu: desenvolupament, regulació, aprenentatge i estratègies pràctiques.",
-        placeholder: "Integra aquí els teus embeds reals o enllaços a reels destacats."
+        placeholder: "Compartim idees, estratègies i reflexions sobre desenvolupament infantil, regulació i aprenentatge."
       },
       contact: {
         title: "Contacte",
@@ -935,7 +930,6 @@ window.I18N = {
       footer: {
         project_progress: "Veure l’estat del projecte"
       }
-
     },
 
     en: {
@@ -975,7 +969,7 @@ window.I18N = {
       },
       services: {
         title: "Services",
-        lead: "Click each area to see details and meet the lead professional.",
+        lead: "Areas of practice that integrate to support the child in a coherent and functional way.",
         education: {
           open_aria: "Open: Special Education",
           detail_aria: "Details: Special Education",
@@ -999,8 +993,7 @@ window.I18N = {
           alt: "Paediatric physiotherapy professional",
           name: "Physiotherapy Professional",
           role: "Paediatric physiotherapy",
-          bio: "Goal-based, participation-focused intervention. Coordinated work with family and school to generalise gains.",
-          placeholder: "(If you haven’t finalised name/photo yet, this remains an editable placeholder.)"
+          bio: "Goal-based, participation-focused intervention. Coordinated work with family and school to generalise gains."
         },
         speech: {
           open_aria: "Open: Speech therapy",
@@ -1013,8 +1006,7 @@ window.I18N = {
           alt: "Speech therapy professional",
           name: "Speech Therapy Professional",
           role: "Speech therapy · Functional communication",
-          bio: "Participation-centred approach: reduce frustration, increase initiation and improve understanding in real routines.",
-          placeholder: "(Editable placeholder: name, photo and credentials.)"
+          bio: "Participation-centred approach: reduce frustration, increase initiation and improve understanding in real routines."
         },
         movement: {
           open_aria: "Open: Movement and regulation",
@@ -1030,7 +1022,7 @@ window.I18N = {
       },
       timeline: {
         title: "An integrated approach",
-        lead: "Titles stay visible. Content changes automatically (12s) and syncs with the progress bar.",
+        lead: "A clear, structured process that connects assessment, action and follow-up.",
         aria: "Approach stages",
         panel_aria: "Approach content",
         controls_aria: "Approach controls",
@@ -1058,7 +1050,7 @@ window.I18N = {
       instagram: {
         title: "Instagram",
         lead: "Educational content: development, regulation, learning and practical strategies.",
-        placeholder: "Embed your real posts here or link to featured reels."
+        placeholder: "We share ideas, strategies and reflections on child development, regulation and learning."
       },
       contact: {
         title: "Contact",
@@ -1087,12 +1079,10 @@ window.I18N = {
       footer: {
         project_progress: "View project progress"
       }
-
     }
   };
 
   window.dispatchEvent(new Event("mm:i18n-ready"));
-
 })();
 
 // PROJECT MODAL – footer trigger
