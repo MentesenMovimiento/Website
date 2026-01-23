@@ -1,16 +1,49 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Mentes en Movimiento · Clínica de desarrollo infantil</title>
-  <meta name="description" content="Clínica de desarrollo infantil en Salou para niños con necesidades educativas especiales en Salou. Educación, fisioterapia, logopedia y movimiento." />
+  <meta name="description"
+    content="Clínica de desarrollo infantil en Salou para niños con necesidades educativas especiales en Salou. Educación, fisioterapia, logopedia y movimiento." />
   <link rel="canonical" href="https://mentesenmovimiento.github.io/index.html" />
+
+  <!-- Security: Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self';">
+
+  <!-- SEO: Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Mentes en Movimiento",
+    "alternateName": "Mentes In Motion",
+    "url": "https://mentesenmovimiento.github.io",
+    "logo": "https://mentesenmovimiento.github.io/assets/images/logo-trans.svg",
+    "description": "Clínica de desarrollo infantil en Salou. Enfoque integrado en educación especial, fisioterapia pediátrica, logopedia y movimiento.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Salou",
+      "addressRegion": "Tarragona",
+      "addressCountry": "ES"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@mentesenmovimiento.org",
+      "contactType": "customer service",
+      "availableLanguage": ["es", "ca", "en"]
+    },
+    "priceRange": "$$"
+  }
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Mentes en Movimiento · Clínica de desarrollo infantil" />
-  <meta property="og:description" content="Movimiento, regulación, comunicación y aprendizaje con un enfoque cálido, profesional e individualizado." />
+  <meta property="og:description"
+    content="Movimiento, regulación, comunicación y aprendizaje con un enfoque cálido, profesional e individualizado." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mentesenmovimiento.github.io/index.html" />
   <meta property="og:image" content="https://mentesenmovimiento.github.io/assets/images/og-image.jpg" />
@@ -32,7 +65,8 @@
         <div class="project-step active">
           <strong data-i18n="modal.phase1.title">Fase 1 · Asociación</strong>
           <span class="status" data-i18n="modal.phase1.status">En progreso</span>
-          <p data-i18n="modal.phase1.desc">Constitución legal, estatutos, acta fundacional, certificado digital y NIF.</p>
+          <p data-i18n="modal.phase1.desc">Constitución legal, estatutos, acta fundacional, certificado digital y NIF.
+          </p>
         </div>
 
         <div class="project-step">
@@ -63,8 +97,10 @@
   <!-- NAV -->
   <header class="site-header auto-hide" role="banner">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="Ir al inicio" data-i18n-attr="aria-label" data-i18n="nav.home_aria">
-        <img src="assets/images/logo-trans.svg" alt="Mentes en Movimiento" class="nav-logo" fetchpriority="high" decoding="async">
+      <a class="brand" href="index.html" aria-label="Ir al inicio" data-i18n-attr="aria-label"
+        data-i18n="nav.home_aria">
+        <img src="assets/images/logo-trans.svg" alt="Mentes en Movimiento" class="nav-logo" fetchpriority="high"
+          decoding="async">
       </a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" data-nav-toggle>
@@ -74,7 +110,8 @@
         </svg>
       </button>
 
-      <nav class="nav-menu" id="primary-menu" data-menu aria-label="Navegación principal" data-i18n-attr="aria-label" data-i18n="nav.aria">
+      <nav class="nav-menu" id="primary-menu" data-menu aria-label="Navegación principal" data-i18n-attr="aria-label"
+        data-i18n="nav.aria">
         <a class="nav-link" href="#servicios" data-i18n="nav.services">Servicios</a>
         <a class="nav-link" href="#enfoque" data-i18n="nav.approach">Enfoque</a>
         <a class="nav-link" href="blog/index.html" data-i18n="nav.blog">Blog</a>
@@ -94,6 +131,8 @@
         <button type="button" class="lang-btn" data-lang="en" aria-label="English">
           <span class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-code">EN</span>
         </button>
+        <!-- Theme Toggle -->
+        <button type="button" class="lang-btn" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
       </div>
     </div>
   </header>
@@ -107,7 +146,8 @@
         </div>
 
         <!-- trust anchors (lightweight) -->
-        <div class="trust-strip" aria-label="Puntos de confianza" data-i18n-attr="aria-label" data-i18n="hero.trust_aria">
+        <div class="trust-strip" aria-label="Puntos de confianza" data-i18n-attr="aria-label"
+          data-i18n="hero.trust_aria">
           <div class="trust-chip" data-i18n="hero.trust1">Enfoque funcional y aplicable</div>
           <div class="trust-chip" data-i18n="hero.trust2">Coordinación familia–escuela</div>
           <div class="trust-chip" data-i18n="hero.trust3">Objetivos claros y medibles</div>
@@ -115,12 +155,11 @@
 
         <p class="hero-slogan" data-i18n="hero.slogan">Cada niño, su propio camino</p>
 
-        <p class="hero-lead"
-     data-i18n="hero.lead"
-   data-i18n-html>
-  Acompañamos a niños y adolescentes que presentan dificultades en <strong>regulación</strong>,
-  <strong>aprendizaje</strong>, <strong>comunicación</strong> o <strong>adaptación escolar</strong>, con un enfoque integrado: mente, cuerpo y acción.
-</p>
+        <p class="hero-lead" data-i18n="hero.lead" data-i18n-html>
+          Acompañamos a niños y adolescentes que presentan dificultades en <strong>regulación</strong>,
+          <strong>aprendizaje</strong>, <strong>comunicación</strong> o <strong>adaptación escolar</strong>, con un
+          enfoque integrado: mente, cuerpo y acción.
+        </p>
 
 
         <div class="hero-cta">
@@ -131,9 +170,10 @@
     </section>
 
     <!-- WHO WE ARE (short trust section) -->
-    <section class="section section--alt" id="equipo" aria-label="Quiénes somos" data-i18n-attr="aria-label" data-i18n="about.aria">
+    <section class="section section--alt" id="equipo" aria-label="Quiénes somos" data-i18n-attr="aria-label"
+      data-i18n="about.aria">
       <div class="container">
-        <div class="section__head">
+        <div class="section__head reveal">
           <h2 data-i18n="about.title">Quiénes somos</h2>
           <p data-i18n="about.lead">
             Un equipo con base en educación y movimiento, con una mirada cálida y profesional. Lo importante:
@@ -142,17 +182,20 @@
         </div>
 
         <div class="trust-grid">
-          <article class="trust-card">
+          <article class="trust-card reveal reveal-delay-1">
             <h3 data-i18n="about.card1.title">Trabajo centrado en el niño</h3>
-            <p class="muted" data-i18n="about.card1.desc">Ajustamos el plan al perfil, ritmo y contexto del niño: no hay “talla única”.</p>
+            <p class="muted" data-i18n="about.card1.desc">Ajustamos el plan al perfil, ritmo y contexto del niño: no hay
+              “talla única”.</p>
           </article>
-          <article class="trust-card">
+          <article class="trust-card reveal reveal-delay-2">
             <h3 data-i18n="about.card2.title">Intervención con sentido</h3>
-            <p class="muted" data-i18n="about.card2.desc">Priorizamos objetivos funcionales: participación, autonomía y bienestar.</p>
+            <p class="muted" data-i18n="about.card2.desc">Priorizamos objetivos funcionales: participación, autonomía y
+              bienestar.</p>
           </article>
-          <article class="trust-card">
+          <article class="trust-card reveal reveal-delay-3">
             <h3 data-i18n="about.card3.title">Seguimiento y ajustes</h3>
-            <p class="muted" data-i18n="about.card3.desc">Revisamos avances y adaptamos estrategias con claridad (qué funciona y por qué).</p>
+            <p class="muted" data-i18n="about.card3.desc">Revisamos avances y adaptamos estrategias con claridad (qué
+              funciona y por qué).</p>
           </article>
         </div>
       </div>
@@ -170,17 +213,20 @@
 
           <!-- EDUCACIÓN -->
           <article class="service-card" data-service data-service-id="educacion">
-            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Educación Especial" data-i18n-attr="aria-label" data-i18n="services.education.open_aria"></button>
+            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Educación Especial"
+              data-i18n-attr="aria-label" data-i18n="services.education.open_aria"></button>
 
             <div class="service-media" style="background-image:url('assets/images/tiles-educacion.jpg');">
               <div class="service-shade"></div>
               <div class="service-front">
                 <h3 data-i18n="services.education.title">Educación Especial</h3>
-                <p data-i18n="services.education.front">Aprendizaje funcional, adaptación y participación en contextos reales.</p>
+                <p data-i18n="services.education.front">Aprendizaje funcional, adaptación y participación en contextos
+                  reales.</p>
               </div>
             </div>
 
-            <div class="service-detail" role="region" aria-label="Detalle: Educación Especial" data-i18n-attr="aria-label" data-i18n="services.education.detail_aria">
+            <div class="service-detail" role="region" aria-label="Detalle: Educación Especial"
+              data-i18n-attr="aria-label" data-i18n="services.education.detail_aria">
               <h3 data-i18n="services.education.title">Educación Especial</h3>
               <ul>
                 <li data-i18n="services.education.b1">Apoyos para aprendizaje y autonomía</li>
@@ -193,11 +239,11 @@
                 <img src="assets/images/team-educacion.svg" alt="Mónica Herrero Vargas" loading="lazy" decoding="async">
                 <div>
                   <div class="team-name">Mónica Herrero Vargas</div>
-                  <div class="team-role" data-i18n="services.education.role">Educación especial · Intervención individualizada</div>
-                  <p class="team-text"
-                     data-i18n="services.education.bio"
-                     data-i18n-html>
-                    Acompaña a niños y familias con estrategias prácticas para mejorar participación, adaptación escolar y rutinas diarias.
+                  <div class="team-role" data-i18n="services.education.role">Educación especial · Intervención
+                    individualizada</div>
+                  <p class="team-text" data-i18n="services.education.bio" data-i18n-html>
+                    Acompaña a niños y familias con estrategias prácticas para mejorar participación, adaptación escolar
+                    y rutinas diarias.
                     Enfoque cálido, estructurado y centrado en fortalezas.
                   </p>
 
@@ -208,7 +254,8 @@
 
           <!-- FISIO -->
           <article class="service-card" data-service data-service-id="fisio">
-            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Fisioterapia Pediátrica" data-i18n-attr="aria-label" data-i18n="services.physio.open_aria"></button>
+            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Fisioterapia Pediátrica"
+              data-i18n-attr="aria-label" data-i18n="services.physio.open_aria"></button>
 
             <div class="service-media" style="background-image:url('assets/images/tiles-fisio.jpg');">
               <div class="service-shade"></div>
@@ -218,7 +265,8 @@
               </div>
             </div>
 
-            <div class="service-detail" role="region" aria-label="Detalle: Fisioterapia Pediátrica" data-i18n-attr="aria-label" data-i18n="services.physio.detail_aria">
+            <div class="service-detail" role="region" aria-label="Detalle: Fisioterapia Pediátrica"
+              data-i18n-attr="aria-label" data-i18n="services.physio.detail_aria">
               <h3 data-i18n="services.physio.title">Fisioterapia Pediátrica</h3>
               <ul>
                 <li data-i18n="services.physio.b1">Equilibrio, coordinación y control postural</li>
@@ -227,18 +275,18 @@
               </ul>
 
               <div class="team-bio">
-                <img src="assets/images/team-fisioterapia.svg" alt="Profesional de fisioterapia pediátrica" loading="lazy" decoding="async"
-                     data-i18n-attr="alt" data-i18n="services.physio.alt">
+                <img src="assets/images/team-fisioterapia.svg" alt="Profesional de fisioterapia pediátrica"
+                  loading="lazy" decoding="async" data-i18n-attr="alt" data-i18n="services.physio.alt">
                 <div>
                   <div class="team-name" data-i18n="services.physio.name">Profesional de Fisioterapia</div>
                   <div class="team-role" data-i18n="services.physio.role">Fisioterapia pediátrica</div>
-                   <p class="team-text"
-                     data-i18n="services.physio.bio"
-                     data-i18n-html>
-                    Intervención basada en objetivos funcionales y participación. Trabajo coordinado con familia y escuela para generalizar avances.
+                  <p class="team-text" data-i18n="services.physio.bio" data-i18n-html>
+                    Intervención basada en objetivos funcionales y participación. Trabajo coordinado con familia y
+                    escuela para generalizar avances.
                   </p>
 
-                  <p class="muted small" style="margin-top:8px;" data-i18n="services.physio.placeholder">(Si aún no has definido nombre/foto, esto queda como placeholder.)</p>
+                  <p class="muted small" style="margin-top:8px;" data-i18n="services.physio.placeholder">(Si aún no has
+                    definido nombre/foto, esto queda como placeholder.)</p>
                 </div>
               </div>
             </div>
@@ -246,7 +294,8 @@
 
           <!-- LOGOPEDIA -->
           <article class="service-card" data-service data-service-id="logopedia">
-            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Logopedia" data-i18n-attr="aria-label" data-i18n="services.speech.open_aria"></button>
+            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Logopedia" data-i18n-attr="aria-label"
+              data-i18n="services.speech.open_aria"></button>
 
             <div class="service-media" style="background-image:url('assets/images/tiles-logopedia.jpg');">
               <div class="service-shade"></div>
@@ -256,7 +305,8 @@
               </div>
             </div>
 
-            <div class="service-detail" role="region" aria-label="Detalle: Logopedia" data-i18n-attr="aria-label" data-i18n="services.speech.detail_aria">
+            <div class="service-detail" role="region" aria-label="Detalle: Logopedia" data-i18n-attr="aria-label"
+              data-i18n="services.speech.detail_aria">
               <h3 data-i18n="services.speech.title">Logopedia</h3>
               <ul>
                 <li data-i18n="services.speech.b1">Comunicación más allá del habla</li>
@@ -265,18 +315,18 @@
               </ul>
 
               <div class="team-bio">
-                <img src="assets/images/team-logopedia.svg" alt="Profesional de logopedia" loading="lazy" decoding="async"
-                     data-i18n-attr="alt" data-i18n="services.speech.alt">
+                <img src="assets/images/team-logopedia.svg" alt="Profesional de logopedia" loading="lazy"
+                  decoding="async" data-i18n-attr="alt" data-i18n="services.speech.alt">
                 <div>
                   <div class="team-name" data-i18n="services.speech.name">Profesional de Logopedia</div>
                   <div class="team-role" data-i18n="services.speech.role">Logopedia · Comunicación funcional</div>
-                   <p class="team-text"
-                     data-i18n="services.speech.bio"
-                     data-i18n-html>
-                    Enfoque centrado en participación: reducir frustración, aumentar iniciativa comunicativa y mejorar comprensión en rutinas reales.
+                  <p class="team-text" data-i18n="services.speech.bio" data-i18n-html>
+                    Enfoque centrado en participación: reducir frustración, aumentar iniciativa comunicativa y mejorar
+                    comprensión en rutinas reales.
                   </p>
 
-                  <p class="muted small" style="margin-top:8px;" data-i18n="services.speech.placeholder">(Placeholder editable: nombre, foto y credenciales.)</p>
+                  <p class="muted small" style="margin-top:8px;" data-i18n="services.speech.placeholder">(Placeholder
+                    editable: nombre, foto y credenciales.)</p>
                 </div>
               </div>
             </div>
@@ -284,17 +334,20 @@
 
           <!-- MOVIMIENTO & REGULACIÓN -->
           <article class="service-card" data-service data-service-id="movimiento">
-            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Movimiento y Regulación" data-i18n-attr="aria-label" data-i18n="services.movement.open_aria"></button>
+            <button class="service-hit" aria-expanded="false" aria-label="Abrir: Movimiento y Regulación"
+              data-i18n-attr="aria-label" data-i18n="services.movement.open_aria"></button>
 
             <div class="service-media" style="background-image:url('assets/images/tiles-movimiento.jpg');">
               <div class="service-shade"></div>
               <div class="service-front">
                 <h3 data-i18n="services.movement.title">Movimiento y Regulación</h3>
-                <p data-i18n="services.movement.front">Preparación para aprender: cuerpo organizado, mente disponible.</p>
+                <p data-i18n="services.movement.front">Preparación para aprender: cuerpo organizado, mente disponible.
+                </p>
               </div>
             </div>
 
-            <div class="service-detail" role="region" aria-label="Detalle: Movimiento y Regulación" data-i18n-attr="aria-label" data-i18n="services.movement.detail_aria">
+            <div class="service-detail" role="region" aria-label="Detalle: Movimiento y Regulación"
+              data-i18n-attr="aria-label" data-i18n="services.movement.detail_aria">
               <h3 data-i18n="services.movement.title">Movimiento y Regulación</h3>
               <ul>
                 <li data-i18n="services.movement.b1">Rutinas de regulación (activación ↔ calma)</li>
@@ -307,10 +360,9 @@
                 <div>
                   <div class="team-name">Micah</div>
                   <div class="team-role" data-i18n="services.movement.role">Movimiento · Ejercicio terapéutico</div>
-                    <p class="team-text"
-                     data-i18n="services.movement.bio"
-                     data-i18n-html>
-                    Diseña actividades y rutinas para ayudar a regular el cuerpo y facilitar atención, participación y aprendizaje.
+                  <p class="team-text" data-i18n="services.movement.bio" data-i18n-html>
+                    Diseña actividades y rutinas para ayudar a regular el cuerpo y facilitar atención, participación y
+                    aprendizaje.
                     Enfoque práctico y progresivo, adaptado al perfil del niño.
                   </p>
 
@@ -328,32 +380,43 @@
       <div class="container">
         <div class="section__head">
           <h2 data-i18n="timeline.title">Un enfoque integrado</h2>
-          <p data-i18n="timeline.lead">Títulos siempre visibles. El contenido cambia automáticamente (12s) y se sincroniza con la barra de progreso.</p>
+          <p data-i18n="timeline.lead">Títulos siempre visibles. El contenido cambia automáticamente (12s) y se
+            sincroniza con la barra de progreso.</p>
         </div>
 
         <div class="timeline" data-timeline>
-          <div class="timeline-titles" role="tablist" aria-label="Etapas del enfoque" data-i18n-attr="aria-label" data-i18n="timeline.aria">
+          <div class="timeline-titles" role="tablist" aria-label="Etapas del enfoque" data-i18n-attr="aria-label"
+            data-i18n="timeline.aria">
             <button class="timeline-title is-active" data-step="0" role="tab" aria-selected="true">
-              <span class="timeline-num">1</span><span class="timeline-label" data-i18n="timeline.labels.0">Explorar</span>
+              <span class="timeline-num">1</span><span class="timeline-label"
+                data-i18n="timeline.labels.0">Explorar</span>
             </button>
             <button class="timeline-title" data-step="1" role="tab" aria-selected="false">
-              <span class="timeline-num">2</span><span class="timeline-label" data-i18n="timeline.labels.1">Evaluar</span>
+              <span class="timeline-num">2</span><span class="timeline-label"
+                data-i18n="timeline.labels.1">Evaluar</span>
             </button>
             <button class="timeline-title" data-step="2" role="tab" aria-selected="false">
-              <span class="timeline-num">3</span><span class="timeline-label" data-i18n="timeline.labels.2">Planificar</span>
+              <span class="timeline-num">3</span><span class="timeline-label"
+                data-i18n="timeline.labels.2">Planificar</span>
             </button>
             <button class="timeline-title" data-step="3" role="tab" aria-selected="false">
-              <span class="timeline-num">4</span><span class="timeline-label" data-i18n="timeline.labels.3">Implementar</span>
+              <span class="timeline-num">4</span><span class="timeline-label"
+                data-i18n="timeline.labels.3">Implementar</span>
             </button>
             <button class="timeline-title" data-step="4" role="tab" aria-selected="false">
-              <span class="timeline-num">5</span><span class="timeline-label" data-i18n="timeline.labels.4">Revisar</span>
+              <span class="timeline-num">5</span><span class="timeline-label"
+                data-i18n="timeline.labels.4">Revisar</span>
             </button>
           </div>
 
-          <div class="timeline-panel" role="tabpanel" aria-label="Contenido del enfoque" data-i18n-attr="aria-label" data-i18n="timeline.panel_aria">
-            <div class="timeline-controls" aria-label="Controles de enfoque" data-i18n-attr="aria-label" data-i18n="timeline.controls_aria">
-              <button class="timeline-arrow" type="button" data-timeline-prev aria-label="Anterior" data-i18n-attr="aria-label" data-i18n="timeline.prev_aria">‹</button>
-              <button class="timeline-arrow" type="button" data-timeline-next aria-label="Siguiente" data-i18n-attr="aria-label" data-i18n="timeline.next_aria">›</button>
+          <div class="timeline-panel" role="tabpanel" aria-label="Contenido del enfoque" data-i18n-attr="aria-label"
+            data-i18n="timeline.panel_aria">
+            <div class="timeline-controls" aria-label="Controles de enfoque" data-i18n-attr="aria-label"
+              data-i18n="timeline.controls_aria">
+              <button class="timeline-arrow" type="button" data-timeline-prev aria-label="Anterior"
+                data-i18n-attr="aria-label" data-i18n="timeline.prev_aria">‹</button>
+              <button class="timeline-arrow" type="button" data-timeline-next aria-label="Siguiente"
+                data-i18n-attr="aria-label" data-i18n="timeline.next_aria">›</button>
 
             </div>
 
@@ -361,7 +424,8 @@
               <!-- populated by JS -->
             </div>
 
-            <div class="timeline-progress" aria-label="Progreso" data-i18n-attr="aria-label" data-i18n="timeline.progress_aria">
+            <div class="timeline-progress" aria-label="Progreso" data-i18n-attr="aria-label"
+              data-i18n="timeline.progress_aria">
               <span class="timeline-bar" data-timeline-bar></span>
             </div>
           </div>
@@ -370,7 +434,8 @@
     </section>
 
     <!-- BLOG PREVIEW -->
-    <section class="section" id="blog" aria-label="Artículos del blog" data-i18n-attr="aria-label" data-i18n="blog.aria">
+    <section class="section" id="blog" aria-label="Artículos del blog" data-i18n-attr="aria-label"
+      data-i18n="blog.aria">
       <div class="container">
         <div class="section__head">
           <h2 data-i18n="blog.title">Blog</h2>
@@ -379,8 +444,8 @@
 
         <div class="blog-cards">
           <a class="blog-card" href="blog/movimiento-desarrollo.html">
-            <img src="assets/images/blog-movimiento.jpg" alt="Movimiento y desarrollo infantil" loading="lazy" decoding="async"
-                 data-i18n-attr="alt" data-i18n="blog.card1.alt">
+            <img src="assets/images/blog-movimiento.jpg" alt="Movimiento y desarrollo infantil" loading="lazy"
+              decoding="async" data-i18n-attr="alt" data-i18n="blog.card1.alt">
             <div>
               <h3 data-i18n="blog.card1.title">Movimiento y desarrollo infantil</h3>
               <p class="muted" data-i18n="blog.card1.desc">Atención, regulación y preparación para aprender.</p>
@@ -388,17 +453,18 @@
           </a>
 
           <a class="blog-card" href="blog/logopedia-global.html">
-            <img src="assets/images/blog-logopedia.jpg" alt="Logopedia y desarrollo global" loading="lazy" decoding="async"
-                 data-i18n-attr="alt" data-i18n="blog.card2.alt">
+            <img src="assets/images/blog-logopedia.jpg" alt="Logopedia y desarrollo global" loading="lazy"
+              decoding="async" data-i18n-attr="alt" data-i18n="blog.card2.alt">
             <div>
               <h3 data-i18n="blog.card2.title">Logopedia funcional</h3>
-              <p class="muted" data-i18n="blog.card2.desc">Comunicación más allá del habla: intención, comprensión y contexto.</p>
+              <p class="muted" data-i18n="blog.card2.desc">Comunicación más allá del habla: intención, comprensión y
+                contexto.</p>
             </div>
           </a>
 
           <a class="blog-card" href="blog/intervencion-individualizada.html">
             <img src="assets/images/blog-camino.jpg" alt="Intervención individualizada" loading="lazy" decoding="async"
-                 data-i18n-attr="alt" data-i18n="blog.card3.alt">
+              data-i18n-attr="alt" data-i18n="blog.card3.alt">
             <div>
               <h3 data-i18n="blog.card3.title">Intervención individualizada</h3>
               <p class="muted" data-i18n="blog.card3.desc">Objetivos funcionales y coordinación familia–escuela.</p>
@@ -417,13 +483,15 @@
       <div class="container">
         <div class="section__head">
           <h2 data-i18n="instagram.title">Instagram</h2>
-          <p data-i18n="instagram.lead">Contenido educativo: desarrollo, regulación, aprendizaje y estrategias prácticas.</p>
+          <p data-i18n="instagram.lead">Contenido educativo: desarrollo, regulación, aprendizaje y estrategias
+            prácticas.</p>
         </div>
 
         <div class="insta-embeds">
           <div class="trust-card">
             <h3>@mentesinmotion</h3>
-            <p class="muted" data-i18n="instagram.placeholder">Integra aquí tus embeds reales o enlaces a reels destacados.</p>
+            <p class="muted" data-i18n="instagram.placeholder">Integra aquí tus embeds reales o enlaces a reels
+              destacados.</p>
           </div>
         </div>
       </div>
@@ -434,7 +502,8 @@
       <div class="container">
         <div class="section__head">
           <h2 data-i18n="contact.title">Contacto</h2>
-          <p data-i18n="contact.lead">Cuéntanos tu caso (sin compromiso). Responderemos con claridad y orientación inicial.</p>
+          <p data-i18n="contact.lead">Cuéntanos tu caso (sin compromiso). Responderemos con claridad y orientación
+            inicial.</p>
         </div>
 
         <form class="form" id="contact-form" action="YOUR_FORM_ENDPOINT" method="POST">
@@ -455,11 +524,7 @@
 
           <button class="btn btn--primary" type="submit" data-i18n="contact.send">Enviar</button>
 
-           <p id="contact-success"
-             class="muted small"
-             hidden
-             data-i18n="contact.success"
-             data-i18n-html>
+          <p id="contact-success" class="muted small" hidden data-i18n="contact.success" data-i18n-html>
             Gracias. Hemos recibido tu mensaje.
           </p>
 
@@ -468,7 +533,8 @@
     </section>
 
     <!-- LEGAL FOOTER (compact, anchor kept) -->
-    <section class="legal-footer" id="legal" aria-label="Información legal y privacidad" data-i18n-attr="aria-label" data-i18n="legal.aria">
+    <section class="legal-footer" id="legal" aria-label="Información legal y privacidad" data-i18n-attr="aria-label"
+      data-i18n="legal.aria">
       <div class="container legal-footer__inner">
         <div>
           <div class="legal-footer__name">Mentes en Movimiento</div>
@@ -486,37 +552,37 @@
 
         <div>
           <div class="legal-footer__label" data-i18n="legal.privacy_label">Datos y privacidad</div>
-            <p class="muted small"
-               style="margin:0;"
-               data-i18n="legal.privacy"
-               data-i18n-html>
-              Usamos tus datos únicamente para responder a tu consulta. Cumplimos con la normativa aplicable de protección de datos (RGPD).
-            </p>
+          <p class="muted small" style="margin:0;" data-i18n="legal.privacy" data-i18n-html>
+            Usamos tus datos únicamente para responder a tu consulta. Cumplimos con la normativa aplicable de protección
+            de datos (RGPD).
+          </p>
 
         </div>
       </div>
     </section>
 
     <footer class="site-footer">
-  <div class="container footer-row">
-    <p class="muted small">
-      © <span id="year"></span>
-      <span data-i18n="footer.brand">Mentes en Movimiento</span>
-    </p>
+      <div class="container footer-row">
+        <p class="muted small">
+          © <span id="year"></span>
+          <span data-i18n="footer.brand">Mentes en Movimiento</span>
+        </p>
 
-    <button
-      class="project-progress-btn"
-      type="button"
-      data-project-open
-      data-i18n="footer.project_progress"
-    >
-      Ver progreso del proyecto
-    </button>
-  </div>
-</footer>
+        <button class="project-progress-btn" type="button" data-project-open data-i18n="footer.project_progress">
+          Ver progreso del proyecto
+        </button>
+      </div>
+    </footer>
 
   </main>
 
+  <!-- Helper Toast Container -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message">Mensaje enviado</span>
+  </div>
+
   <script src="assets/script.js"></script>
 </body>
+
 </html>

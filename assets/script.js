@@ -98,7 +98,7 @@ function setLang(lang) {
 
     applyMeta(lang);
     applyText(lang);
-    
+
     if (window.__MM_TL__ && window.I18N?.[lang]?.timeline?.steps) {
       window.__MM_TL__.setSteps(window.I18N[lang].timeline.steps);
     }
@@ -115,6 +115,7 @@ function setLang(lang) {
 }
 
 // ---- boot ----
+// BOOT I18N
 window.addEventListener("mm:i18n-ready", () => {
   const initial = detectLang();
   setLang(initial);
@@ -128,6 +129,36 @@ window.addEventListener("mm:i18n-ready", () => {
       setLang(btn.getAttribute("data-lang") || "es");
     });
   });
+
+  // THEME TOGGLE LOGIC
+  (function () {
+    const savedTheme = localStorage.getItem("mm_theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    const toggleBtn = document.getElementById("theme-toggle");
+    if (toggleBtn) {
+      // Set initial icon
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      toggleBtn.textContent = isDark ? "☀️" : "🌙";
+      toggleBtn.setAttribute("aria-label", isDark ? "Activar modo claro" : "Activar modo oscuro");
+
+      toggleBtn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme");
+        const newTheme = current === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("mm_theme", newTheme);
+
+        // Update icon
+        toggleBtn.textContent = newTheme === "dark" ? "☀️" : "🌙";
+        toggleBtn.setAttribute("aria-label", newTheme === "dark" ? "Activar modo claro" : "Activar modo oscuro");
+      });
+    }
+  })();
 });
 
 
@@ -153,32 +184,32 @@ function mmBlogApplyLang(lang) {
   }
 
   document
-  .querySelectorAll("[data-blog-i18n], [data-blog-i18n-html]")
-  .forEach((el) => {
-    const key =
-      el.getAttribute("data-blog-i18n") ||
-      el.getAttribute("data-blog-i18n-html");
+    .querySelectorAll("[data-blog-i18n], [data-blog-i18n-html]")
+    .forEach((el) => {
+      const key =
+        el.getAttribute("data-blog-i18n") ||
+        el.getAttribute("data-blog-i18n-html");
 
-    if (!key) return;
+      if (!key) return;
 
-    const val = data[key];
-    if (typeof val !== "string") return;
+      const val = data[key];
+      if (typeof val !== "string") return;
 
-    const attr = el.getAttribute("data-blog-i18n-attr");
+      const attr = el.getAttribute("data-blog-i18n-attr");
 
-    if (attr) {
-      // Attribute translation (alt, aria-label, title, etc.)
-      el.setAttribute(attr, val);
+      if (attr) {
+        // Attribute translation (alt, aria-label, title, etc.)
+        el.setAttribute(attr, val);
 
-    } else if (el.hasAttribute("data-blog-i18n-html")) {
-      // HTML-safe translation (<strong>, <em>, <a>, etc.)
-      el.innerHTML = val;
+      } else if (el.hasAttribute("data-blog-i18n-html")) {
+        // HTML-safe translation (<strong>, <em>, <a>, etc.)
+        el.innerHTML = val;
 
-    } else {
-      // Plain text translation
-      el.textContent = val;
-    }
-  });
+      } else {
+        // Plain text translation
+        el.textContent = val;
+      }
+    });
 
 }
 
@@ -587,20 +618,59 @@ function mmBlogInit() {
         });
 
         if (response.ok) {
-          const successElem = document.getElementById("contact-success");
-          if (successElem) {
-            successElem.hidden = false;
-            successElem.classList.add("show");
+          // Show Toast
+          const toast = document.getElementById("toast");
+          const msg = document.getElementById("toast-message");
+          if (toast && msg) {
+            msg.textContent = safeGetByPath(window.I18N?.[localStorage.getItem("mm_lang") || "es"], "contact.success") || "Mensaje enviado";
+            toast.classList.add("show");
+
+            // Hide after 3s
+            setTimeout(() => {
+              toast.classList.remove("show");
+            }, 3000);
           }
-          contactForm.classList.add("hidden");
+          contactForm.reset(); // clear form
         } else {
-          alert("Hubo un error al enviar tu mensaje. Intenta de nuevo más tarde.");
+          // Toast Error
+          const toast = document.getElementById("toast");
+          const msg = document.getElementById("toast-message");
+          const icon = document.getElementById("toast-icon");
+          if (toast && msg && icon) {
+            icon.textContent = "⚠️";
+            msg.textContent = "Hubo un error al enviar. Intenta de nuevo.";
+            toast.classList.add("show");
+            setTimeout(() => {
+              toast.classList.remove("show");
+              icon.textContent = "✅"; // reset
+            }, 3000);
+          }
         }
       } catch (err) {
-        alert("Error de red. Verifica tu conexión e intenta de nuevo.");
+        console.error(err);
+        alert("Error de red. Verifica tu conexión.");
       }
     });
   }
+  // SCROLL REVEAL OBSERVER
+  (function () {
+    const revealElements = document.querySelectorAll(".reveal");
+    if (!revealElements.length) return;
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target); // Trigger once
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  })();
 })();
 
 /* PROJECT MODAL LOGIC */
@@ -633,7 +703,7 @@ function mmBlogInit() {
 
 /* ============================ i18n MULTILINGUAL LAYER ============================ */
 (function () {
-window.I18N = {
+  window.I18N = {
     es: {
       meta: {
         title: "Mentes en Movimiento · Clínica de desarrollo infantil",
