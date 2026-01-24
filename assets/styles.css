@@ -27,27 +27,24 @@
     0 48px 96px rgba(47, 39, 34, 0.06);
 
   --transition-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+
 }
 
+/*
 [data-theme="dark"] {
   --bg: #1a1614;
-  /* Warm dark charcoal */
   --text: #ede0d4;
-  /* Warm off-white */
   --white: #24201d;
-  /* Card background */
   --muted: #a8a29e;
   --overlay-dark: rgba(255, 255, 255, 0.15);
-  /* Lighten overlay for dark mode */
   --shadow:
     0 4px 12px rgba(0, 0, 0, 0.3),
     0 12px 24px rgba(0, 0, 0, 0.3);
   --shadow-hover:
     0 8px 24px rgba(0, 0, 0, 0.4),
     0 24px 48px rgba(0, 0, 0, 0.5);
-
-  /* Invert button colors for contrast if needed, or keep brand consistency */
 }
+*/
 
 *,
 *::before,
@@ -732,9 +729,11 @@ a:hover {
   .service-card {
     aspect-ratio: auto;
   }
-}
+
 
 }
+
+
 
 /* Expanded card = 2×2 */
 .service-card.is-expanded {
@@ -764,6 +763,39 @@ a:hover {
 .services-expand.has-expanded .service-card:not(.is-expanded) {
   aspect-ratio: 1 / 1;
 }
+
+=======
+
+/* Expanded card = 2×2 */
+.service-card.is-expanded {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+/* Let content define height */
+.service-card.is-expanded .service-detail {
+  max-height: none;
+}
+
+/* Expanded layout mode */
+.services-expand.has-expanded {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  /* ⬅ exactly 2 rows */
+}
+
+.services-expand.has-expanded .service-card.is-expanded {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/* Remaining cards stay within row 1–2 only */
+.services-expand.has-expanded .service-card:not(.is-expanded) {
+  aspect-ratio: 1 / 1;
+}
+
+>>>>>>>c7839b4 (feat(ux): upgrade to premium design + disable dark mode)
 }
 
 /* ========================

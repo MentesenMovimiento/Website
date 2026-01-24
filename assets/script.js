@@ -130,7 +130,8 @@ window.addEventListener("mm:i18n-ready", () => {
     });
   });
 
-  // THEME TOGGLE LOGIC
+  // THEME TOGGLE LOGIC (Disabled for now)
+  /*
   (function () {
     const savedTheme = localStorage.getItem("mm_theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -138,6 +139,7 @@ window.addEventListener("mm:i18n-ready", () => {
     if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       document.documentElement.setAttribute("data-theme", "dark");
     }
+<<<<<<< HEAD
 
     const toggleBtn = document.getElementById("theme-toggle");
     if (toggleBtn) {
@@ -159,6 +161,7 @@ window.addEventListener("mm:i18n-ready", () => {
       });
     }
   })();
+  */
 });
 
 
