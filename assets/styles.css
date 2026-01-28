@@ -238,10 +238,10 @@ a:hover {
 }
 
 .hero-logo {
-  width: min(520px, 86vw);
+  width: min(420px, 80vw);
+  /* Reduced from 520px to tighten layout */
   height: auto;
-  aspect-ratio: 1 / 1;
-  /* CLS Fix: reserve space before load */
+  /* Removed aspect-ratio: 1/1 to use natural image dimensions */
 }
 
 .hero-slogan {
