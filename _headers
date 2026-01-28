@@ -1,2 +1,8 @@
 /*
-  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  X-Robots-Tag: index, follow
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin

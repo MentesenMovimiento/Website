@@ -146,7 +146,7 @@
       </nav>
 
       <!-- Language switcher (desktop + mobile) -->
-      <div class="lang-switcher" aria-label="Selector de idioma">
+      <div class="lang-switcher" role="group" aria-label="Selector de idioma">
         <button type="button" class="lang-btn" data-lang="es" aria-label="Español">
           <span class="lang-flag" aria-hidden="true">🇪🇸</span><span class="lang-code">ES</span>
         </button>
@@ -170,7 +170,7 @@
         </div>
 
         <!-- trust anchors (lightweight) -->
-        <div class="trust-strip" aria-label="Puntos de confianza" data-i18n-attr="aria-label"
+        <div class="trust-strip" role="group" aria-label="Puntos de confianza" data-i18n-attr="aria-label"
           data-i18n="hero.trust_aria">
           <div class="trust-chip" data-i18n="hero.trust1">Enfoque funcional y aplicable</div>
           <div class="trust-chip" data-i18n="hero.trust2">Coordinación familia–escuela</div>
@@ -437,7 +437,7 @@
 
           <div class="timeline-panel" role="tabpanel" aria-label="Contenido del enfoque" data-i18n-attr="aria-label"
             data-i18n="timeline.panel_aria">
-            <div class="timeline-controls" aria-label="Controles de enfoque" data-i18n-attr="aria-label"
+            <div class="timeline-controls" role="group" aria-label="Controles de enfoque" data-i18n-attr="aria-label"
               data-i18n="timeline.controls_aria">
               <button class="timeline-arrow" type="button" data-timeline-prev aria-label="Anterior"
                 data-i18n-attr="aria-label" data-i18n="timeline.prev_aria">‹</button>
@@ -450,7 +450,7 @@
               <!-- populated by JS -->
             </div>
 
-            <div class="timeline-progress" aria-label="Progreso" data-i18n-attr="aria-label"
+            <div class="timeline-progress" role="progressbar" aria-label="Progreso" data-i18n-attr="aria-label"
               data-i18n="timeline.progress_aria">
               <span class="timeline-bar" data-timeline-bar></span>
             </div>
