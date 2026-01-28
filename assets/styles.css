@@ -6,7 +6,8 @@
   --bg: #FBF5EC;
   --white: #FFFFFF;
   --text: #2F2722;
-  --muted: #6B7280;
+  --muted: #4a5568;
+  /* Darker for better contrast (was #6B7280) */
   --overlay-dark: rgba(0, 0, 0, 0.55);
 
   --font-head: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
