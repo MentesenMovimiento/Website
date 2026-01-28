@@ -657,11 +657,14 @@ function mmBlogInit() {
     document.body.style.overflow = "";
   };
 
-  // Open on load
-  window.addEventListener("load", () => {
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  });
+  // Lazy open: only when user clicks the status button (performance optimization)
+  const openBtn = document.querySelector("[data-open-modal]");
+  if (openBtn) {
+    openBtn.addEventListener("click", () => {
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    });
+  }
 
   // Close handlers
   closeEls.forEach(el => el.addEventListener("click", closeModal));
