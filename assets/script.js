@@ -130,38 +130,7 @@ window.addEventListener("mm:i18n-ready", () => {
     });
   });
 
-  // THEME TOGGLE LOGIC (Disabled for now)
-  /*
-  (function () {
-    const savedTheme = localStorage.getItem("mm_theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-<<<<<<< HEAD
-
-    const toggleBtn = document.getElementById("theme-toggle");
-    if (toggleBtn) {
-      // Set initial icon
-      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      toggleBtn.textContent = isDark ? "☀️" : "🌙";
-      toggleBtn.setAttribute("aria-label", isDark ? "Activar modo claro" : "Activar modo oscuro");
-
-      toggleBtn.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme");
-        const newTheme = current === "dark" ? "light" : "dark";
-
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("mm_theme", newTheme);
-
-        // Update icon
-        toggleBtn.textContent = newTheme === "dark" ? "☀️" : "🌙";
-        toggleBtn.setAttribute("aria-label", newTheme === "dark" ? "Activar modo claro" : "Activar modo oscuro");
-      });
-    }
-  })();
-  */
 });
 
 

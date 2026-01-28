@@ -30,21 +30,7 @@
 
 }
 
-/*
-[data-theme="dark"] {
-  --bg: #1a1614;
-  --text: #ede0d4;
-  --white: #24201d;
-  --muted: #a8a29e;
-  --overlay-dark: rgba(255, 255, 255, 0.15);
-  --shadow:
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    0 12px 24px rgba(0, 0, 0, 0.3);
-  --shadow-hover:
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 24px 48px rgba(0, 0, 0, 0.5);
-}
-*/
+
 
 *,
 *::before,
